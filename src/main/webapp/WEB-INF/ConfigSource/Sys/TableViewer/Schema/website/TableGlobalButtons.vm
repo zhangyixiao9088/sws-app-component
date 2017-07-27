@@ -1,0 +1,5 @@
+  <div class="list-title" align="right">
+  	#foreach($btn in $st.getGlobalButtons())
+  		$btn.getComponent().print()
+  	#end
+  </div>

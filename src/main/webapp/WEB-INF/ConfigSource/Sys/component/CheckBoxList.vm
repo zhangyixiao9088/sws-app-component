@@ -1,0 +1,11 @@
+<ul id="$id"  #if($cssClass!="") class="$cssClass"#end style="list-style:none;width:100%">
+#foreach($row in $dataList)
+<li style="float:left;padding:4px">
+<input type='checkbox' id="${id}_$velocityCount" name='${name}' value='$row.KEY'
+	#if($canEdit=="false") disabled="true"#end
+	#if($cssClass!="") class="$cssClass"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>$row.VALUE
+</li>
+#end
+</ul>
+<span id="${id}_star" class="star"></span>

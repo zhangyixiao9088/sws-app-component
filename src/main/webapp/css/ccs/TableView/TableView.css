@@ -1,0 +1,19 @@
+/************* PagerView **************/
+.PagerView { font-size: 12px; font-family: tahoma, arial; color: #333; text-align: center; padding: 8px; line-height: 100%; }
+.PagerView span { color: #999; margin: 0 1px; padding: 3px 6px; border: 1px solid #ccc; }
+.PagerView span.on { color: #fff; font-weight: bold; border: 1px solid #666; background: #39f; }
+.PagerView a { color: #00f; text-decoration: none; }
+.PagerView a span { color: #33f; border: 1px solid #66c; }
+/************* TableView **************/
+.TableView .datagrid_meta { line-height: 22px; }
+.TableView .datagrid_meta .title { font-size: 13px; font-weight: bold; }
+.TableView .datagrid_meta .filter input { margin: 0 4px; padding: 1px; border: 1px solid #ccc; }
+.TableView table { font-size: 12px; border-collapse: collapse; }
+.TableView div.datagrid_div { border: 1px solid #999; }
+.TableView table.datagrid { border-collapse: separate; width: 100%; }
+.TableView table.datagrid th { text-align: left; background: #ddd; padding: 1px; border: none; }
+.TableView table.datagrid td { padding: 2px; border: none; }
+.TableView table.datagrid tr.odd { background: #fff; }
+.TableView table.datagrid tr.even { background: #eee; }
+.TableView table.datagrid tr.marked { background: #ee9; }
+.TableView table.datagrid tr:hover, .TableView table.datagrid tr.hover { background: #9cf; }

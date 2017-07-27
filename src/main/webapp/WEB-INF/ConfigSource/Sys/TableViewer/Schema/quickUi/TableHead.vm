@@ -1,0 +1,7 @@
+  #if($st.head.cols.size()>0)
+	<tr>
+	#foreach($head in $st.getHeadComponent())
+	  <th #if($head.cssClass!="") class="$head.cssClass"#end#foreach($comPro in $head.properties.entrySet()) ${comPro.key}="${comPro.value}" #end>$head.component.print()</th>
+	#end
+  	</tr>
+  #end

@@ -1,0 +1,15 @@
+<div id="$id" name="$name" #if($cssClass!="") class="$cssClass"#end contenteditable="true">$!{value}
+	sdfasdfdsf
+</div>
+<script>
+CKEDITOR.inline('$id',{
+	height: "$height",
+	width: "$width",
+	// Allow some non-standard markup that we used in the introduction.
+			extraAllowedContent: 'a(documentation);abbr[title];code',
+			removePlugins: 'stylescombo',
+			extraPlugins: 'sourcedialog',
+			// Show toolbar on startup (optional).
+			startupFocus: true
+});
+</script>

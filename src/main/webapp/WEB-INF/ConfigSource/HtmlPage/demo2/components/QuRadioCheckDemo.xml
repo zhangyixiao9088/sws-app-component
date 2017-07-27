@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<br>
+				<h1>单选</h1><br>
+			       ${SINGLERADIO}<br>
+			       <b>属性：</b><br>
+			    	type="QuRadioCheck"<br>
+			    <b>Label属性：</b><br>
+			    	""label":"单选"<br>
+			    <b>View属性：</b><br>
+			    	data:"wmgc",<br>
+			    	type:"radio",<br>
+			    	<br>
+			     <h1>多选</h1><br>
+			       ${MULTIPRADIO}<br>
+			       <b>属性：</b><br>
+			    	type="QuRadioCheck"<br>
+			    <b>Label属性：</b><br>
+			    	""label":"多选"<br>
+			    <b>View属性：</b><br>
+			    	data:"wmgc",<br>
+			    	type:"checkbox"<br> 
+			    	 <br>
+			    	<h1>下拉单选</h1><br>
+			    	${HTSGTS}<br> 
+			    	<b>属性：</b><br>
+			    	type="Quselect"<br>
+			    <b>Label属性：</b><br>
+			    	""label":"下拉单选"<br>
+			    <b>View属性：</b><br>
+			    	data:"wmgc",<br>
+			    	multiple:"false",<br>
+			    	<br>
+			    	<br>
+			    	<h1>下拉多选</h1><br>
+			    	${MULTIPSEL}
+			    	<b>属性：</b>
+			    	type="Quselect"
+			    <b>Label属性：</b>
+			    	""label":"下拉多选"
+			    <b>View属性：</b>
+			    	data:"wmgc"
+			    	multiple:"true"
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["SINGLERADIO","MULTIPRADIO","HTSGTS","MULTIPSEL"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="SINGLERADIO" type="QuRadioCheck">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"单选"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	type:"radio",
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="MULTIPRADIO" type="QuRadioCheck">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"多选"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	type:"checkbox"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="HTSGTS" type="QuSelect">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"下拉单选框"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	multiple:"false",
+			    	
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="MULTIPSEL" type="QuSelect">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"下拉多选框"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	multiple:"true"
+			    	
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="wmgc" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value>{"1":"本科","2":"专科","3":"高中","4":"初中","5":"研究生"}</param-value>   
+			</param>
+		</DataSet>
+	
+	</DataSets>
+</root>

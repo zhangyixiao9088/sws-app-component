@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+					function clickMe(){
+						var com = document.getElementById("view1_UNITCHIEFZZNUM1");
+						com.src="XmlDataAction.action?__fileName=demo2/components/CheckBoxListDemo&__dataSet=wmgc";
+					}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    <div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							<b>属性：</b><br>
+						    type:"CheckBoxList"<br>
+						    <b>view属性</b><br>
+						    data:"wmgc"<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		 ${UNITCHIEFZZNUM}<br>
+						    <input type="button" onclick="alert(HandleConfig.getValue(_getViewName(),'UNITCHIEFZZNUM','RadioBoxList'))" value="取值"/>
+			    			<input type="button" onclick="HandleConfig.setValue(_getViewName(),'UNITCHIEFZZNUM','RadioBoxList',1)" value="设置值"/>
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		 
+		<Component name="UNITCHIEFZZNUM" type="RadioBoxList" >
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+					{
+						data:"wmgc" 
+					}
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="wmgc" type="json" static="true">
+			<param>
+				<param-name>value</param-name>
+				<param-value>
+					{"1":"配备","2":"调整","3":"方法","4":"实现"}
+				</param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

@@ -1,0 +1,5 @@
+<input type='checkbox' id="$id" name='$name' value='$!value'
+	#if($canEdit=="false") disabled="true"#end
+	#if($cssClass!="") class="$cssClass"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>$!{label}
+	<span id="${id}_star" class="star"></span>

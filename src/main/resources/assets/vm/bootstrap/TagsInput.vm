@@ -1,0 +1,41 @@
+<div class="input-group" style="width:${width}">
+<select multiple  type="text" id="$id" name="$name" data-role="tagsinput" />
+<input type="hidden" id="data_${id}" value="$!{data}"/>
+<input type="hidden" id="data_${id}_limit" value="$!{limit}"/>
+<script>
+$("#"+"$id").tagsinput({
+	itemText: function(item) {
+	    return item.VALUE;
+    },
+    itemValue: function(item) {
+    	return item.KEY;
+    },
+   freeInput: false,
+   maxTags:${limit}
+});
+</script>
+<span class="input-group-btn">
+  <button class="btn btn-default" type="button" #if($editPane!="") data-toggle="modal"  data-target="#modal_${editPane}"#end #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+     <i class="glyphicon glyphicon-eye-open"></i>
+  </button>
+ </span>
+</div>
+#if($editPane)
+ <div class="modal fade" id="modal_$editPane" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               $!{editPaneCom.printLabel()}
+            </h4>
+         </div>
+         <div class="modal-body">
+          	 $!{editPaneCom.printView()}
+         </div>
+      </div>
+   </div>
+</div>
+#end

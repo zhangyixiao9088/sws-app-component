@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<parameters>
+  <component>
+  		<AUTOCOMPLETE>com.ccs.component.AutoComplete</AUTOCOMPLETE>
+		<BUTTON>com.ccs.component.Button</BUTTON>
+		<CHECKBOX>com.ccs.component.CheckBox</CHECKBOX>
+		<CHECKBOXLIST>com.ccs.component.CheckBoxList</CHECKBOXLIST>
+		<CODEEDITOR>com.ccs.component.CodeEditor</CODEEDITOR>
+		<DATE>com.ccs.component.DatePicker</DATE>
+		<DIV>com.ccs.component.Div</DIV>
+		<FCKEDITOR>com.ccs.component.FckEditor</FCKEDITOR>
+		<CKEDITOR>com.ccs.component.CkEditor</CKEDITOR>
+		<INLINE>com.ccs.component.CkInlineEditor</INLINE>
+		<FLASHCHAR>com.ccs.component.FlashChar</FLASHCHAR>
+		<GROUP>com.ccs.component.Group</GROUP>
+		<HIDDEN>com.ccs.component.Hidden</HIDDEN>
+		<HTMLTABLE>com.ccs.component.HtmlTable</HTMLTABLE>
+		<ICON>com.ccs.component.IconButton</ICON>
+		<IFRAME>com.ccs.component.IFrame</IFRAME>
+		<INPUTLABEL>com.ccs.component.InputLabel</INPUTLABEL>
+		<JQTABLE>com.ccs.component.JQTable</JQTABLE>
+		<JSONEDITOR>com.ccs.component.JsonEditor</JSONEDITOR>
+		<LABEL>com.ccs.component.Label</LABEL>
+		<MUTISELECT>com.ccs.component.MutiSelect</MUTISELECT>
+		<OPTMULTISELECTOR>com.ccs.component.OptMultiSelector</OPTMULTISELECTOR>
+		<PASSWORD>com.ccs.component.Password</PASSWORD>
+		<POPSELECT>com.ccs.component.PopSelect</POPSELECT>
+		<RADIO>com.ccs.component.Radio</RADIO>
+		<RADIOBOXLIST>com.ccs.component.RadioBoxList</RADIOBOXLIST>
+		<RESET>com.ccs.component.ResetButton</RESET>
+		<SELECT>com.ccs.component.Select</SELECT>
+		<SIGNATURE>com.ccs.component.Signature</SIGNATURE>
+		<SUBMIT>com.ccs.component.SubmitButton</SUBMIT>
+		<TABLE>com.ccs.component.Table</TABLE>
+		<TEMPLET>com.ccs.component.Templet</TEMPLET>
+		<TEXT>com.ccs.component.Text</TEXT>
+		<TEXTAREA>com.ccs.component.TextArea</TEXTAREA>
+		<TREE>com.ccs.component.Tree</TREE>
+		<TWOWAYSELECT>com.ccs.component.TwoWaySelect</TWOWAYSELECT>
+		<UPLOAD>com.ccs.component.Upload</UPLOAD>
+		<UPLOADIMAGE>com.ccs.component.UploadImage</UPLOADIMAGE>
+		<BOOTSTRAPTABLE>com.ccs.component.bootstrap.BootstrapTable</BOOTSTRAPTABLE>
+		<STARRATING>com.ccs.component.bootstrap.StarRating</STARRATING>
+		<HIGHCHARTS>com.ccs.component.charts.HighCharts</HIGHCHARTS>
+		<SWITCH>com.ccs.component.bootstrap.Switch</SWITCH>
+		<TAGSINPUT>com.ccs.component.bootstrap.TagsInput</TAGSINPUT>
+		<FUSIONCHARTS>com.ccs.component.charts.Fusioncharts</FUSIONCHARTS>
+		<UPLOADIMAGER>com.ccs.component.UploadImage</UPLOADIMAGER>
+		<HANDSONTABLE>com.ccs.component.bootstrap.Handsontable</HANDSONTABLE>
+		<BMULTISELECT>com.ccs.component.bootstrap.BMultiselect</BMULTISELECT>
+		<FIX2DTABLE>com.ccs.component.bootstrap.table.Fix2dTable</FIX2DTABLE>
+		<ECHARTS>com.ccs.component.charts.ECharts</ECHARTS>
+  </component>
+</parameters>
+
+
+

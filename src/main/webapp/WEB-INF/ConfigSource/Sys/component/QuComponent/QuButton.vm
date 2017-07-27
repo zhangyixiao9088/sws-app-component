@@ -1,0 +1,13 @@
+#*
+用途：按钮
+       $id: 控件id
+     $name: 控件名
+    $label：控件文本域
+ $cssClass: 控件样式  保存：icon_save，前一步/上一页：icon_back，开始查询：icon_find
+                                新建：icon_page，编辑：icon_edit，待发布：icon_mark，发布：icon_reply，预览：icon_view
+                                复制：icon_item，转移：icon_remove，排序：icon_bubble，删除：icon_delete
+*#
+
+<button id="$id" name="$name" #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end> 
+<span class="$cssClass" >
+$label</span></button>

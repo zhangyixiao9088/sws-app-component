@@ -1,0 +1,1 @@
+<input id="$id" type="button" value="${label}"#if($cssClass!="") class="$cssClass"#else class="button"#end#if($link!="") onclick="location.href='$link'"#end#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>

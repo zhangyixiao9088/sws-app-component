@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view" type="ComponentBuilder">
+			<param>
+			 	<param-name>title</param-name>
+			    <param-value><![CDATA[查看文件]]></param-value>
+			</param>
+			<param>
+			 	<param-name>component</param-name>
+			    <param-value><![CDATA[layout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="layout" type="HtmlLayout">
+		<param>
+				<param-name>CssLink</param-name>
+				<param-value><![CDATA[
+				["js/ccs/viewer/viewer.css"]
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>JSLink</param-name>
+				<param-value><![CDATA[
+				["js/ccs/viewer/viewer.js"]
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>EndJS</param-name>
+				<param-value><![CDATA[
+				$('#imgContainer').viewer(document);
+				
+				document.oncontextmenu=function(e){
+				return false
+				}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>InitCSS</param-name>
+				<param-value><![CDATA[
+				.docs-pictures {
+				    margin: 0;
+				    padding: 0;
+				    list-style: none;
+				}
+				
+				.docs-pictures li {
+				    float: left;
+				    width: 20%;
+				    height: 20%;
+				    margin: 0 -1px -1px 0;
+				    border: 1px solid transparent;
+				    overflow: hidden;
+				}
+				
+				.docs-pictures li img {
+				    width: 100%;
+				}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[ 
+				<div class="container">
+				    <div class="row">
+				      <div class="col-sm-12 col-md-12">
+				        <div class="docs-galley">
+				          <ul id="imgContainer" class="docs-pictures clearfix">
+				           	<li><img data-original="XmlFileAction_viewFile.action?fileId=${id}&service=${service}" src="XmlFileAction_viewFile.action?fileId=${id}&service=${service}" class="viewer-toggle"></li>
+				          </ul>
+				        </div>
+				      </div>
+				    </div>
+			  </div>
+				 ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+</root>

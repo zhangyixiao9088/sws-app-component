@@ -1,0 +1,3 @@
+#foreach($css in $st.css_Srcs)
+<link rel="stylesheet" type="text/css" href="$css" />
+#end

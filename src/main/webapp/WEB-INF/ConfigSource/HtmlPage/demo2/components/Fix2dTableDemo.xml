@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!--  xmlPaneAction.action?fileName=demo2/components/Fix2dTableDemo&viewName=main&fkId=123-->
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							 <b>属性说明：</b><br>
+						     type:Fix2dTable<br>
+						     <b>view属性：</b><br>
+					    	 corner:{
+					    		rows:[
+					    			{"COL0":"示例"}
+					    		],
+					    		mergeCells:[
+					    			{"row":0,"col":0,"rowspan":0,"colspan":0}
+					    		],
+					    	},
+					    	columnHead:{
+					    		data:"columnHeadDs",
+					    		colWidths:[200,100,140,140,135]
+					    	},
+					    	rowHead:{
+					    		data:"rowHeadDs"
+					    	},
+					    	body:{
+					    		tableName:"",
+					    		pkId:"ID",
+					    		fkId:"FIELDNAME",
+					    		fkIdValue:"${fkId}",
+					    		linkId:"ZBBM",
+					    		data:"bodyDs",
+					    		cells:{
+					    			C1:{type:"label"},
+					    			C2:{type:"numeric", format: "0,0.00"},
+					    			C3:{type:"numeric", format: "0,0.00"},
+					    			C4:{type:"numeric", format: "0,0.00"},
+					    		}
+					    	}
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		  ${fix2dTable}
+				    		   <div style="margin: 20px">
+				    			<button type="button" onclick="saveTable_main_fix2dTable()">保存表格数据</button>
+			    			   </div>
+						</div>
+					</div>
+				</div>
+				
+			  
+			    
+			   
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["fix2dTable"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="fix2dTable" type="Fix2dTable" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"Fix2dTable表"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{
+			    	corner:{
+			    		rows:[
+			    			{"COL0":"示例"}
+			    		],
+			    		mergeCells:[
+			    			{"row":0,"col":0,"rowspan":0,"colspan":0}
+			    		],
+			    	},
+			    	columnHead:{
+			    		data:"columnHeadDs",
+			    		colWidths:[200,100,140,140,135]
+			    	},
+			    	rowHead:{
+			    		data:"rowHeadDs"
+			    	},
+			    	body:{
+			    		tableName:"",
+			    		pkId:"ID",
+			    		fkId:"FIELDNAME",
+			    		fkIdValue:"${fkId}",
+			    		linkId:"ZBBM",
+			    		data:"bodyDs",
+			    		cells:{
+			    			C1:{type:"label"},
+			    			C2:{type:"numeric", format: "0,0.00"},
+			    			C3:{type:"numeric", format: "0,0.00"},
+			    			C4:{type:"numeric", format: "0,0.00"},
+			    		}
+			    	}
+			    }
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="rowHeadDs" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    	[
+					{"NAME":"行1","PARENT":"0","ID":"1","ZBBM":"001"},
+					{"NAME":"行2","PARENT":"0","ID":"2","ZBBM":"002"},
+					{"NAME":"行3","PARENT":"0","ID":"3","ZBBM":"003"},
+					{"NAME":"行4","PARENT":"0","ID":"4","ZBBM":"004"},
+					{"NAME":"行5","PARENT":"0","ID":"5","ZBBM":"005"},
+					]
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+		</DataSet>
+		<DataSet name="columnHeadDs" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    	[
+					{NAME:"例1",PARENT:"0",ID:"",FIELDNAME:"C1"},
+					{NAME:"例2",PARENT:"0",ID:"",FIELDNAME:"C2"},
+					{NAME:"例3",PARENT:"0",ID:"",FIELDNAME:"C3"},
+					{NAME:"例4",PARENT:"0",ID:"",FIELDNAME:"C4"},
+					{NAME:"例5",PARENT:"0",ID:"",FIELDNAME:"C5"},
+					]
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+		</DataSet>
+		<DataSet name="bodyDs" type="sql">
+			<param>
+			    <param-name>DataBaseType</param-name>
+			    <param-value>Oracle</param-value>
+			</param>
+			<param>
+			    <param-name>sql</param-name>
+			    <param-value><![CDATA[
+			   
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>isSplitPage</param-name>
+				<param-value><![CDATA[false]]></param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+	
+	<Actions>
+		<Action name="fix2dTableActivity" type="java">
+			<param>
+				<param-name>beanName</param-name>
+				<param-value>com.ccs.component.service.Fix2dTableActivityService</param-value>
+			</param>
+		</Action>
+	</Actions>
+</root>

@@ -1,0 +1,5 @@
+<a id="$id"#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end
+#if($link!="") href="${link}"#else href="#"#end 
+#if($cssClass!="") class="$cssClass"#end
+#if(${target}!="") target="${target}"#end>
+#if(${icon}!="")<img src="${icon}" align="absbottom" border="0"/>#end${label}</a>

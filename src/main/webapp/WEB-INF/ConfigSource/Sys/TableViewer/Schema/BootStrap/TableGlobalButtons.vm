@@ -1,0 +1,4 @@
+#foreach($btn in $st.getGlobalButtons())
+	$btn.getComponent().print()
+#end
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    	<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+								 <b>属性：</b><br>
+						    	type="upload"<br>
+						   		 <b>View属性：</b><br>
+						    	label:"附件",<br>
+						    	service:"com.tellhow.admin.service.fileUpload.FileUploadADService",<br>
+						    	perMaxSize:"10240",<br>
+						    	businessId:"$!{data.ACCESSORIES}",<br>
+						    	sizeUnit:"KB",<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		  ${UNITCHIEFZZNUM}
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="UploadImage" >
+			<param>
+		          <param-name>Label</param-name>
+		          <param-value><![CDATA[{"label":"正文："}]]></param-value>
+		      </param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{
+			    	label:"附件",
+			    	service:"com.ccs2.service.DefaultFileManage",
+			    	businessId:"1",
+			    	editable:"true",
+			    	width:"140px"
+			    }
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="db4" type="sql">
+			<param>
+				<param-name>DataBaseType</param-name>
+				<param-value>Oracle</param-value>
+			</param>
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+				 ]]></param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

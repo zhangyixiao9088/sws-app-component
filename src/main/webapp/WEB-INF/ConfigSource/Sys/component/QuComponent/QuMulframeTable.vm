@@ -1,0 +1,31 @@
+#*
+                    用途：多级属性表格
+   $trClick: 如果对table添加 trClick="true"，则变为点击整行触发
+    $id_url: 嵌套页面(自定义页面)
+ $id_iframe: iframe控件id
+                    文件：UIFrame/frame/js/table/treeTable.js
+*#
+
+  <table id="${id}" class="tableStyle cusTreeTable" useColor="false" useHover="false" useClick="false" 
+  #if($trClick=="true") trClick="true"#end
+    #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+		<tr><th width="30">操作</th>
+		#foreach($head in $heads)
+		  <th #if($head.width!="")width="$head.width"#end
+		   	  #if($head.align!="")align="$head.align"#end
+		  >$head.label</th>
+		#end</tr>
+		#set($index=0)
+    #foreach($row in $dataList)
+        #set($index=$index+1)
+     	<tr><td><span class="img_add2 hand" title="点击展开"></span></td>
+     			#foreach($body in $bodys)
+				  <td>$row.get($body.label)</td>
+		#end
+		</tr>
+		<tr>
+		<td></td><td colspan="$index">
+		<iframe width="90%" scrolling="no" height="90%" frameborder="0" src="$id_url" id="$id_iframe"></iframe>
+		</td></tr>
+	#end
+</table>

@@ -1,0 +1,17 @@
+
+<textarea id="$id" name="$name" #if($cssClass!="") class="$cssClass"#end>$!{value}</textarea><span id="${id}_star" class="star"></span>
+<script>   
+	var editor${id} = new FCKeditor("$id");
+	editor${id}.BasePath = "${system.getWebRoot()}/js/ccs/fck/";
+	editor${id}.ToolbarSet = "$!{toolbar}";
+	editor${id}.Height = "$height";
+	editor${id}.Width = "$width";
+	editor${id}.Config['SkinPath'] = "${system.getWebRoot()}/js/ccs/fck/editor/skins/silver/";
+	editor${id}.Config['ImageBrowserURL'] = "${system.getWebRoot()}/js/ccs/fck/editor/filemanager/browser/default/browser.html?Type=Image&Connector=connectors/jsp/connector";
+	editor${id}.Config['LinkBrowserURL'] = "${system.getWebRoot()}/js/ccs/fck/editor/filemanager/browser/default/browser.html?Connector=connectors/jsp/connector";
+	editor${id}.Config['FlashBrowserURL'] = "${system.getWebRoot()}/js/ccs/fck/editor/filemanager/browser/default/browser.html?Type=Flash&Connector=connectors/jsp/connector";
+	editor${id}.Config['ImageUploadURL'] = "${system.getWebRoot()}/js/ccs/fck/editor/filemanager/upload/simpleuploader?Type=Image";
+	editor${id}.Config['LinkUploadURL'] = "${system.getWebRoot()}/js/ccs/fck/editor/filemanager/upload/simpleuploader?Type=File";
+	editor${id}.Config['FlashUploadURL'] = "${system.getWebRoot()}/js/ccs/fck/editor/filemanager/upload/simpleuploader?Type=Flash";
+	editor${id}.ReplaceTextarea();
+</script>

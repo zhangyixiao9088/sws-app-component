@@ -1,0 +1,57 @@
+.webfx-tree-container {
+	margin: 0px;
+	padding: 0px;
+	font: 13px "Microsoft YaHei","Microsoft JhengHei","黑体";
+	white-space: nowrap;
+	background: transparent;
+}
+
+.webfx-tree-item {
+	padding: 6px;
+	margin: 0px;
+	font: 13px "Microsoft YaHei","Microsoft JhengHei","黑体";
+	color: black;
+	white-space: nowrap;
+	height: 30px;
+	cursor:pointer;
+}
+.webfx-tree-item:hover {
+	background: #e0e0e0;
+	font-weight:bold;
+	font-size: 13px;
+}
+
+.webfx-tree-item a {
+	color: black;
+	outline:none; 
+	text-decoration: none;
+}
+.webfx-tree-item a, .webfx-tree-item a:active, .webfx-tree-item a:hover {
+	margin-left: 3px;
+	padding: 1px 2px 1px 2px;
+	border-radius: 0;
+	outline:none;
+}
+.webfx-tree-item a:hover {
+	font-weight:bold;
+	font-size: 13px;
+	outline:none;
+}
+.webfx-tree-item img {
+	vertical-align: middle;
+	border: 0px;
+}
+
+.webfx-tree-icon {
+	width: 16px;
+	height: 16px;
+}
+.webfx-tree-item.selected {
+	background: #e0e0e0;
+	font-weight:bold;
+	font-size: 13px;
+}
+
+.webfx-tree-item.selected-inactive {
+  	
+}

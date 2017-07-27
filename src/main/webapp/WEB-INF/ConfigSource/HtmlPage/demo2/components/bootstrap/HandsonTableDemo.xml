@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<!-- http://localhost:7001/ccs/xmlPaneAction.action?fileName=demo2/components/bootstrap/HandsonTableDemo&viewName=view1 -->
+	<Views>
+		<View name="view1" type="ComponentBuilder" dataSource="DsT_SW_PLACEMARK">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+			 	<param-name>dbPool</param-name>
+			    <param-value><![CDATA[
+				[
+				 {dataSet:"DS_ckmxList",pkName:"ID",fkName:"DJBH",linkDataSet:"DsT_SW_PLACEMARK",linkPkName:"ID",lazy:false}
+				]
+				]]></param-value>   
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+					function clickMe(){
+						var data = hsGetData_view1_HTSGTS();
+						var x = data.toXml();
+						$("#showme").html(x);
+					}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    ${HTSGTS}
+			    <button type="button" class="btn btn-default" onclick="clickMe()">点我</button>
+			    <div id="showme"></div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["HTSGTS"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="HTSGTS" type="handsonTable">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+			    {
+			    	data:"DS_ckmxList",
+			    	pkName:"ID",
+			    	fKName:"DJBH",
+			    	columns:[
+			    		{data-field:"ID",type:"text"},
+			    		{data-field:"DJBH",title:"单据编号",type:"hidden",value:"111"},
+			    		{data-field:"WPBH",title:"资产序号",type:"text"},
+			    		{data-field:"CJBH",title:"厂家编号",type:"text",value:"4"},
+			    		{data-field:"SCRQ",title:"出库冲帐时有用",type:"text"},
+			    		{data-field:"SXRQ",title:"失效日期",type:"text"},
+			    		{data-field:"JHJG",title:"进货价格",type:"text"},
+			    		{data-field:"KCSB",title:"库存识别",type:"text"},
+			    		{data-field:"JLXH",title:"记录序号",type:"text"},
+			    		{data-field:"ZCMC",title:"设备名称",type:"text"},
+			    		{data-field:"CJMC",title:"生产厂家",type:"text"},
+			    		{data-field:"WPSL",title:"数量",type:"text"},
+			    		{data-field:"WPDW",title:"单位",type:"text"},
+			    		{data-field:"WPPH",title:"物品批号",type:"text",value:"2"},
+			    	]
+			    }
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="IFrame" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"google首页"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{"width":"100%","height":"300","src":"http://www.baidu.com"}				
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="DsT_SW_PLACEMARK" type="sql">
+		      <param>
+			        <param-name>sql</param-name>
+			        <param-value><![CDATA[#if($!{id} != "")select t.*,(select t1.ksmc from T_GY_KSDM t1 where t1.id = t.CKBH) CKBHLABEL from T_ZC_CKD t where t.id=${id}#end]]></param-value>
+		      </param>
+		      <param>
+			        <param-name>tableName</param-name>
+			        <param-value><![CDATA[T_ZC_CKD]]></param-value>
+		      </param>
+		      <param>
+			        <param-name>pkName</param-name>
+			        <param-value><![CDATA[ID]]></param-value>
+		      </param>
+		      <param>
+			        <param-name>isSplitPage</param-name>
+			        <param-value><![CDATA[false]]></param-value>
+		      </param>
+		    <param>
+		　　　	<param-name>convert</param-name>
+						<param-value><![CDATA[
+					[
+						{field:"ZDSJ",type:"date",format:"yyyy-MM-dd"},
+						{field:"CKSJ",type:"date",format:"yyyy-MM-dd"}
+					]
+					]]></param-value>	
+			</param>
+	    </DataSet>
+	    <DataSet name="DS_ckmxList" type="sql">
+				<param>
+					<param-name>DataBaseType</param-name>
+					<param-value>Oracle</param-value>
+				</param>
+				<param>
+					<param-name>sql</param-name>
+					<param-value><![CDATA[
+					#if($!{id} != '')
+						select t.*,
+								(select t1.ZCMC from T_ZC_ZCZD t1 where t1.id = t.WPBH) ZCMC,
+							 	(select t2.CJMC from T_ZC_CJXX t2 where t2.id = t.CJBH) CJMC
+						from  T_ZC_CKMX t where t.DJBH = '$!{id}'
+				    #end
+					]]></param-value>
+				</param>
+				<param>
+				    <param-name>isSplitPage</param-name>
+				    <param-value>false</param-value>
+				</param>
+	   </DataSet>
+		<DataSet name="managerSql" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value>
+			    [
+			    {"ID":"1","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"2","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"3","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"4","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"5","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    ]
+			    </param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>
+			    table
+			    </param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>JSLink</param-name>
+				<param-value><![CDATA[
+				["js/ccs/uploadImage/upload.js"]
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				
+				<div>
+				  	<input id="fileId_ID1" type="hidden" value=""/>
+				    <img id="showimg_ID1" src="js/ccs/uploadImage/imgs/noimg.png" width="120" height="160"/>
+				    <br/>
+				    <input id="imgButton_ID1" type="button" value="上传图片" onclick="openimgupload('1','com.ccs2.service.DefaultFileManage11')"><br/>
+				</div>
+								
+			   
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="wmgc" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value>{"5":"研究生","1":"本科","2":"专科","3":"高中","4":"初中"}</param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

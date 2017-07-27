@@ -1,0 +1,26 @@
+#*
+用途： Tab水平选项卡
+          $id:  控件id
+     $cssClass：控件样式 eg:box2
+   $panelWidth: 控件宽度
+  $panelHeight: 控件高度
+   $panelTitle: 控件头标
+$tabList.titleVal: tab控件标题
+      $conList: 自定义面板控件
+        
+*#
+<div id="$id" #if($cssClass!="") class="$cssClass"#end 
+#if($panelWidth!="") panelWidth="$panelWidth"#end
+#if($panelHeight!="") panelHeight="$panelHeight"#end
+#if($panelTitle!="") panelTitle="$panelTitle"#end>
+<div class="simpleTab"><ul class="simpleTab_top">
+#set($index=0)
+#foreach($row1 in $tabList)
+#set($index=$index+1)
+<li #if($index=="1")class="current"#end><a href="javascript:;">
+<span>$row1.titleVal</span></a></li>#end
+</ul>
+#foreach($row2 in $conList)
+<div class="simpleTab_con">
+$row2
+</div>#end

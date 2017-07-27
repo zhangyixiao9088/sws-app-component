@@ -1,0 +1,1 @@
+<a href="#"><button id="$id" #if($link!="")onclick="location.href='$link'"#end#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>${label}</button></a>&nbsp;

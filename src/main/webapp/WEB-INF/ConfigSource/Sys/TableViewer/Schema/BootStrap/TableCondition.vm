@@ -1,0 +1,19 @@
+#if(!($st.condition))
+<ul class="list_top">
+<div class=" view_box my_view_box"  roller="false">
+<table>
+#foreach($com in $st.getConditionComponent())
+  #if($com.location==0 || $com.location==3)
+  <tr>
+  #end
+  <td #if($com.cssClass!="") class="$com.cssClass"#end #foreach($comPro in $com.properties.entrySet()) ${comPro.key}="${comPro.value}" #end>$com.component.print()</td>    
+  #if($com.location==2 || $com.location==3)
+  </tr>
+  #end
+
+#end</table>
+
+</div></ul>
+
+#end
+

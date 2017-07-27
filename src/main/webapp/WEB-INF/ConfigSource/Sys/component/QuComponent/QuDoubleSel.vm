@@ -1,0 +1,30 @@
+#*
+用途：双向选择器
+      $id: 控件id
+$dataList：控件数据源
+
+js文件：UIFrame/frame/js/form/lister.js
+        UIFrame/frame/js/form/validationEngine-cn.js               
+        UIFrame/frame/js/form/validationEngine.js        验证脚本
+function getSelValue(){
+	var msg="";
+	msg=$('#listA').lister('listB').getList();
+	if(msg==""){
+		msg="无选择"
+	}
+	alert(msg);
+}
+*#
+
+<div id="$id"> 
+<ul id="listA"> 
+#foreach($row in $dataList) <li el="$row.KEY">$row.VALUE</li>#end
+</ul>
+<div class="listBtn">
+	<input type="button" value="全选>>" onclick="selectAll()"/><br /><br />
+	<input type="button" value="<<还原" onclick="cancelAll()"/>
+</div>
+<ul id="listB"></ul>
+</div>
+<div class="clear"></div>
+<span id="${id}_star" class="star"></span>

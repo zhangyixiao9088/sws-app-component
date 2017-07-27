@@ -1,0 +1,56 @@
+<div id="$id"></div>
+<script>
+var hsData_$id = $dataArr;
+var hsTable_$id = new Handsontable(document.getElementById("$id"), {
+    data: hsData_$id,
+    dataSchema: $dataSchema,
+    colHeaders: $colHeaders,
+    #if(${contextMenu}!="")contextMenu: $contextMenu,#end
+    columns: $columnsSchema 
+  });
+function hsGetData_$id(){
+	var data = hsTable_$id .getData();
+	var dataSchema = $dataSchema;
+	var showColumns = $showColumns ;
+	var newData = new DataSet();
+	for(var rowKey in data){
+		var newRow = new Data();
+		for(var key in dataSchema){
+			var value = dataSchema[key];
+			var newField = new Field();
+			newField.name=key;
+			newField.value = value;
+			newRow.addField(newField);
+		}
+		var row  = data[rowKey];
+		for(var i=0;i<showColumns.length;i++){
+			var key = showColumns[i];
+			var value = row[i];
+			var newField = new Field();
+			newField.name=key;
+			newField.value = value;
+			newRow.addField(newField);
+		}
+		var len = newData.getLength();
+		newData.addData(len,newRow);
+	}
+	return newData;
+}
+$(document).ready(function(){
+	datamodel_${data}.flush=function(){
+		var newData = hsGetData_$id();
+		if(datamodel_${data}){
+			newData.viewName=datamodel_${data}.viewName;
+			newData.tableName=datamodel_${data}.tableName;
+			newData.pkName=datamodel_${data}.pkName;
+			newData.name=datamodel_${data}.name;
+			newData.rowCount=datamodel_${data}.rowCount;
+			newData.pageRowCount=datamodel_${data}.pageRowCount;
+			newData.pageCount=datamodel_${data}.pageCount;
+			newData.isSplitPage=datamodel_${data}.isSplitPage;
+			datamodel_${data} = newData;
+			dataPool.addData('${data}',datamodel_${data});
+		}
+	}
+});
+</script>

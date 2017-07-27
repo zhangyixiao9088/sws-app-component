@@ -1,0 +1,29 @@
+<input id="$id" type="text" name="$name" value="$!{value}"
+	#if($cssClass!="") class="$cssClass"#end
+	#if($canEdit=="false") readonly="readonly"#end 
+	#if($size!="") size="$size"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+	<span id="${id}_star" class="star"></span>
+<SCRIPT type=text/javascript>
+function ${id}formatItem(row) {
+	return row.getValue('$showItem');
+}
+$(document).ready(function() {
+	$("#${id}").autocomplete(
+		"XmlDataAction.action?__fileName=${extern.fileName}&__dataSet=${data}",
+		{
+			delay:${delay},
+			query:"$${query}",
+			minChars:${minChars},
+			nodeName:"$showItem",
+			matchSubset:${matchSubset},
+			matchContains:${matchContains},
+			cacheLength:${cacheLength},
+			onItemSelect:${onItemSelect},
+			onFindValue:${onFindValue},
+			formatItem:${id}${formatItem},
+			autoFill:${autoFill} 
+		}
+	);
+});
+</SCRIPT>

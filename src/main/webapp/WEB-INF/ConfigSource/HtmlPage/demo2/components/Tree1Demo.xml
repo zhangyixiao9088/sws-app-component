@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    ${UNITCHIEFZZNUM}
+			    <br>
+			    
+			    <b>属性：</b><br>
+			    SIZE 大小（）
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="HTSGTS1" type="tree"> 
+			<param>   
+			    <param-name>InitJS</param-name>   
+			    <param-value><![CDATA[
+					function testClick(id,par){
+					   var obj = parserParametes(par);
+					   if(obj.PATHURL!="#"){
+					   		document.getElementById("view2_detail").src = obj.PATHURL+"&superviseId=${superviseId}&projectId=${projectId}";
+					   }
+					}
+				]]></param-value>   
+			</param>
+			<param>
+			    <param-name>View</param-name>
+			    <param-value><![CDATA[
+			    {
+			    	"root":"资料监督档案",
+			    	"data":"db5",
+			    	"idKey":"ID",
+			    	"idValue":"0",
+			     	"children":"COUNT",
+			     	"text":"NAME",
+			     	"action":"testClick"
+			    }
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="db5" type="sql">
+				<param>   
+				    <param-name>DataBaseType</param-name>   
+				    <param-value>Oracle</param-value>   
+				</param>
+				<param>   
+				    <param-name>sql</param-name>   
+				    <param-value><![CDATA[
+				    select id,
+					   name,
+					   pathurl,
+					   (select count(0) from S_T_RESOURCE_dangan  where parentid=t.id) count
+				  from S_T_RESOURCE_dangan t 
+				 where parentid = ${ID} order by t.orderby
+				    ]]></param-value>   
+				</param>
+		</DataSet>
+	</DataSets>
+</root>

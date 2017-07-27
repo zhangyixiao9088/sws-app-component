@@ -1,0 +1,23 @@
+#*
+用途：多级属性表格
+number节点号。1为根目录
+文件：UIFrame/frame/js/table/treeTable.js
+*#
+
+  <table id="${id}" class="treeTable"
+    #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+		<tr>#foreach($head in $heads)
+		  <th #if($head.width!="")width="$head.width"#end
+		   	  #if($head.align!="")align="$head.align"#end
+		  >$head.label</th>
+		#end</tr>
+    #foreach($row in $dataList)
+		#if($row.number=="") 
+     		<tr id="node-$row.tr_id">
+     	#else <tr id="node-$row.tr_id" class="child-of-node-$row.number">#end
+     	#foreach($body in $bodys)
+		    <td>$row.get($body.label)</td>
+		#end
+		</tr>
+	#end
+</table>

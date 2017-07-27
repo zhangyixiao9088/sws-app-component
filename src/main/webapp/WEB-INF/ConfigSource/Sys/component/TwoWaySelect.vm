@@ -1,0 +1,19 @@
+<div id="${id}_towaySelect" #if($cssClass!="") class="$cssClass"#end style="width:${width};height:${height}">
+    <div id="${id}_div1" class="leftDiv" style="float: left;width:42%;height:100%">
+		备选：<br>
+        <select id="${id}_dltSource" name="dltSource" size="10" multiple="multiple" style="width:100%;height:100%" ondblclick="towayAdd(jQuery('#${id}'+'_dltSource'),jQuery('#${id}'+'_dltTarget'))">
+            #foreach($row in $dataList)<option value="$row.KEY">$row.VALUE</option>#end
+        </select>
+    </div>
+    <div id="${id}_div2" class="middleDiv" style="float:left;width:10%;height:100%;margin-top:30px">
+		 <input type="button" value="&gt;" onclick="towayAdd(jQuery('#${id}'+'_dltSource'),jQuery('#${id}'+'_dltTarget'))" style="width:100%;"/>
+        <input type="button" value="&gt;&gt;" onclick="towayAddAll(jQuery('#${id}'+'_dltSource'),jQuery('#${id}'+'_dltTarget'))" style="width:100%;"/>
+        <input type="button" value="&lt;" onclick="towayAdd(jQuery('#${id}'+'_dltTarget'),jQuery('#${id}'+'_dltSource'))" style="width:100%;"/>
+        <input type="button" value="&lt;&lt;" onclick="towayAddAll(jQuery('#${id}'+'_dltTarget'),jQuery('#${id}'+'_dltSource'))" style="width:100%;"/>
+    </div>
+    <div id="${id}_div3" class="leftDiv" style="float: left;width:42%;height:100%">
+		已选：<br>
+        <select id="${id}_dltTarget" name="dltTarget" size="10" multiple="multiple" style="width:100%;height:100%" ondblclick="towayAdd(jQuery('#${id}'+'_dltTarget'),jQuery('#${id}'+'_dltSource'))">
+        </select>
+    </div>
+</div>

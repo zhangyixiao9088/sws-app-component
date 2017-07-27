@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+			 	<param-name>title</param-name>
+			    <param-value><![CDATA[头像上传]]></param-value>
+			</param>
+			<param>
+			 	<param-name>component</param-name>
+			    <param-value><![CDATA[viewImage]]></param-value>
+			</param>
+		</View>
+    
+  </Views>
+  <DataSets>
+    
+  </DataSets>
+  
+  <Actions>
+  
+  </Actions>
+  
+  <Components>
+    
+    <Component name="viewImage" type="HtmlLayout">
+    	<param>
+		    <param-name>JSLink</param-name>
+		    <param-value><![CDATA[["js/ccs/uploadImage/upload.js"]]]></param-value>
+		</param>
+      <param>
+          <param-name>LayoutManager</param-name>
+          <param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+      </param>
+       <param>
+          <param-name>InitJS</param-name>
+          <param-value><![CDATA[
+			 function uploadevent(pars){
+			     	var pFId = pars.split("&&");
+					if(pFId.length!=5){
+						alert("参数错误："+pars);
+					}
+					var fileId = pFId[0];
+					var status = pFId[4];
+				    switch(status){
+					     case '1':
+					     	alert("保存成功");
+					     	top.dialogParentObj.setUrl('$!{comId}',fileId);
+					     	 top.Dialog.close();
+							break;
+				     	case '-1':
+				     		alert("保存失败，请重新上传");
+					  		window.location.reload();
+				     		break;
+				     	default:
+				     		window.location.reload();
+				    } 
+			   }
+           ]]></param-value>
+      </param>
+      <param>
+          <param-name>LayoutManager-Properties</param-name>
+          <param-value><![CDATA[         
+		 <div id="altContent">
+			<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+			WIDTH="650" HEIGHT="450" id="myMovieName">
+			<PARAM NAME=movie VALUE="js/ccs/uploadImage/avatar.swf">
+			<PARAM NAME=quality VALUE=high>
+			<PARAM NAME=bgcolor VALUE=#FFFFFF>
+			<param name="flashvars" value="imgUrl=js/ccs/uploadImage/imgs/noimg.png&uploadUrl=./XmlImageAction_uploadFile.action?service=$!{service}&uploadSrc=true" />
+			<EMBED src="js/ccs/uploadImage/avatar.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" 
+				flashVars="imgUrl=js/ccs/uploadImage/imgs/noimg.png&uploadUrl=./XmlImageAction_uploadFile.action?service=$!{service}&uploadSrc=true"
+				NAME="myMovieName" 
+				ALIGN="" 
+				TYPE="application/x-shockwave-flash" 
+				allowScriptAccess="always"
+				PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+			</EMBED>
+			</OBJECT>
+		</div>
+          ]]></param-value>
+      </param>
+    </Component>
+    
+  </Components>
+</root>

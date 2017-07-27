@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+					function clickMe(){
+						var comId = _getComId("UNITCHIEFZZNUM");
+						var com = document.getElementById(comId);
+						com.src="XmlDataAction.action?__fileName=demo2/dataSet/JsonTableDemo&__dataSet=managerSql";
+					}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<br>
+			    ${UNITCHIEFZZNUM}
+			    <br>
+			    <a href="#" onclick='javascript:clickMe()'>
+			    JSON数据
+			    </a>
+			    <b>属性：</b><br>
+			    <textarea style="width:100%;height:400px">
+   <DataSet name="managerSql" type="json" static="true">
+	<param>   
+	    <param-name>value</param-name>   
+	    <param-value>
+	    [
+	    {"ID":"1","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"2","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"3","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"4","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"5","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    ]
+	    </param-value>   
+	</param>
+	<param>   
+	    <param-name>dataType</param-name>   
+	    <param-value>
+	    table
+	    </param-value>   
+	</param>
+</DataSet>
+			    </textarea>
+			    
+			   	<br>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="IFrame" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"google首页"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{"width":"100%","height":"300","src":"XmlDataAction.action?__fileName=demo2/dataSet/JsonTableDemo&__dataSet=managerSql"}				
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="managerSql" type="mdx">
+			<param>   
+			    <param-name>schema</param-name>   
+			    <param-value>ad.xml</param-value>   
+			</param>
+			<param>   
+			    <param-name>mdx</param-name>   
+			    <param-value><![CDATA[
+			    	 with 
+			    	 member [hy].[一、铁矿合计] as [hy].[ZdHy].&[0800]
+			    	 member [hy].[二、钨矿合计] as ([hy].[ZdHy].&[0900]+[hy].[ZdHy].&[3200])
+			    	 member [hy].[三、煤矿合计] as [hy].[ZdHy].&[0600]
+			    	 member [hy].[四、水泥制造合计] as [hy].[ZdHy].&[3000]
+			    	 member [hy].[五、电力合计] as [hy].[ZdHy].&[4400]
+			    	 member [hy].[总计] as (
+			    	 											[hy].[ZdHy].&[0800]+
+				    	 										[hy].[ZdHy].&[0900]+[hy].[ZdHy].&[3200]+
+				    	 										[hy].[ZdHy].&[0600]+
+				    	 										[hy].[ZdHy].&[3000]+
+				    	 										[hy].[ZdHy].&[4400]
+			    	 										)
+			   		member [Measures].[本月税收收入] as [Measures].[se]
+			   		member [Measures].[去年同期税收收入] as ([Measures].[se],
+						   															Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   		member [Measures].[本年累计税收收入] as sum(YTD([Date].[month].CurrentMember)
+			   																			,[Measures].[se])
+			   		member [Measures].[去年累计税收收入] as sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[se])
+			   		member [Measures].[税收收入增减额]	as (sum(YTD([Date].[month].CurrentMember)
+			   																			,[Measures].[se])-sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[se]))		
+			   		member [Measures].[税收收入增减率]	as ( (sum(YTD([Date].[month].CurrentMember)
+			   																			,[Measures].[se])-sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[se]))/sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[se])
+			   																			),FORMAT_STRING = '0%'															
+			   																			
+			   		member [Measures].[本月销售收入] as [Measures].[xssr]
+			   		member [Measures].[去年同期销售收入] as  ([Measures].[xssr],
+						   															Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))	
+					member [Measures].[本年累计销售收入] as sum(YTD([Date].[month].CurrentMember)
+			   																			,[Measures].[xssr])
+			   		member [Measures].[去年累计销售收入] as sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[xssr])		
+			   		member [Measures].[销售收入增减额]    as (
+			   																		sum(YTD([Date].[month].CurrentMember)
+			   																			,[Measures].[xssr])-
+			   																		sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[xssr])
+			   																		)	
+			   	  member [Measures].[销售收入增减率]    as (
+			   																		(sum(YTD([Date].[month].CurrentMember)
+			   																			,[Measures].[xssr])-
+			   																		sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[xssr]))/sum(YTD(	Cousin([Date].[month].CurrentMember,
+						   																		[Date].[month].CurrentMember.Parent.PrevMember))
+			   																			,[Measures].[xssr])
+			   																		),FORMAT_STRING = '0%'																
+					 SELECT  NON EMPTY{
+					 				   [hy].[一、铁矿合计],  
+						 			   [hy].[二、钨矿合计],
+						 			   [hy].[三、煤矿合计],
+						 			   [hy].[四、水泥制造合计],
+						 			   [hy].[五、电力合计],
+						 			   [hy].[总计]
+					 			   } on rows,
+					 			  NON EMPTY{
+					 			  	[Measures].[本月税收收入],
+					 			  	[Measures].[去年同期税收收入],
+					 			  	[Measures].[本年累计税收收入],
+					 			  	[Measures].[去年累计税收收入],
+					 			  	[Measures].[税收收入增减额],
+					 			  	[Measures].[税收收入增减率],
+					 			  	[Measures].[本月销售收入],
+					 			  	[Measures].[去年同期销售收入],
+					 			  	[Measures].[本年累计销售收入],
+					 			  	[Measures].[去年累计销售收入],
+					 			  	[Measures].[销售收入增减额],
+					 			  	[Measures].[销售收入增减率]
+					 			  } on columns  
+					 	FROM [consume] 
+					    where [Date].[month].[2013-12]
+				 ]]></param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

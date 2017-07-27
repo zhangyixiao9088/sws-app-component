@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+  <Views>
+    <View name="main" type="ComponentBuilder" dataSource="DsDEMO_EMPLOYEES">
+      <param>
+        <param-name>title</param-name>
+        <param-value><![CDATA[职员信息]]></param-value>
+      </param>
+      <param>
+        <param-name>component</param-name>
+        <param-value><![CDATA[DEMO_EMPLOYEESPane]]></param-value>
+      </param>
+      <param>
+        <param-name>dataBundle</param-name>
+        <param-value><![CDATA[{"ID":{"field":"ID"},"FIRST_NAME":{"field":"FIRST_NAME"},"LAST_NAME":{"field":"LAST_NAME"},"EMAIL":{"field":"EMAIL"},"PHONE_NUMBER":{"field":"PHONE_NUMBER"},"HIRE_DATE":{"field":"HIRE_DATE"},"JOB_ID":{"field":"JOB_ID"},"SALARY":{"field":"SALARY"},"COMMISSION_PCT":{"field":"COMMISSION_PCT"},"MANAGER_ID":{"field":"MANAGER_ID"},"DEPARTMENT_ID":{"field":"DEPARTMENT_ID"}}]]></param-value>
+      </param>
+    </View>
+  </Views>
+  <Components>
+    <Component name="ID" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"ID"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"format":"num"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="FIRST_NAME" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"First name of the employee. A not null column."}]]></param-value>
+      </param>
+    </Component>
+    <Component name="LAST_NAME" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Last name of the employee. A not null column."}]]></param-value>
+      </param>
+    </Component>
+    <Component name="EMAIL" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Email id of the employee"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="PHONE_NUMBER" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Phone number of the employee; includes country code and area code"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="HIRE_DATE" type="datePicker">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Date when the employee started on this job. A not null column."}]]></param-value>
+      </param>
+    </Component>
+    <Component name="JOB_ID" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Current job of the employee; foreign key to job_id column of the\njobs table. A not null column."}]]></param-value>
+      </param>
+    </Component>
+    <Component name="SALARY" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Monthly salary of the employee. Must be greater\nthan zero (enforced by constraint emp_salary_min)"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"format":"num"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="COMMISSION_PCT" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Commission percentage of the employee; Only employees in sales\ndepartment elgible for commission percentage"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"format":"num"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="MANAGER_ID" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Manager id of the employee; has same domain as manager_id in\ndepartments table. Foreign key to employee_id column of employees table.\n(useful for reflexive joins and CONNECT BY query)"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"format":"num"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="DEPARTMENT_ID" type="text">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"Department id where employee works; foreign key to department_id\ncolumn of the departments table"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"format":"num"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="DEMO_EMPLOYEESPane" type="HtmlLayout">
+      <param>
+        <param-name>LayoutManager</param-name>
+        <param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TableLayout]]></param-value>
+      </param>
+      <param>
+        <param-name>LayoutManager-Properties</param-name>
+        <param-value><![CDATA[{"descorate":{"model":"table","title":"DEMO_EMPLOYEES"},"tableHead":"table width=100%","lableTdHead":"td","viewTdHead":"td","maxCols":2,"defaultColspan":1}]]></param-value>
+      </param>
+      <param>
+        <param-name>components</param-name>
+        <param-value><![CDATA[["ID","FIRST_NAME","LAST_NAME","EMAIL","PHONE_NUMBER","HIRE_DATE","JOB_ID","SALARY","COMMISSION_PCT","MANAGER_ID","DEPARTMENT_ID"]]]></param-value>
+      </param>
+    </Component>
+  </Components>
+  <DataSets>
+    <DataSet name="DsDEMO_EMPLOYEES" type="sql">
+      <param>
+        <param-name>sql</param-name>
+        <param-value><![CDATA[#if($!{id}!="")select * from DEMO_EMPLOYEES where id=${id}#end]]></param-value>
+      </param>
+      <param>
+        <param-name>tableName</param-name>
+        <param-value><![CDATA[DEMO_EMPLOYEES]]></param-value>
+      </param>
+      <param>
+        <param-name>pkName</param-name>
+        <param-value><![CDATA[ID]]></param-value>
+      </param>
+      <param>
+        <param-name>isSplitPage</param-name>
+        <param-value><![CDATA[false]]></param-value>
+      </param>
+    </DataSet>
+  </DataSets>
+  <Actions>
+    <Action name="_crud" type="tableChain">
+    </Action>
+  </Actions>
+</root>

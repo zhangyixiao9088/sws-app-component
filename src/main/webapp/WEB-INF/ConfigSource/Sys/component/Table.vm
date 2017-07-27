@@ -1,0 +1,42 @@
+<div id="contain_$id" style="#if($width)width: ${width}; #end">
+#if($!{model}=="edit")
+	<div id="tool_$id" style="#if($width)width: ${width}; #end padding-left:10px;padding-top:6px;height:30px;background-color:#DAE6F4;border:1px solid #C2D5DC;border-color:#93AFBA;">
+		<span onclick="tableView_${id}.stopThread();tableView_${id}.openAddPane();tableView_${id}.startThread();"><img src="image/ccs/default/add.gif"  alt="添加一行" border=0 />添加</span>
+		<span onclick="tableView_${id}.stopThread();tableView_${id}.removeRow();"><img src="image/ccs/default/del.gif"  alt="删除一行" border=0 />删除</span>
+		<span onclick="tableView_${id}.savePane()"><img src="image/ccs/default/select.gif"  border=0 />确定</span>
+	</div>
+#end
+#if($!{editPane}!="")
+	<div id="pane_$id" style="display:none;#if($width)width: ${width}; #end padding-left:10px;padding-top:6px;background-color:#DAE6F4;" >
+	$!{editPaneCom.printView()}
+	</div>
+#end
+</div>
+<div id="$id" style="#if($width)width: ${width}; #end#if($height)height: ${height};#end"></div>
+<script>
+var grid_${id} = new dhtmlXGridObject('$id');
+grid_${id}.setImagePath("js/ccs/DhtmlX/dhtmlxGrid/codebase/imgs/");
+grid_${id}.setSkin("light");
+grid_${id}.enableMultiselect(${multiselect});
+#if(${header})grid_${id}.setHeader("${header}");
+#end
+#if(${initWidths})grid_${id}.setInitWidths("${initWidths}");
+#end
+#if(${aligns})grid_${id}.setColAlign("${aligns}");
+#end
+#if(${colSorting})grid_${id}.setColSorting("${colSorting}");
+#end
+#if(${colTypes})grid_${id}.setColTypes("${colTypes}");
+#end
+
+function combo_$id(mygrid){
+	#foreach($row in $combosScrpits)${row}#end 
+}
+combo_$id(grid_${id} );
+var tableView_${id}= new TableView(grid_${id},"${keys}","$!{data}","$id");
+tableView_${id}.initData();
+    
+function dataBandle_$id(rowData){
+	#foreach($row in $dataBandleScrpits)${row}#end 
+}
+</script>

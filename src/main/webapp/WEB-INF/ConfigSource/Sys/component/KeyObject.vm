@@ -1,0 +1,2 @@
+<object  CodeBase="$CodeBase"  classid="$classid" id="$id" type="hidden" name='$name' #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end></object>
+

@@ -1,0 +1,17 @@
+#if($row.rowType==0)
+	#if($row.isEven())
+		<tr>
+	#else
+		<tr>
+	#end
+	    	#foreach($col in $row.cols)
+			  $col.print()
+			 #end
+		</tr>
+	#elseif($row.rowType==1)
+		<tr class="group">
+			#foreach($col in $row.cols)
+		  		$col.print()
+		  	#end
+		</tr>
+	#end

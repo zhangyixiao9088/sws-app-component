@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+ </head>
+<style>
+.sPopupclear {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.sPopupDiv {
+    left: -100px;
+    position: absolute;
+    top: -100px;
+    display:none;
+    z-index: 1000;
+}
+.sPopupDiv input, .sPopupDivSub input, .sPopupDivSubJobname input {
+    margin-right: 3px;
+    vertical-align: middle;
+}
+.sPopupDiv .mOutItem, .sPopupDivSubJobname .mOutItem {
+    background-color: transparent;
+}
+.sPopupDiv .mOverItem, .sPopupDivSubJobname .mOverItem {
+    background-color: #DFECFF;
+}
+.sPopupDiv .sPopupTitle232, .sPopupDiv .sPopupTitle240 {
+    background: url("http://img02.zhaopin.cn/2012/img/index/se.png") no-repeat scroll 0 -135px #FFFFFF;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: -1px;
+    width: 240px;
+}
+.sPopupDiv .sPopupTitle_down230 {
+    background: url("http://img02.zhaopin.cn/2012/img/index/se.png") no-repeat scroll -243px -135px #FFFFFF;
+    float: left;
+    height: 32px;
+    line-height: 28px;
+    margin-top: -1px;
+    width: 230px;
+}
+.sPopupDiv .sPopupTitle_down164 {
+    background: url("http://img02.zhaopin.cn/2012/img/index/se.png") no-repeat scroll -476px -135px #FFFFFF;
+    float: left;
+    height: 32px;
+    line-height: 28px;
+    margin-top: -1px;
+    width: 164px;
+}
+.sPopupDiv .sPopupTitle_down164 h1, .sPopupDiv .sPopupTitle232 h1, .sPopupDiv .sPopupTitle_down230 h1, .sPopupTitle240 h1, .sPopupTitle_down240 h1, .sPopupDiv .sPopupTitle_down134 h1 {
+    color: #2F59AB;
+    float: left;
+    font-family: tahoma;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.sPopupDiv .sButtonBlock {
+    color: #FFFFFF;
+    float: right;
+    font-size: 12px;
+    margin-right: 8px;
+}
+.sPopupDiv .sButtonBlock a, .sPopupDivSubJobname .sButtonBlock a {
+    background: url("http://img02.zhaopin.cn/new2011/images/index.png") no-repeat scroll -317px -90px transparent;
+    color: #AD5700;
+    display: inline-block;
+    font-size: 12px;
+    height: 23px;
+    line-height: 23px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none !important;
+    width: 60px;
+}
+.sPopupDiv .sButtonBlock a.blueButton, .sPopupDivSubJobname .sButtonBlock a.blueButton {
+    background-position: -378px -90px;
+    color: #2F59AB;
+    width: 48px;
+}
+.sPopupDiv .sButtonBlock a.blueButton:hover, .sPopupDivSubJobname .sButtonBlock a.blueButton:hover {
+    background-position: -378px -186px;
+    width: 48px;
+}
+.sPopupDiv .sButtonBlock a.orgButton:hover, .sPopupDivSubJobname .sButtonBlock a.orgButton:hover {
+    background-position: -317px -186px;
+}
+.sPopupDiv .sPopupBlock {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #B5D1E3;
+}
+.sPopupDiv .sPopupBlock table {
+    border-collapse: separate;
+    margin: 0;
+    width: 100%;
+}
+.sPopupDiv .sPopupBlock .paddingTB {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.sPopupDiv .sPopupBlock .sPopupTabCB {
+    margin-left: 30px;
+}
+.sPopupDiv .sPopupBlock td {
+    border: 0 none;
+    padding: 3px 2px;
+    text-align: left;
+}
+.sPopupDiv .sPopupBlock td.leftClass {
+    font-weight: bold;
+    padding-right: 5px !important;
+    text-align: right !important;
+    vertical-align: middle;
+}
+.sPopupDiv .sPopupBlock td.industryLCla {
+    width: 184px;
+}
+.sPopupDiv .sPopupBlock td.jobtypeLCla {
+    width: 150px;
+}
+.sPopupDiv .sPopupBlock td.jobtypeItems {
+    padding: 1px 2px;
+}
+.sPopupDiv .sPopupBlock table.chebox td {
+    padding: 1px 2px;
+}
+.sPopupDiv .sPopupBlock td span, .sPopupDiv .sPopupBlock td label {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.sPopupDiv .sPopupBlock td span.availItem {
+    color: #666666;
+    cursor: pointer;
+}
+.sPopupDiv .sPopupBlock td span.seledItem {
+    color: #FF7100;
+    cursor: default;
+    height: 14px;
+    overflow: hidden;
+}
+.sPopupDiv .sPopupBlock td span.seledAvailItem {
+    color: #FF7100;
+    cursor: pointer;
+    height: 14px;
+    overflow: hidden;
+}
+.sPopupDiv .sPopupBlock label.noselItem {
+    color: #666666;
+    cursor: pointer;
+}
+.sPopupDiv .sPopupBlock label.seledItem {
+    color: #FF7100;
+    cursor: pointer;
+}
+.sPopupDiv .focusItemTop {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    background: url("http://img02.zhaopin.cn/new2011/images/index_sj_iconminus.gif") no-repeat scroll 4px center #FFFFFF !important;
+    border-color: #C7C7C7 #C7C7C7 #FFFFFF !important;
+    border-image: none !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+    padding-top: 3px !important;
+    text-indent: 20px;
+}
+.sPopupDiv .focusItemBottom {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    background: url("http://img02.zhaopin.cn/new2011/images/index_sj_iconminus.gif") no-repeat scroll 4px center #FFFFFF !important;
+    border-color: #FFFFFF #C7C7C7 #C7C7C7 !important;
+    border-image: none !important;
+    border-right: 2px solid #C7C7C7 !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+    padding-top: 3px !important;
+    text-indent: 20px;
+}
+.sPopupDiv .blurItem {
+    background-image: url("http://img02.zhaopin.cn/new2011/images/index_sj_iconplus.gif");
+    background-position: 4px center;
+    background-repeat: no-repeat;
+    padding-top: 3px !important;
+    text-indent: 20px;
+}
+.sPopupDiv .zebraCol0 .blurItem {
+    border: 2px solid #FFFFFF;
+}
+.sPopupDiv .zebraCol1 .blurItem {
+    border: 2px solid #EFF6FF;
+}
+.sPopupDiv .sPopupBlock font.mOutItem {
+    background: none repeat scroll 0 0 transparent;
+    font-weight: normal;
+    margin: 0;
+    padding: 3px 2px;
+    size: 12px;
+}
+.sPopupDiv .sPopupBlock font.mOverItem {
+    background: none repeat scroll 0 0 #DFECFF;
+    font-weight: normal;
+    margin: 0;
+    padding: 3px 2px;
+    size: 12px;
+}
+.sPopupDiv .sPopupBlock font.mOutItem span.availItem, .sPopupDiv .sPopupBlock font.mOverItem span.availItem {
+    color: #666666;
+    cursor: pointer;
+}
+.sPopupDiv .sPopupBlock font.mOutItem span.seledItem, .sPopupDiv .sPopupBlock font.mOverItem span.seledItem {
+    color: #FF7100;
+    cursor: default;
+}
+.sPopupDiv .sPopupBlock .pIconPlus {
+    background: url("http://img02.zhaopin.cn/new2011/images/index_sj_iconplus.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 14px;
+    margin-right: 6px;
+    margin-top: 1px;
+    width: 14px;
+}
+.sPopupDiv .sPopupBlock .pIconMinus {
+    background: url("http://img02.zhaopin.cn/new2011/images/index_sj_iconminus.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 14px;
+    margin-right: 6px;
+    margin-top: 1px;
+    width: 14px;
+}
+.sPopupDiv .sPopupBlock .pCityTitB {
+    background: url("http://img02.zhaopin.cn/new2011/images/index.png") no-repeat scroll 0 -166px transparent;
+    clear: both;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 19px;
+    line-height: 19px;
+    margin: 1px 0 1px 5px;
+    padding-left: 5px;
+    text-align: left;
+}
+.sPopupDiv .sPopupBlock .pCityTitB a {
+    color: #666666;
+    text-decoration: none;
+}
+.sPopupDiv .sPopupBlock .pCityItemB {
+    clear: both;
+    color: #000000;
+    padding-bottom: 5px;
+    width: auto;
+}
+.sPopupDiv .sPopupBlock a.gotoup {
+    font-size: 12px;
+    font-weight: normal;
+}
+.sPopupDiv .sPopupBlock a.gotoup:hover {
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: underline;
+}
+.sPopupDiv .zebraCol0 {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+.sPopupDiv .zebraCol1 {
+    background: none repeat scroll 0 0 #EFF6FF;
+}
+.sPopupDiv .popupDivTipsB {
+    background: none repeat scroll 0 0 #F2F2F2;
+    clear: both;
+    color: #000000;
+    line-height: 18px;
+    padding: 5px;
+}
+.sPopupDiv .popupDivTipsB b {
+    color: #FF7200;
+}
+.sPopupDiv .popupDivTM {
+    clear: both;
+    font-size: 0;
+    height: 8px;
+    line-height: 0;
+}
+.sPopupDiv font.cursorPointer {
+    cursor: pointer;
+}
+.sPopupDiv .sPopupBlock .seledItemsB {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px dotted #3F419E;
+    clear: both;
+    color: #000000;
+    margin-bottom: 5px;
+    padding: 4px;
+}
+.sPopupDiv .sPopupBlock .seledTab td {
+    height: 20px;
+}
+.sPopupDiv .sPopupBlock .seledTab td.mOutItem {
+    background: none repeat scroll 0 0 #F4F4F4;
+}
+.sPopupDiv #jobTab {
+    margin-bottom: 5px;
+}
+.sPopupDiv .sPopupTabC td {
+    padding: 6px !important;
+}
+.sPopupDivSub {
+    background: none repeat scroll 0 0 #F3F9FF;
+    border: 1px solid #3F419E;
+    left: -100px;
+    padding: 5px;
+    position: absolute;
+    top: -100px;
+    display:none;
+    z-index: 1000;
+}
+.sPopupDivSub td.mOutItem {
+    background: none repeat scroll 0 0 #F3F9FF;
+}
+.sPopupDivSub td.mOverItem {
+    background: none repeat scroll 0 0 #DFECFF;
+}
+.sPopupDivSub td label {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.sPopupDivSub td label.noselItem {
+    color: #666666;
+    cursor: pointer;
+}
+.sPopupDivSub td label.seledItem {
+    color: #FF7100;
+    cursor: pointer;
+}
+.sPopupDivSub table.chebox td {
+    padding: 1px 2px;
+}
+.sPopupDivSub td.hBlueLine {
+    border-top: 1px solid #3F419E;
+}
+.sPopupDivLeftTop {
+    background: url("http://img02.zhaopin.cn/new2011/images/subpopupdivbg_l.gif") no-repeat scroll left top #FFFFFF !important;
+    border-bottom: 2px solid #C7C7C7;
+    padding-top: 1px !important;
+}
+.sPopupDivLeftBottom {
+    background: url("http://img02.zhaopin.cn/new2011/images/subpopupdivbg_l.gif") no-repeat scroll left bottom #FFFFFF !important;
+    border-top: 2px solid #C7C7C7;
+    padding-bottom: 1px !important;
+}
+.sPopupDivRightTop {
+    background: url("http://img02.zhaopin.cn/new2011/images/subpopupdivbg_r.gif") no-repeat scroll right top #FFFFFF !important;
+    border-bottom: 2px solid #C7C7C7;
+    padding-top: 1px !important;
+}
+.sPopupDivRightBottom {
+    background: url("http://img02.zhaopin.cn/new2011/images/subpopupdivbg_r.gif") no-repeat scroll right bottom #FFFFFF !important;
+    border-top: 2px solid #C7C7C7;
+    padding-bottom: 1px !important;
+}
+.sPopupDivSubJobname {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-left: 2px solid #C7C7C7;
+    border-right: 2px solid #C7C7C7;
+    left: -100px;
+    padding: 0;
+    position: absolute;
+    top: -100px;
+    display:none;
+    width: 346px;
+    z-index: 1000;
+}
+
+</style>
+<script> 
+	$(document).ready(function(){
+		
+		
+	});
+
+	function hiddenPane(target){
+		$(".sPopupDiv").hide();
+	}
+	function showPane(target){
+		var X = $(target).offset().top;
+		var Y = $(target).offset().left;
+		$(".sPopupDiv").css("left",X).css("top",Y).show();
+	}
+</script>
+ <body>
+ <button onclick="showPane(this)">打开</button>
+	<div id="zlzp">
+		<div class="sPopupDiv">
+			<div class="sPopupTitle240" style="margin-left: 0px;">
+				<h1>选择职位</h1>
+				<div class="sButtonBlock"> 
+					<a class="orgButton" onclick="return zlzp.PopupDiv.allIns['buttonSelIndustry'].fnClickOk()" href="#">确认</a>
+					<a onclick="hiddenPane()" href="#" class="blueButton">关闭</a>
+				</div>
+				<div class="sPopupclear"></div>
+			</div>
+			<div class="sPopupclear"></div>
+			<div class="sPopupBlock">
+				
+				<div class="sPopupclear"></div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

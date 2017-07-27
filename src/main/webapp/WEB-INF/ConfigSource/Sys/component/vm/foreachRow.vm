@@ -1,0 +1,39 @@
+#if($!{com.hasOption}=="true")<div class="box_tool_min padding_top2 padding_bottom2">
+	<div class="center">
+	<div class="left">
+	<div class="right">
+		<div class="padding_top5 padding_left10">
+		<a href="javascript:;"><span id="${id}_addBtn" class="icon_add">ÐÂÔö</span></a>
+		<div class="box_tool_line"></div>
+		</div>
+	</div>		
+	</div>	
+	</div>
+	<div class="clear"></div>
+</div>#end
+<table id="${id}_table" class="tableStyle" formMode="false">
+     <tr>
+	#foreach($h in ${com.headList})<th #if($!{h.colSpan}!="")colspan="$!{h.colSpan}"#end>$h</th>#end
+	#if($!{com.hasOption}=="true")<th>
+	²Ù×÷
+	</th>#end
+     </tr>     
+</table>
+<table id="${id}" style="display:none" formMode="false">
+<tr id="${id}_tr_" >	
+	#foreach($c in ${com.children})<td>${c.printView()}</td>#end
+	#foreach($c in ${com.hiddenComs})${c.printView()}#end
+	#if($!{com.hasOption}=="true")<td style="width:10px">
+	<span id="${id}_delBtn" class="img_delete hand" title="É¾³ý"></span>
+	</td>#end
+</tr>
+</table>
+<SCRIPT LANGUAGE="JavaScript">
+$(document).ready(function(){
+	$("#${id}").foreachRow({
+		#if($!{com.dataSet}!="")dataSet:datamodel_${com.dataSet},#end
+		viewName:"${viewName}",
+		comIds:"${com.bundleComs}"
+	});
+});
+</SCRIPT>

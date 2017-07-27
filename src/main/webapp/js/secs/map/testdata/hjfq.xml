@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sfs_FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+	<FeatureList fid="329" name="P_xiao817" rowcounts="104"
+		pagesize="10" pageindex="1">
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">83</SMID>
+				<SMX ALIAS="SMX">119.3470</SMX>
+				<SMY ALIAS="SMY">24.1802</SMY>
+				<NAME ALIAS="NAME">废气监测点1</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">74</SMID>
+				<SMX ALIAS="SMX">117.3451</SMX>
+				<SMY ALIAS="SMY">27.3227</SMY>
+				<NAME ALIAS="NAME">废气监测点2</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路燎原小学家属院</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">31</SMID>
+				<SMX ALIAS="SMX">115.6883</SMX>
+				<SMY ALIAS="SMY">29.4706</SMY>
+				<NAME ALIAS="NAME">废气监测点3</NAME>
+				<ADDRESS ALIAS="ADDRESS">围南三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">73</SMID>
+				<SMX ALIAS="SMX">117.8848</SMX>
+				<SMY ALIAS="SMY">21.9829</SMY>
+				<NAME ALIAS="NAME">废气监测点4</NAME>
+				<ADDRESS ALIAS="ADDRESS">科创路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">92</SMID>
+				<SMX ALIAS="SMX">111.2420</SMX>
+				<SMY ALIAS="SMY">29.6899</SMY>
+				<NAME ALIAS="NAME">废气监测点5</NAME>
+				<ADDRESS ALIAS="ADDRESS">太白南路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">18</SMID>
+				<SMX ALIAS="SMX">116.9761</SMX>
+				<SMY ALIAS="SMY">26.6147</SMY>
+				<NAME ALIAS="NAME">废气监测点6</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路8号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">97</SMID>
+				<SMX ALIAS="SMX">114.8739</SMX>
+				<SMY ALIAS="SMY">29.5037</SMY>
+				<NAME ALIAS="NAME">废气监测点7</NAME>
+				<ADDRESS ALIAS="ADDRESS">融鑫路6号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">79</SMID>
+				<SMX ALIAS="SMX">118.4580</SMX>
+				<SMY ALIAS="SMY">22.7046</SMY>
+				<NAME ALIAS="NAME">废气监测点8</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路名园新居小区10号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">3</SMID>
+				<SMX ALIAS="SMX">111.4641</SMX>
+				<SMY ALIAS="SMY">25.4068</SMY>
+				<NAME ALIAS="NAME">废气监测点9</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">22</SMID>
+				<SMX ALIAS="SMX">112.717</SMX>
+				<SMY ALIAS="SMY">24.997</SMY>
+				<NAME ALIAS="NAME">废气监测点10</NAME>
+				<ADDRESS ALIAS="ADDRESS">双杜路三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+	</FeatureList>
+</sfs_FeatureCollection>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sfs_FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+	<FeatureList fid="965" name="P_xiao854" rowcounts="126"
+		pagesize="10" pageindex="1">
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">80</SMID>
+				<SMX ALIAS="SMX">111.1696</SMX>
+				<SMY ALIAS="SMY">29.2816</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点1</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">23</SMID>
+				<SMX ALIAS="SMX">112.4642</SMX>
+				<SMY ALIAS="SMY">26.133</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点2</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路燎原小学家属院</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">46</SMID>
+				<SMX ALIAS="SMX">117.1339</SMX>
+				<SMY ALIAS="SMY">24.2319</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点3</NAME>
+				<ADDRESS ALIAS="ADDRESS">围南三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">84</SMID>
+				<SMX ALIAS="SMX">118.5773</SMX>
+				<SMY ALIAS="SMY">29.6644</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点4</NAME>
+				<ADDRESS ALIAS="ADDRESS">科创路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">43</SMID>
+				<SMX ALIAS="SMX">119.7820</SMX>
+				<SMY ALIAS="SMY">25.3193</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点5</NAME>
+				<ADDRESS ALIAS="ADDRESS">太白南路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">72</SMID>
+				<SMX ALIAS="SMX">112.8468</SMX>
+				<SMY ALIAS="SMY">29.7984</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点6</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路8号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">81</SMID>
+				<SMX ALIAS="SMX">111.9193</SMX>
+				<SMY ALIAS="SMY">22.5844</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点7</NAME>
+				<ADDRESS ALIAS="ADDRESS">融鑫路6号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">75</SMID>
+				<SMX ALIAS="SMX">115.641</SMX>
+				<SMY ALIAS="SMY">21.1870</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点8</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路名园新居小区10号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">80</SMID>
+				<SMX ALIAS="SMX">113.7906</SMX>
+				<SMY ALIAS="SMY">26.6034</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点9</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">10</SMID>
+				<SMX ALIAS="SMX">119.6555</SMX>
+				<SMY ALIAS="SMY">28.4467</SMY>
+				<NAME ALIAS="NAME">地源热泵监测点10</NAME>
+				<ADDRESS ALIAS="ADDRESS">双杜路三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+	</FeatureList>
+</sfs_FeatureCollection>

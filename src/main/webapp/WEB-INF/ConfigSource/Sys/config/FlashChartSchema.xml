@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<root>
+	<chart name="base">
+	{ 
+        "plotFillAlpha": "80",
+        "paletteColors": "#0075c2,#00A897,#00A843,#4300A8,#24A7FF,#E65C00,#A80065,#A80011,#A84300,#9700A8",
+        "baseFontColor": "#333333",
+        "subcaptionFontBold": "0",
+        "showValues": "0",
+        "showBorder": "0",
+        "bgColor": "#ffffff",
+        "showShadow": "0",
+        "canvasBgColor": "#ffffff",
+        "canvasBorderAlpha": "0",
+        "divlineAlpha": "100",
+        "divlineColor": "#999999",
+        "divlineThickness": "1",
+        "divLineDashed": "1",
+        "divLineDashLen": "1",
+        "divLineGapLen": "1",
+        "usePlotGradientColor": "0",
+        "showplotborder": "0",
+        "valueFontColor": "#ffffff",
+        "placeValuesInside": "1",
+        "showHoverEffect": "1",
+        "rotateValues": "1",
+        "showXAxisLine": "1",
+        "xAxisLineThickness": "1",
+        "xAxisLineColor": "#999999",
+        "showAlternateHGridColor": "0",
+        "legendPosition": "right",
+        "legendBgAlpha": "0",
+        "legendBorderAlpha": "0",
+        "legendShadow": "0",
+        "legendItemFontSize": "10",
+        "legendItemFontColor": "#666666"}
+	</chart>
+	<chart name="doughnut2d">
+	{
+		"paletteColors": "#0075c2,#1aaf5d,#f2c500,#f45b00,#8e0000",
+        "bgColor": "#ffffff",
+        "showBorder": "0",
+        "use3DLighting": "0",
+        "showShadow": "0",
+        "enableSmartLabels": "0",
+        "startingAngle": "310",
+        "showLabels": "0",
+        "showPercentValues": "1",
+        "showLegend": "1",
+        "legendShadow": "0",
+        "legendBorderAlpha": "0",
+        "defaultCenterLabel": "Total revenue: $64.08K",
+        "centerLabel": "Revenue from $label: $value",
+        "centerLabelBold": "1",
+        "showTooltip": "0",
+        "decimals": "0",
+        "captionFontSize": "14",
+        "subcaptionFontSize": "14",
+        "subcaptionFontBold": "0",
+        "useDataPlotColorForLabels": "1"}
+	</chart>
+	<chart name="pyramid">
+	{	
+		"theme": "fint", 
+        "borderAlpha": "20",
+        "is2D": "1", 
+        "showValues": "1", 
+        "showPercentValues": "1",
+        "chartLeftMargin": "40"
+	}
+	</chart>
+		<chart name="scrollarea2d">
+	{	
+		"flatScrollBars": "1",
+        "scrollheight": "10",
+	}
+	</chart>
+		<chart name="scrollcolumn2d">
+	{	
+		"flatScrollBars": "1",
+        "scrollheight": "10",
+	}
+	</chart>
+</root>

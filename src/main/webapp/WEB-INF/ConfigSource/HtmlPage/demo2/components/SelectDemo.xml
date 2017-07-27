@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    <div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							<b>属性</b><br>
+					    	<b>type:</b>Select<br>
+					    	<b>View属性</b><br>
+					    	"editable":"false"<br>
+					    	"data":"dbCache"<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		${DSCS}
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["DSCS"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="DSCS" type="select">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"地上层数："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {"editable":"false","data":"dbCache"}
+			    ]]></param-value>   
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="dbCache" type="json" static="true">
+				<param>   
+				    <param-name>value</param-name>   
+				    <param-value>{"1":"是","0":"否","3":"${id}"}</param-value>   
+				</param>
+			</DataSet>
+	</DataSets>
+</root>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="GBK"?>
+<!--xmlPaneAction.action?fileName=demo1/listDemo&viewName=main-->
+<root>
+  <Views>
+    <View name="view" type="ComponentBuilder" dataSource="DS1">
+      <param>
+        <param-name>title</param-name>
+        <param-value><![CDATA[demo]]></param-value>
+      </param>
+      <param>
+        <param-name>component</param-name>
+        <param-value><![CDATA[panel]]></param-value>
+      </param>
+      <param>
+        <param-name>dataBundle</param-name>
+        <param-value><![CDATA[
+        		{
+					ID:{field:"ID"},
+					NAME:{field:"NAME",canEdit:"false"},
+					AGE:{field:"AGE"},
+					SEX:{field:"SWX"},
+        		}
+        	]]></param-value>
+      </param>
+    </View>
+  </Views>
+  <Components>
+<Component name="ID" type="hidden"><param><param-name>Label</param-name><param-value>{label:""}</param-value></param><param><param-name>View</param-name><param-value><![CDATA[{}]]></param-value></param></Component>
+<Component name="NAME" type="text"><param><param-name>Label</param-name><param-value>{label:"名称"}</param-value></param><param><param-name>View</param-name><param-value><![CDATA[{}]]></param-value></param></Component>
+<Component name="AGE" type="text"><param><param-name>Label</param-name><param-value>{label:"年纪"}</param-value></param><param><param-name>View</param-name><param-value><![CDATA[{}]]></param-value></param></Component>
+<Component name="SEX" type="text"><param><param-name>Label</param-name><param-value>{label:"性别"}</param-value></param><param><param-name>View</param-name><param-value><![CDATA[{}]]></param-value></param></Component>
+    <Component name="panel" type="HtmlLayout">
+      <param>
+        <param-name>LayoutManager</param-name>
+        <param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TableLayout]]></param-value>
+      </param>
+      <param>
+      	<param-name>LayoutManager-Properties</param-name>
+      	<param-value><![CDATA[
+      	{
+      	 	"descorate":{model:"panel"},
+	   		"tableHead":"table class='table'",
+	   		"lableTdHead":"td class='col-sm-2 control-label text-right' style='vertical-align:middle'",
+	   		"viewTdHead":"td class='view'",
+	   		"maxCols":2,
+	   		"defaultColspan":1
+	   	}
+      	]]></param-value>
+      </param>
+      <param>
+			<param-name>InitJS</param-name>
+			<param-value><![CDATA[
+			$(document).ready(function(){
+			     var objname = decodeURI('$!{OBJNAME}');
+			     $("#edit_NAME").val(objname);
+			});
+		    ]]></param-value>
+		</param>
+      <param>
+        <param-name>components</param-name>
+        <param-value><![CDATA[[
+				"ID",
+				"NAME",
+				"AGE",
+				"SEX"
+			]]]></param-value>
+      </param>
+    </Component>
+  </Components>
+  <DataSets>
+    <DataSet name="DS1" type="sql">
+      <param>
+        <param-name>sql</param-name>
+        <param-value><![CDATA[
+        SELECT '1' ID, '张三' NAME, '22' AGE,'汉子' from dual union all
+        SELECT '1' ID, '杨颖' NAME, '22' AGE,'妹子' from dual
+
+        ]]></param-value>
+      </param>
+      <param>
+        <param-name>tableName</param-name>
+        <param-value><![CDATA[T_JC_BUILDING]]></param-value>
+      </param>
+      <param>
+        <param-name>pkName</param-name>
+        <param-value><![CDATA[ID]]></param-value>
+      </param>
+      <param>
+        <param-name>isSplitPage</param-name>
+        <param-value><![CDATA[false]]></param-value>
+      </param>
+    </DataSet>
+  </DataSets>
+</root>

@@ -1,0 +1,3 @@
+<button type="button" class="btn btn-primary"
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+	<i class="fa fa-plus"></i>¡Ï”√</button>

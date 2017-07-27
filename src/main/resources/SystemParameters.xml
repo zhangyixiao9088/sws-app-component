@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<parameters>
+  <!--parameter name="BACK_ROOT_DIR" value="d:/tempb"/-->
+  <parameter name="ROOT_DIR" value="e:/syspic/pic/"/>
+  <parameter name="ROOT_DIR_1" value="e:/syspic/pic2/"/>
+  
+  <parameter name="SORCKET_PORT" value="30000"/>
+  <parameter name="SORCKET_COUNT" value="400"/>
+  <parameter name="SORCKET_IP" value="127.0.0.1"/>
+  <system>
+  		<root>ConfigSource</root>
+  		<engine>engine</engine>
+  		<schema>bootstrap</schema>
+  		<privilege>false</privilege>
+  		<isCache>false</isCache>
+  		<sn>guizoujiansheting</sn>
+  		<dbuser>hems</dbuser>
+  		<cache>
+  			<text>false</text>
+  		</cache>
+  </system>
+  <lucenePath>
+  		<index>d\:\\save\\</index>
+  </lucenePath>
+  <forward>
+  		<default>top.dialogParentObj.document.form(0).submit;</default>
+  </forward>
+</parameters>

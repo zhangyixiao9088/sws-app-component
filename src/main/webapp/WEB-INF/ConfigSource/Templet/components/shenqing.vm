@@ -1,0 +1,3 @@
+<button type="button" class="btn btn-default"
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+	<i class="glyphicon glyphicon-user"></i>…Í«Î</button>

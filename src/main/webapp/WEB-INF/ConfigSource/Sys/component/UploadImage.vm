@@ -1,0 +1,3 @@
+  	<input id="fileId_$!{id}" type="hidden" value=""/>
+  	<input id="service_$!{id}" type="hidden" value="$!{service}"/>
+    <img id="showimg_$!{id}" src="$!{url}" width="$!{width}" height="$!{height}" class="img-thumbnail" #if($!{editable}=='true') onclick="openimgupload('${id}')" style="cursor: pointer;" #end />

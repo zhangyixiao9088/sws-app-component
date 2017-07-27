@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>$!{titleText}</title>
+<script type="text/javascript" src="js/ccs/jquery/jquery.js"></script>
+<script type="text/javascript" src="js/ccs/dataPicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/ccs/pagination.js"></script>
+<script type="text/javascript" src="js/ccs/TablePane.js"></script>
+<script type="text/javascript" src="js/ccs/Utils.js"></script>
+<script type="text/javascript" src="js/common/Common_Util.js"></script>
+
+<script type="text/javascript" src="dwr/util.js"></script>
+<script type="text/javascript" src="dwr/engine.js"></script>
+<script type="text/javascript" src="dwr/interface/ccs.js"></script>
+
+<!-- Bootstrap -->
+    <link rel="stylesheet" href="js/ccs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ccs/frame/bootstrap/main.css">
+    
+	<!--[if lt IE 8]>
+	    <link href="js/ccs/bootstrap/css/bootstrap-ie7.css" rel="stylesheet">
+	<![endif]-->
+	
+    <!-- HTML5Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/ccs/bootstrap/js/html5shiv.min.js"></script>
+        <script src="js/ccs/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="XmlFileAction_loadCss.action?fileName=bootstrap/bootstrapTable/bootstrap-table.css&code=utf-8"/>
+<script type="text/javascript" src="XmlFileAction_load.action?fileName=bootstrap/bootstrapTable/bootstrap-table.js&code=utf-8"></script>
+<script type="text/javascript" src="XmlFileAction_load.action?fileName=bootstrap/bootstrapTable/locale/bootstrap-table-zh-CN.js&code=utf-8"></script>
+$!{cssSrcText}
+$!{scriptSrcText}
+<script type="text/javascript">
+$!{st.script}
+</script>
+<style type="text/css">
+$!{st.css}
+</style>
+</head>
+<body style="background:none">
+<div class="body">
+<form id="listPageForm" name="$viewName" action="pageAction.action" method="post" class="list_tb_ctt">	
+	<input type="hidden" name="parametes" value='$!{parametes}'/>
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			  #if($!{captionText}!="")
+			  <div class="panel-heading">
+			  		$!{captionText}
+			  </div>
+			  #end
+			  <div class="panel-body">
+			  		#if($!{gButtonsText}!="")
+			  		<div class="row">
+			  			<div class="col-xs-12">
+				  			<div class="widget-content pull-right btn-group" role="group">
+								$!{gButtonsText}
+							</div>
+						</div>
+			  		</div>
+					#end
+					#if($!{infoText}!="")
+					<div class="row">
+			  			<div class="col-xs-12">
+			    			$!{infoText}
+			    		</div>
+			    	</div>
+			    	#end
+			    	#if($!{conditionText}!="")
+			    	<div class="row">
+			  			<div class="col-xs-12">
+			    			$!{conditionText}
+			    		</div>
+			    	</div>
+			    	#end
+			  </div>
+			  <div class="row">
+	  			<div class="col-xs-12 table-container">
+	    			<table class="table table-striped" #if($!{st.property.width}!="")style="width:$!{st.property.width};max-width:$!{st.property.width};"#end >
+						 $!{headText}
+					   	 $!{bodyText}
+					  </table>
+	    		</div>
+    			#if($st.dataSet.isSplitPage()) 
+					<script>PageList('$viewName',${st.dataSet.pageIndex}, ${st.dataSet.pageRowCount}, ${st.dataSet.rowCount})</script>
+				#end
+	    	</div>
+	     </div>
+     		#if($st.dataSet.data.size()==0)
+					<div class="alert alert-warning alert-dismissible" role="alert">
+					  <i class="glyphicon glyphicon-exclamation-sign"></i><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  没有找到记录.
+					</div>
+				#end
+	</div>
+</form>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$(".list_table").find("tr:even").addClass("even");
+	$(".list_table").find("tr").hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	})
+})
+function initValues() 
+{ 
+$_initdataScript
+if(document.getElementById("${viewName}_query")){
+	document.getElementById("${viewName}_query").onclick = function() {
+   		getForm('${viewName}').__page.value='1';
+   }
+}
+if(document.getElementById("${viewName}_queryAll")){
+	document.getElementById("${viewName}_queryAll").onclick = function() {
+		resetDefaultForm('${viewName}');
+		getForm('${viewName}').__page.value='1';
+   		getForm('${viewName}').submit();
+   }
+}
+if(document.getElementById("${viewName}_tv_checkbox_all")){
+	document.getElementById("${viewName}_tv_checkbox_all").onclick=function() {
+		_${viewName}_do_selectAll();
+	}
+}
+
+}
+function do_queryForSelect(srcObj,tarS,dName){
+	var tarId='${viewName}_'+tarS;
+	var sName=srcObj.name;
+	var par=srcObj.options[srcObj.selectedIndex].value;
+	var u="AdmdataQuery.action?fileName="+getFieldValue('${viewName}','fileName')+"&viewName=${viewName}&dName="+dName+"&"+sName+"="+par;
+	queryDataForSelect(u,tarId);
+}
+function _${viewName}_do_selectAll()
+{
+	var selectBtn=document.getElementById("${viewName}_tv_checkbox_all");
+	var checkBtn=getForm('${viewName}').tv_checkbox;
+	if(checkBtn){
+		if(checkBtn.length){
+			if (selectBtn.checked){
+				for (var i=0;i<checkBtn.length;i++)
+				{
+					if(checkBtn[i].checked){
+						checkBtn[i].checked = false;
+					}else{
+						checkBtn[i].checked=true;
+					}
+				}
+				checkBtn.checked=true;
+			}else{
+				for (var i=0;i<checkBtn.length;i++)
+				{
+					checkBtn[i].checked = false;
+				}
+				checkBtn.checked=false;
+			}
+		}else{
+			checkBtn.checked=selectBtn.checked
+		}
+	}
+}
+function getSelectValues(){
+	var checkBtn=getForm('${viewName}').tv_checkbox;
+	if(checkBtn){
+		var rs="";
+		if(checkBtn.length){
+			for (var i=0;i<checkBtn.length;i++){
+				if(checkBtn[i].checked){
+					var temp=checkBtn[i].value;
+					if(rs==""){
+						rs=temp;
+					}else{
+						rs=rs+","+temp;
+					}
+				}
+			}
+		}else{
+			if(checkBtn.checked){
+				rs=checkBtn.value;
+			}
+		}
+		return rs;
+	}
+	return "";
+}
+function onload_initdata(){
+	if (typeof(initValues_pre)!= 'undefined'){
+		initValues_pre();
+	}
+	initValues();
+	if (typeof(initValues_post)!= 'undefined'){
+		initValues_post();
+	}
+}
+function helpListView(){
+	var _fileName = getFieldValue('${viewName}','fileName');
+	var _viewName = getFieldValue('${viewName}','viewName');
+	var _helpType = getFieldValue('${viewName}','_helpType');
+	var _helpName = getFieldValue('${viewName}','_helpName');
+	helpOpen(_fileName,_viewName,_helpType,_helpName)
+}
+function getListViewName(){
+	return '${viewName}';
+}
+window.onload = onload_initdata; 
+</script>
+<script src="js/ccs/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

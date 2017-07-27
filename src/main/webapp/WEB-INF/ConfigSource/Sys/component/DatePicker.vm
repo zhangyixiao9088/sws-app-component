@@ -1,0 +1,6 @@
+<input id="$id" type="text" name="$name" readonly="true" 
+	#if($cssClass!="") class="$cssClass"#end
+	#if($size!="") size="$size"#end
+	#if($canEdit!="false")style="background:url(js/ccs/dataPicker/skin/datePicker.gif) right center  no-repeat" onclick="WdatePicker({el:'$id'})"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+<span id="${id}_star" class="star"></span>

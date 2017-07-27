@@ -1,0 +1,19 @@
+  <table id="${st.id}" #if($cssClass!="") class="$cssClass"#end width="98%">
+    #if($st.head.getCols().size()>0)
+		<tr>#foreach($head in $st.getHeadComponent())
+		  <td #if($head.cssClass!="") class="$head.cssClass"#end#foreach($comPro in $head.properties.entrySet()) ${comPro.key}="${comPro.value}" #end>$head.component.print()</td>
+		#end</tr>
+	  #end
+    #foreach($row in $st.getColumnData())
+     	<tr onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#d9e8f8'">#if($row.rowType==0)
+			 #foreach($col in $row.cols)
+			 	$col.print()
+			 #end
+		#elseif($row.rowType==1)
+			#foreach($col in $row.cols)
+				#set($col.context.class="x-grid-header")
+				$col.print()
+			#end
+		#end</tr>
+	#end
+  </table>

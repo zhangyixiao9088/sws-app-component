@@ -1,0 +1,7 @@
+<textarea id="$id" name="$name" #if($cssClass!="") class="$cssClass"#end>$!{value}</textarea><span id="${id}_star" class="star"></span>
+<script>
+CKEDITOR.replace('$id',{
+	height: "$height",
+	width: "$width"
+});
+</script>

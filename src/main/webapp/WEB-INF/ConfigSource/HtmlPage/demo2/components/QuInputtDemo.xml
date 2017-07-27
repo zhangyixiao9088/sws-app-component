@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder" dataSource="Person">
+			<param>
+			 	<param-name>title</param-name>
+			    <param-value><![CDATA[测试 自动完成控件]]></param-value>   
+			</param>
+			<param>
+			 	<param-name>component</param-name>
+			    <param-value><![CDATA[layout]]></param-value>   
+			</param>
+<!--			<param>-->
+<!--			 	<param-name>dataBundle</param-name>-->
+<!--			    <param-value><![CDATA[-->
+<!--			   	{-->
+<!--			     "HTSGTS":{"field":"ID"},-->
+<!--			     "AGE":{"field":"AGE",validate:"required,custom[onlyNumber],length[0,20]"},-->
+<!--			     "USERNAME":{"field":"USERNAME",validate:"required,custom[chinese],length[0,20]"},-->
+<!--			     "EMAIL":{"field":"EMAIL",validate:"custom[email]"},-->
+<!--			     "TELEPHONE":{"field":"TELEPHONE",validate:"custom[telephone]"},-->
+<!--			     "DATE":{"field":"DATE",validate:"custom[date]"},-->
+<!--			     "DATETEMPLE":{"field":"DATE",validate:"custom[date]"},-->
+<!--			    }-->
+<!--				]]></param-value>   -->
+<!--			</param>-->
+			<param>
+			 	<param-name>dataBundle</param-name>
+			    <param-value><![CDATA[
+			   	{
+			     "HTSGTS":{"field":"ID"},
+			     "MULTIPSEL":{"field":"ID"},
+			     "AGE":{"field":"AGE",validate:"custom[onlyNumber],length[0,20]"},
+			     "SINGLERADIO":{"field":"ID",validate:"required radio"},
+			     "MULTIPRADIO":{"field":"ID"},
+			     "USERNAME":{"field":"USERNAME",validate:"custom[chinese]"},
+		         "EMAIL":{"field":"EMAIL",validate:"custom[email]"},
+			     "TELEPHONE":{"field":"TELEPHONE",validate:"custom[telephone]"},
+			     "DATE":{"field":"DATE",validate:"custom[date]"},
+			     "DATETEMPLE":{"field":"DATE"},
+			     "TEXT1":{"field":"TEXT1","cssClass":"rich"},
+			     "STEP":{"field":"STEP"},
+		         "KEYPRE":{"field":"KEYPRE"},
+		         "QUDOUBLESEL":{"field":"QUDOUBLESEL",validate:"funcCall[custom1]"}
+			    }
+				]]></param-value>   
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			
+			
+		</Component>
+		<Component name="layout" type="HtmlLayout">
+			<param>   
+			    <param-name>title</param-name>   
+			    <param-value><![CDATA[<br><h1>各种控件展示:</h1>]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>LayoutManager</param-name>   
+			    <param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TableLayout]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>LayoutManager-Properties</param-name>   
+			    <param-value><![CDATA[
+			    	{
+			    		"tableHead":"table class='list-table'",
+			    		"lableTdHead":"td class='label'",
+			    		"viewTdHead":"td class='view'",
+			    		"maxCols":1,
+			    		"defaultColspan":1
+			    	}
+			    		${HTSGTS}
+			    		<b>属性：</b><br>
+			    			type:"QuRadioCheck"<br>
+			    		<b>Label属性：</b><br>
+			    			"label":"单选"
+			    		<b>View属性：</b><br>
+			    			data:"wmgc",<br>
+			    			type:"radio",<br>
+			    			${MULTIPSEL}
+			    			${SINGLERADIO}
+			    			${MULTIPRADIO}
+			    			${AGE}
+			    			${EMAIL}
+			    			${DATE}
+			    			${DATETEMPLE}
+			    			${TELEPHONE}
+			    			${STEP}
+			    			${KEYPRE}
+			    			${TEXT1}
+			    			${QUDOUBLESEL}
+			    			${RYXX}
+			    			${TEXT2}
+			    			${BUTTON}
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>components</param-name>   
+			    <param-value><![CDATA[
+			    ["HTSGTS","MULTIPSEL","SINGLERADIO","MULTIPRADIO","AGE","USERNAME","EMAIL","DATE","DATETEMPLE","TELEPHONE","STEP","KEYPRE","TEXT1","QUDOUBLESEL","RYXX","TEXT2","BUTTON"]
+			    ]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="SINGLERADIO" type="QuRadioCheck">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"单选"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	type:"radio",
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="MULTIPRADIO" type="QuRadioCheck">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"多选"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	type:"checkbox"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="HTSGTS" type="QuSelect">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"下拉单选框"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	multiple:"false",
+			    	disabled:"true",
+			    	
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="MULTIPSEL" type="QuSelect">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"下拉多选框"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	multiple:"true"
+			    	
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="AGE" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"只能输入数字："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[{"type":"text", clearable:"true"}]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="USERNAME" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"只能输入中文："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			       type:"text",
+			       clearable:"true"
+  
+			    }
+			    
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="EMAIL" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"email："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			       type:"text",
+			       clearable:"true"
+  
+			    }
+			    
+			    ]]></param-value>   
+			</param>
+		</Component>
+			<Component name="TELEPHONE" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"电话："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			       type:"text",
+			       clearable:"true",
+			       cssClass:"cookies"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="DATE" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"填写时间(yyyy-MM-dd HH:mm:ss)："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			       type:"text",
+			       cssClass:"date",
+			       dateFmt:"yyyy-MM-dd HH:mm:ss",
+			       readOnly:"true"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+			<Component name="DATETEMPLE" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"填写时间(yyyy-MM-dd)："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			       type:"text",
+			       cssClass:"date",
+			       dateFmt:"yyyy-MM-dd",
+			       readOnly:"true"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+			<Component name="KEYPRE" type="QuInput">
+			<param>   
+			    <param-name>Label</param-name>   
+			    <param-value><![CDATA[{"label":"打开软键盘："}]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			       type:"text",
+			       cssClass:"keypad",
+			       mode:"full",
+			       cookie:"true"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="TEXT2" type="QuTextArea">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"文本域"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	resize:"false",
+			    	style:"width:350px;height:150px;",
+			    	cookie:"true"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="STEP" type="QuInput">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"步进器"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			      	type:"text",
+			      	min:"1",
+			      	max:"5",
+			      	step:"1",
+			      	cssClass:"spinbox"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="TEXT1" type="QuTextArea">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"富文本域"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	resize:"false",
+			    	style:"width:350px;height:150px;",
+			    	cssClass:"rich",
+			    	mode:"full",
+			    	cookie:"true",
+			    	
+			    	
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="QUDOUBLESEL" type="QuDoubleSel">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"双向选择器："}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+		            data:"wmgc",
+		            cssClass:""
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="BUTTON" type="group">
+			<param>   
+			    <param-name>InitJS</param-name>   
+			    <param-value><![CDATA[
+					function clickBtn(){
+						var access=true;
+						access=$('#pageComsform').validationEngine({returnIsValid:true})
+						if(access==true){
+							datamodel.flush();
+							dataPool.flush();
+							document.getElementById('view1_TEXT2').value=datamodel.toXml();
+							pageform.__xmlData.value=datamodel.toXml();
+							pageform.__xmlPoolData.value=dataPool.toXml();
+							pageform.__action.value='action3';
+							pageform.__method.value='save';
+						}
+					}
+					function clearBtn(){
+						//document.getElementById('view1_TEXT').value="";
+						var objName=$('input[cookie=true]');
+						var textArea=$('textArea[cookie=true]');
+						
+						if(objName!=null){
+							objName.each(function(){
+								jQuery.jCookie($(this).attr('name'),null);
+								$(this).attr('value','');
+							});
+						}
+						if(textArea!=null){
+							textArea.each(function(){
+								jQuery.jCookie($(this).attr('name'),null);
+								$(this).attr('value','');
+							});
+						}
+					}
+					$(document).ready(function(){
+						$('#view1_quitValite').click(function(){
+							var input=$('input[type=text]');
+							input.each(function(){
+								var val=$(this).attr('class');
+								if(val.indexOf("validate")!=-1){
+									$(this).removeClass();						
+								}
+							});
+						});
+					});
+					
+					
+				]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+					[{"type":"QuButton","param":{"name":"query",cssClass:"icon_view","label":"打印","onClick":"clickBtn()"}},
+					 {"type":"QuButton","param":{"name":"queryAll",cssClass:"icon_delete","label":"清空","onClick":"clearBtn()"}},
+					 {"type":"QuButton","param":{"name":"quitValite","label":"点击我，取消验证"}}
+					 ]
+				]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="RYXX" type="QuHtmlTable">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"表格数据展现："}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	"data":"dbCache2",
+			    	"cssClass":"tableStyle",
+			    	"heads": [{"label":"序号","width":"7%","align":"center"},
+						     {"label":"编码","width":"20%","align":"center"},
+						     {"label":"标题","width":"20%","align":"center"},
+						     {"label":"简称","width":"20%","align":"center"}],
+					"bodys": [{"label":"LOCATIONROW","align":"center"},
+							 {"label":"AREACODE","align":"center"},
+						     {"label":"TITLE","align":"center"},
+						     {"label":"LETTERCODE","align":"center"},
+						    ]
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="wmgc" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value>{"5":"研究生","1":"本科","2":"专科","3":"高中","4":"初中"}</param-value>   
+			</param>
+		</DataSet>
+		<DataSet name="Person" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    	[
+			    		{"ID":"3","NAME":"黄翊","SEX":"女","AGE":"12"}	  
+			    	]
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+			<param>   
+			    <param-name>tableName</param-name>   
+			    <param-value>Person</param-value>   
+			</param>
+			<param>   
+			    <param-name>pkName</param-name>   
+			    <param-value>ID</param-value>   
+			</param>
+		</DataSet>
+		
+		
+		<DataSet name="dbCache2" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    	[
+			    	{"LOCATIONROW":"1","AREACODE":"合格","TITLE":"23","LETTERCODE":"111111"},
+					{"LOCATIONROW":"2","AREACODE":"不合格","TITLE":"ssd","LETTERCODE":"22222222222"},
+			    	{"LOCATIONROW":"3","AREACODE":"不合格","TITLE":"asd","LETTERCODE":"333333333"},
+			    	{"LOCATIONROW":"4","AREACODE":"不合格","TITLE":"asd","LETTERCODE":"44444444444"},
+			    	{"LOCATIONROW":"5","AREACODE":"合格","TITLE":"dfas","LETTERCODE":"55555555555"},
+			    	{"LOCATIONROW":"6","AREACODE":"不合格","TITLE":"adf","LETTERCODE":"666666666666"},
+			    	{"LOCATIONROW":"7","AREACODE":"不合格","TITLE":"asdf","LETTERCODE":"777777777777"}	  
+			    	]
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

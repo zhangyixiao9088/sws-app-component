@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+					function clickMe(){
+						var com = document.getElementById("view1_UNITCHIEFZZNUM5");
+						com.src="XmlDataAction.action?__fileName=demo2/components/htmlTableDemo&__dataSet=dbCache2";
+					}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							 <b>属性说明：</b><br>
+						     <b>属性：</b><br>
+						    	<b>type:</b>"htmlTable"<br>
+						    <b>View属性：</b><br>
+						    	"data":"wmgc",<br>
+						    	"idKey":"ID",<br>
+							    "comNames":['JCSTATE'],<br>
+						    	"property":{"width":"100%"},<br>
+						    	"head": [{"label":"编码","width":"20%"},<br>
+									     {"label":"名称","width":"20%"}],<br>
+								"body": [{"type":"label","param":{"label":"$KEY"}},<br>
+									     {"type":"label","param":{"label":"$VALUE"}}}<br>
+								<br>
+								<br>
+								说明：data为JSONArray的数据格式,例如：[ 
+														    		{"KEY":"1","VALUE":"博士"},
+																	{"KEY":"2","VALUE":"硕士"}
+																	
+														    	]	     
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		 ${RYXX}
+						</div>
+					</div>
+				</div>
+				
+			   
+			    
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["RYXX","UNITCHIEFZZNUM5"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="RYXX" type="htmlTable">
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	"data":"wmgc",
+			    	"idKey":"ID",
+				    "comNames":['JCSTATE'],
+			    	"property":{"width":"100%",cssClass:"table"},
+			    	"head": [{"label":"编码","width":"20%"},
+						     {"label":"名称","width":"20%"}],
+					"body": [{"type":"label","param":{"label":"$KEY"}},
+						     {"type":"label","param":{"label":"$VALUE"}}
+						    ]
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM5" type="IFrame" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"google首页"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{"width":"100%","height":"300","src":""}				
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="db4" type="sql">
+			<param>
+				<param-name>DataBaseType</param-name>
+				<param-value>Oracle</param-value>
+			</param>
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+				 ]]></param-value>
+			</param>
+		</DataSet>
+		<DataSet name="wmgc" type="plat">
+				<param>
+				    <param-name>fileName</param-name>
+				    <param-value>demo2/testDataSet</param-value>
+				</param>
+				<param>
+				    <param-name>dataName</param-name>
+				    <param-value>table</param-value>
+				</param>
+				<param>
+				    <param-name>type</param-name>
+				    <param-value>panel</param-value>
+				</param>
+			</DataSet>
+		
+		<DataSet name="dbCache2" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    	[
+			    	{"LOCATIONROW":"1","AREACODE":"不合格","TITLE":"23","LETTERCODE":"111111"},
+					{"LOCATIONROW":"2","AREACODE":"不合格","TITLE":"ssd","LETTERCODE":"22222222222"},
+			    	{"LOCATIONROW":"3","AREACODE":"不合格","TITLE":"asd","LETTERCODE":"333333333"},
+			    	{"LOCATIONROW":"4","AREACODE":"不合格","TITLE":"asd","LETTERCODE":"44444444444"},
+			    	{"LOCATIONROW":"5","AREACODE":"不合格","TITLE":"dfas","LETTERCODE":"55555555555"},
+			    	{"LOCATIONROW":"6","AREACODE":"不合格","TITLE":"adf","LETTERCODE":"666666666666"},
+			    	{"LOCATIONROW":"7","AREACODE":"不合格","TITLE":"asdf","LETTERCODE":"777777777777"}	  
+			    	]
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

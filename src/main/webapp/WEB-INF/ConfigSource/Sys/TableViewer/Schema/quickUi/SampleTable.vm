@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>$!{titleText}</title>
+<script type="text/javascript" src="js/ccs/dataPicker/WdatePicker.js"></script>
+<!--框架必需start-->
+<link href="UIFrame/frame/css/import_basic.css" rel="stylesheet" type="text/css" />
+<link href="UIFrame/frame/skins/sky2/import_skin.css" rel="stylesheet" type="text/css" />
+<link prePath="UIFrame/frame/" href="/UIFrame/frame/skins/sky2/import_skin.css" rel="stylesheet" type="text/css" id="skin" themeColor="blue" />
+<script type="text/javascript" src="UIFrame/frame/js/jquery-1.4.js"></script>
+<script type="text/javascript" src="UIFrame/frame/js/framework.js"></script>
+<!--框架必需end-->
+<script type="text/javascript" src="UIFrame/frame/js/attention/zDialog/zDrag.js"></script>
+<script type="text/javascript" src="UIFrame/frame/js/attention/zDialog/zDialog.js"></script>
+
+<script type="text/javascript" src="js/ccs/pagination.js"></script>
+<script type="text/javascript" src="js/ccs/TablePane.js"></script>
+<script type="text/javascript" src="js/ccs/Utils.js"></script>
+
+<script type="text/javascript" src="dwr/util.js"></script>
+<script type="text/javascript" src="dwr/engine.js"></script>
+<script type="text/javascript" src="dwr/interface/ccs.js"></script>
+
+
+<!--截取文字start-->
+<script type="text/javascript" src="UIFrame/frame/js/text/text-overflow.js"></script>
+<!--截取文字end-->
+
+$!{cssSrcText}
+$!{scriptSrcText}
+<script type="text/javascript">
+$!{st.script}
+</script>
+<style type="text/css">
+$!{st.css}
+</style>
+</head>
+<body>
+	$!{infoText}
+	#if($!{captionText}!="")
+	<div class="YyTit">
+		<span id="thisIsTitle">$!{captionText}</span>
+		<p>
+			$!{gButtonsText}
+			<img style="cursor:pointer;" class="img_style1" id="helpTip" alt="点击查看帮助" src="image/ccs/help_ico.gif" onclick="helpListView()" />
+		</p>
+	</div>
+	#end
+	<form id="$viewName" name="$viewName" action="pageAction.action" method="post">		
+		<input type="hidden" name="parametes" value='$!{parametes}'/>
+		<!--条件开始-->
+		$!{conditionText}
+  		<div class="list_table">
+			  <table id="list_table" class="tableStyle" useMultColor="false">
+				$!{headText}
+			   	$!{bodyText}
+			  </table>
+		</div>
+		#if($st.dataSet.isSplitPage())
+			<div class="page_change">
+				<script>PageList('$viewName',${st.dataSet.pageIndex}, ${st.dataSet.pageRowCount}, ${st.dataSet.rowCount})</script>
+			</div>
+		#end	
+	</form>
+<!--列表结束-->
+	
+<SCRIPT language="javascript">
+function initValues() 
+{ 
+$_initdataScript
+if(document.getElementById("${viewName}_query")){
+	document.getElementById("${viewName}_query").onclick = function() {
+   		getForm('${viewName}').__page.value='1';
+   }
+}
+if(document.getElementById("${viewName}_queryAll")){
+	document.getElementById("${viewName}_queryAll").onclick = function() {
+		resetDefaultForm('${viewName}');
+		getForm('${viewName}').__page.value='1';
+   		getForm('${viewName}').submit();
+   }
+}
+if(document.getElementById("${viewName}_tv_checkbox_all")){
+	document.getElementById("${viewName}_tv_checkbox_all").onclick=function() {
+		_${viewName}_do_selectAll();
+	}
+}
+
+}
+function do_queryForSelect(srcObj,tarS,dName){
+	var tarId='${viewName}_'+tarS;
+	var sName=srcObj.name;
+	var par=srcObj.options[srcObj.selectedIndex].value;
+	var u="AdmdataQuery.action?fileName="+getFieldValue('${viewName}','fileName')+"&viewName=${viewName}&dName="+dName+"&"+sName+"="+par;
+	queryDataForSelect(u,tarId);
+}
+function _${viewName}_do_selectAll()
+{
+	var selectBtn=document.getElementById("${viewName}_tv_checkbox_all");
+	var checkBtn=getForm('${viewName}').tv_checkbox;
+	if(checkBtn){
+		if(checkBtn.length){
+			if (selectBtn.checked){
+				for (var i=0;i<checkBtn.length;i++)
+				{
+					if(checkBtn[i].checked){
+						checkBtn[i].checked = false;
+					}else{
+						checkBtn[i].checked=true;
+					}
+				}
+				checkBtn.checked=true;
+			}else{
+				for (var i=0;i<checkBtn.length;i++)
+				{
+					checkBtn[i].checked = false;
+				}
+				checkBtn.checked=false;
+			}
+		}else{
+			checkBtn.checked=selectBtn.checked
+		}
+	}
+}
+//得到选择值,用","分隔
+function getSelectValues(){
+	var checkBtn=getForm('${viewName}').tv_checkbox;
+	if(checkBtn){
+		var rs="";
+		if(checkBtn.length){
+			for (var i=0;i<checkBtn.length;i++){
+				if(checkBtn[i].checked){
+					var temp=checkBtn[i].value;
+					if(rs==""){
+						rs=temp;
+					}else{
+						rs=rs+","+temp;
+					}
+				}
+			}
+		}else{
+			if(checkBtn.checked){
+				rs=checkBtn.value;
+			}
+		}
+		return rs;
+	}
+	return "";
+}
+function onload_initdata(){
+	if (typeof(initValues_pre)!= 'undefined'){
+		initValues_pre();
+	}
+	initValues();
+	if (typeof(initValues_post)!= 'undefined'){
+		initValues_post();
+	}
+}
+function helpListView(){
+	var _fileName = getFieldValue('${viewName}','fileName');
+	var _viewName = getFieldValue('${viewName}','viewName');
+	var _helpType = getFieldValue('${viewName}','_helpType');
+	var _helpName = getFieldValue('${viewName}','_helpName');
+	helpOpen(_fileName,_viewName,_helpType,_helpName)
+}
+window.onload = onload_initdata; 
+
+</SCRIPT>
+</body>
+</html>

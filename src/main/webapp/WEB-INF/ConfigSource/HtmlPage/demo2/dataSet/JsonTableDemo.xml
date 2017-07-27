@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+					function clickMe(){
+						var comId = _getComId("UNITCHIEFZZNUM");
+						var com = document.getElementById(comId);
+						com.src="XmlDataAction.action?__fileName=demo2/dataSet/JsonTableDemo&__dataSet=managerSql";
+					}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    <a href="#" onclick='javascript:clickMe()'>
+			    JSON数据
+			    </a>
+			    <b>属性：</b><br>
+			    <pre>
+  <textarea style="width:100%;height:400px">
+   <DataSet name="managerSql" type="json" static="true">
+	<param>   
+	    <param-name>value</param-name>   
+	    <param-value>
+	    [
+	    {"ID":"1","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"2","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"3","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"4","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    {"ID":"5","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+	    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+	    ]
+	    </param-value>   
+	</param>
+	<param>   
+	    <param-name>dataType</param-name>   
+	    <param-value>
+	    table
+	    </param-value>   
+	</param>
+</DataSet>
+  </textarea>
+			    
+			   	</pre>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="IFrame" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"google首页"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{"width":"100%","height":"300","src":"XmlDataAction.action?__fileName=demo2/dataSet/JsonTableDemo&__dataSet=managerSql"}				
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="db4" type="sql">
+			<param>
+				<param-name>DataBaseType</param-name>
+				<param-value>Oracle</param-value>
+			</param>
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+				
+				 ]]></param-value>
+			</param>
+		</DataSet>
+		<DataSet name="managerSql" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value>
+			    [
+			    {"ID":"1","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"2","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"3","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"4","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    {"ID":"5","BIAODUANID":"研究生","POSITION":"本科","NAME":"专科","CERTIFICATE":"高中"
+			    	,"CERTIFICATENUM":"小学生","ACERTIFICATENUM":"研究生","TELEPHONE":"本科","CERTIFICATEFJ":"专科"},
+			    ]
+			    </param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>
+			    table
+			    </param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

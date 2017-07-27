@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[查看文件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[layout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="layout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container">
+				   <div class="jumbotron">
+				      <h1>不支持此类文件的在线浏览！</h1>
+				      <p>请点击<a href="XmlFileAction_viewFile.action?fileId=${id}&service=${service}"><font color="red">原文下载</font></a>按钮把文件下载到本地硬盘。</p>
+				   </div>
+				</div>
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+</root>

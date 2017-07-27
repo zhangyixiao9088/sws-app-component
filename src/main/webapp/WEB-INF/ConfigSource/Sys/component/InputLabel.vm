@@ -1,0 +1,1 @@
+<input type="hidden" id="$id" name='$name' value='$!label'#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/><span id='_$id' #if($cssClass!="") class="$cssClass"#end>$!label</span>#if($canNull=="false")<font color="red">*</font>#end

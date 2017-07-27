@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<DataSets>
+		<DataSet name="Ds_main" type="plat">
+			<param>
+			    <param-name>fileName</param-name>
+			    <param-value>demo2/testDataSet</param-value>
+			</param>
+			<param>
+			    <param-name>dataName</param-name>
+			    <param-value>table</param-value>
+			</param>
+			<param>
+			    <param-name>type</param-name>
+			    <param-value>panel</param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+	
+	<Views>
+		<View name="view" type="SimpleTable" dataSource="Ds_main">
+			<param>
+				<param-name>script</param-name>
+				 <param-value><![CDATA[
+				 function sel(key){
+				 	parent.PageHandle.setValue("UNITNAMES",key);
+				    parent.$('#modal_selUNITNAMESLst').modal('hide');
+				 }
+				  ]]></param-value>
+			</param>
+			<param>
+				<param-name>condition</param-name>
+				<param-value><![CDATA[
+				{
+				 "column":"3",
+				 "components":[{"type":"label", "style":"width: 80px;", "param":{"label":"名称："}, "location":"0"},
+							   {"type":"text", "width":"30%",  "align":"left", "param":{"name":"model", "size":"20", "style":"width: 200px"}},
+							   {"type":"group", "param":[{"type":"submit", "param":{"name":"query", "label":" 查询 "}},
+				 						  			   	 {"type":"submit", "param":{"name":"queryAll", "label":" 全部 "}}]}]
+				}
+				]]></param-value>
+			</param>
+			<param>
+			    <param-name>head</param-name>
+			    <param-value><![CDATA[
+			    [
+			     {"type":"label","align":"left","param":{"label":"名称"}},
+			     {"type":"label",width:"50px","param":{"label":"操作"}},
+			    ]
+			    ]]></param-value>
+			</param>
+			<param>
+			    <param-name>body</param-name>
+			    <param-value><![CDATA[
+			    [
+			      {"type":"label", "param":{"label":"$!{VALUE}"}},
+			      {"filter":"caozuo"}
+			    ]
+			    ]]></param-value>
+			</param>
+			<param>
+		      	<param-name>caozuo</param-name>
+				<param-value><![CDATA[
+				    	{"type":"group","align":"right","param":[
+							{"type":"templet","param":{"type":"selbtn","onclick":"sel('$!{KEY}')"}},
+						]}
+				]]></param-value>
+      		</param>
+		</View>
+	</Views>
+</root>

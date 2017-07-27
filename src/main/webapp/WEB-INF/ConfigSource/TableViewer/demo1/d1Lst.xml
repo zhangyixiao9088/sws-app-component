@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="GBK"?>
+<!--pageAction.action?fileName=demo1/d1Lst&viewName=main-->
+<root>
+    <DataSets>
+        <DataSet name="Ds_main" type="sql">
+            <param>
+                <param-name>DataBaseType</param-name>
+                <param-value>SQLSERVER</param-value>
+            </param>
+            <param>
+                <param-name>sql</param-name>
+                <param-value><![CDATA[
+                  SELECT '1' XH, '张三' NAME,'22' AGE, '男' sex from WRP_RSR_BSIN union all
+                SELECT '1' XH, '李四' NAME,'22' AGE, '男' sex from WRP_RSR_BSIN
+			    ]]></param-value>
+            </param>
+            <param>
+                <param-name>pageSize</param-name>
+                <param-value>10</param-value>
+            </param>
+        </DataSet>
+    </DataSets>
+
+    <Views>
+        <View name="main" type="SimpleTable" dataSource="Ds_main">
+            <param>
+                <param-name>head</param-name>
+                <param-value><![CDATA[
+			    [
+			     {"type":"label","param":{"label":"序号"}},
+			     {"type":"label","param":{"label":"姓名"}},
+			     {"type":"label","param":{"label":"年纪"}},
+			     {"type":"label","param":{"label":"性别"}},
+			    ]
+			    ]]></param-value>
+            </param>
+            <param>
+                <param-name>body</param-name>
+                <param-value><![CDATA[
+			    [
+			     {"type":"label", "param":{"label":"$!{XH}"}},
+			     {"type":"label", "param":{"label":"$!{NAME}"}},
+			     {"type":"label", "param":{"label":"$!{AGE}"}},
+			     {"type":"label", "param":{"label":"$!{SEX}"}},
+			    ]
+			    ]]></param-value>
+            </param>
+        </View>
+    </Views>
+</root>

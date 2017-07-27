@@ -1,0 +1,2 @@
+<input id="$id" type="submit" value="$label"
+	#if($cssClass!="") class="$cssClass"#else class="SmallButtonA"#end />

@@ -1,0 +1,70 @@
+<script type="text/javascript">
+var swfu_$!{id};
+var jq=$;
+jq(document).ready(function () {
+	#if($!{editable}=='true')
+	swfu_${id} = new SWFUpload({
+		upload_url: "${system.getWebRoot()}/XmlFileAction_uploadFile.action",
+		post_params: {"service" : "$!{service}","busId":"$!{businessId}"},
+		// File Upload Settings
+		file_size_limit : "${perMaxSize} ${sizeUnit}",
+		file_types : "${fileTypes}",
+		file_types_description : "${fileTypesDesc}",
+		file_upload_limit : "${fileNums}", // 一次上传的文件个数限制
+						
+		file_queue_error_handler : fileQueueError,
+		file_dialog_complete_handler : fileDialogComplete,　// 选择好文件后提交
+		file_queued_handler: fileQueued,
+		upload_progress_handler : uploadProgress,
+		upload_error_handler : uploadError,
+		upload_success_handler : uploadSuccess,
+		upload_complete_handler : uploadComplete,
+		
+		// Button Settings
+		button_image_url : "${imgUrl}image/ccs/swfupload/SmallSpyGlassWithTransperancy_17x18.png",
+		button_placeholder_id : "${id}",
+		button_width: 300,
+		button_height: 18,
+		button_text : '<span class="button">单击此处选择文件 <span class="buttonSmall">(最大容量：${perMaxSize} ${sizeUnit})</span></span>',
+		button_text_style : '.button { font-family: Helvetica, Arial, sans-serif; font-size: 12pt; } .buttonSmall { font-size: 12pt; }',
+		button_text_top_padding: 0,
+		button_text_left_padding: 18,
+		button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+		button_cursor: SWFUpload.CURSOR.HAND,
+		button_action : "${single}",
+		
+		// Flash Settings
+		flash_url : "js/ccs/swfupload/swfupload.swf",
+
+		custom_settings : {
+			upload_target : "divFileProgressContainer",
+			view_id : "${id}"
+		},
+		// Debug Settings
+		debug: false  //是否显示调试窗口
+	});
+	#end
+	//加载数据
+	if(document.getElementById("business_$!{id}").value){
+		queryFileLst('${id}');
+	}
+});
+</script>
+				
+<div align="left" #if($cssClass!="") class="$cssClass"#end  style="width: ${width}">
+	#if($!{editable}=='true')
+	<div id="uploadContent_${id}" style="background-color:#f9f9f9;">
+			<div style="float:left;">
+				<span id="${id}"></span>
+			</div>
+			<div id="divFileProgressContainer_${id}"></div>
+	</div>
+	#end
+	<div id="thumbnails_${id}">
+		<input id="service_$!{id}" type="hidden" value="$!{service}"/>
+		<input id="editable_$!{id}" type="hidden" value="$!{editable}"/>
+		<input id="business_$!{id}" type="hidden" value="$!{businessId}"/>
+		<table id="infoTable_${id}" class="table table-striped" width="100%">
+		</table>
+	</div>
+</div>

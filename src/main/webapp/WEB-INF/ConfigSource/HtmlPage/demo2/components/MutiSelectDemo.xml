@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+			<param>
+			 	<param-name>dataBundle</param-name>
+			    <param-value><![CDATA[
+			    {
+			     "HTSGTS":{"field":"HTSGTS"},
+			    }
+			    ]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    	<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							<b>属性</b><br>
+								type="MutiSelect"<br>
+							<b>View属性</b><br>
+								"dlgWidth":"800",<br>
+						    	"dlgHeight":"500",<br>
+						    	"dlgSrc":"test/com/MutiSelect/TestCallParent.jsp",<br>
+						    	"btnName":"选择单位工程"<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		${HTSGTS}
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["HTSGTS"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="HTSGTS" type="MutiSelect">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"单位工程"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	"dlgWidth":"800",
+			    	"dlgHeight":"500",
+			    	"dlgSrc":"test/com/MutiSelect/TestCallParent.jsp",
+			    	"btnName":"选择单位工程"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+	<DataSet name="wmgc" type="json" static="true">
+			<param>
+				<param-name>value</param-name>
+				<param-value>
+					{"1":"配备","2":"调整","3":"方法","4":"实现"}
+				</param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

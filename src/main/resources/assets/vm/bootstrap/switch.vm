@@ -1,0 +1,3 @@
+<div  id="$id"  class="switch" tabindex="0" data-on-label="${onText}" data-off-label="${offText}" #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+    <input id="${id}_ck"   type="checkbox" #if($canEdit=="false")disabled#end/>
+</div>

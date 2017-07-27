@@ -1,0 +1,6 @@
+<iframe id="$id" src="$src" #if($cssClass!="") class="$cssClass"#end
+#if($width!="") width="$width"#end
+#if($height!="") height="$height"#end
+frameborder="0"
+#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+</iframe>

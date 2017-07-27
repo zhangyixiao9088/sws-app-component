@@ -1,0 +1,40 @@
+<div id="chartdiv_${id}"> 
+    <div class="flash_install">
+		<div class="msg_icon3"></div>
+		<div class="flash_install_con" >
+		您需要升级Flash播放器，<span class="forIE"><a href="../flash/flash_IE.exe">点击这里</a>安装</span>
+		<span class="forFF"><a href="../flash/flash_FF.exe">点击这里</a>进行安装</span>。
+		<br />安装后请关闭浏览器再重新打开
+		</div>
+	</div>
+</div>
+<textarea id="chartXml__${id}" style="display:none">
+#if(${dataLevel}=="ad")
+	$!{chartToken}
+#else
+	<chart palette='2' caption='${title}' baseFontSize='12' rotateNames='0' xAxisName='${xAxisName}' 
+	yAxisName='${yAxisName}' showValues='0' decimals='0' formatNumberScale='0' useRoundEdges='1' #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+	#if(${dataLevel}=="1")
+		#foreach($row in ${dataList})<set label='${row.VALUE}' value='${row.KEY}' />#end
+	#elseif(${dataLevel}=="2")
+	<categories>
+		#foreach($row in ${categories})<category label='${row.VALUE}'' />#end
+	</categories>
+		#foreach($row in ${dataList})
+			<dataset seriesName='${row.CHARSERIESNAME}' color='${row.CHARCOLOR}' showValues='0'>
+				#foreach($row in $categories)<category label='${row.KEY}'' />#end
+			</dataset>
+		#end
+	#elseif(${dataLevel}=="V1")
+		#foreach($row in ${dataList})<set label='${row.KEY}' value='${row.VALUE}' />#end
+	#elseif(${dataLevel}=="V2")
+		#foreach($row in ${dataList})<set label='${row.KEY}' value='${row.VALUE}' />#end
+	#end
+	</chart>
+#end
+</textarea>
+  <script type="text/javascript">
+  	var chart_${id} = new FusionCharts("UIFrame/frame/charts/FusionCharts/Charts/${charType}.swf", "ChartId", "${width}", "${height}", "0", "0");
+	chart_${id}.setDataXML(document.getElementById('chartXml__${id}').value);		   
+	chart_${id}.render("chartdiv_${id}");
+  </script>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sfs_FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+	<FeatureList fid="910" name="P_xiao489" rowcounts="37" pagesize="10"
+		pageindex="1">
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">52</SMID>
+				<SMX ALIAS="SMX">111.2798</SMX>
+				<SMY ALIAS="SMY">21.9057</SMY>
+				<NAME ALIAS="NAME">建筑1</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">82</SMID>
+				<SMX ALIAS="SMX">112.4604</SMX>
+				<SMY ALIAS="SMY">27.6103</SMY>
+				<NAME ALIAS="NAME">建筑2</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路燎原小学家属院</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">19</SMID>
+				<SMX ALIAS="SMX">117.8977</SMX>
+				<SMY ALIAS="SMY">22.1766</SMY>
+				<NAME ALIAS="NAME">建筑3</NAME>
+				<ADDRESS ALIAS="ADDRESS">围南三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">70</SMID>
+				<SMX ALIAS="SMX">115.4286</SMX>
+				<SMY ALIAS="SMY">28.5318</SMY>
+				<NAME ALIAS="NAME">建筑4</NAME>
+				<ADDRESS ALIAS="ADDRESS">科创路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">70</SMID>
+				<SMX ALIAS="SMX">114.6702</SMX>
+				<SMY ALIAS="SMY">26.4525</SMY>
+				<NAME ALIAS="NAME">建筑5</NAME>
+				<ADDRESS ALIAS="ADDRESS">太白南路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">55</SMID>
+				<SMX ALIAS="SMX">116.3421</SMX>
+				<SMY ALIAS="SMY">25.9538</SMY>
+				<NAME ALIAS="NAME">建筑6</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路8号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">53</SMID>
+				<SMX ALIAS="SMX">112.2540</SMX>
+				<SMY ALIAS="SMY">29.5843</SMY>
+				<NAME ALIAS="NAME">建筑7</NAME>
+				<ADDRESS ALIAS="ADDRESS">融鑫路6号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">68</SMID>
+				<SMX ALIAS="SMX">113.8434</SMX>
+				<SMY ALIAS="SMY">24.4962</SMY>
+				<NAME ALIAS="NAME">建筑8</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路名园新居小区10号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">4</SMID>
+				<SMX ALIAS="SMX">112.6842</SMX>
+				<SMY ALIAS="SMY">27.4163</SMY>
+				<NAME ALIAS="NAME">建筑9</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">66</SMID>
+				<SMX ALIAS="SMX">113.2723</SMX>
+				<SMY ALIAS="SMY">25.2117</SMY>
+				<NAME ALIAS="NAME">建筑10</NAME>
+				<ADDRESS ALIAS="ADDRESS">双杜路三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+	</FeatureList>
+</sfs_FeatureCollection>

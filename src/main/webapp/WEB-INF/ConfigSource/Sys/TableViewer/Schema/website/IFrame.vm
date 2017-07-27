@@ -1,0 +1,5 @@
+<iframe id="$id" src="$src"
+#if($width!="") width="$width"#end
+#if($height!="") height="$height"#end
+frameborder="0" onload="this.height=${id}.document.body.scrollHeight">
+</iframe>

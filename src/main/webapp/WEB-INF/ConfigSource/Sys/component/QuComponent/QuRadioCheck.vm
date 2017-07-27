@@ -1,0 +1,2 @@
+#foreach($row in $dataList)<input style="cursor:pointer;" type="$type" id="${id}_${velocityCount}" value="$row.KEY" name="${name}"/>$row.VALUE#end<span id="${id}_star" class="star"></span>
+

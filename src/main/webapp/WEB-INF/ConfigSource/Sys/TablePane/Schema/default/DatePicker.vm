@@ -1,0 +1,6 @@
+<input id="$id" type="text" name="$name" value="$!{value}" readonly="readonly"
+	#if($cssClass!="") class="$cssClass"#end
+	#if($size!="") size="$size"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+	#if($canEdit!="false")<img onclick="WdatePicker({el:'$id'})" src="js/ccs/dataPicker/skin/datePicker.gif" width="16" height="22" align="absmiddle"> #end
+#if($canNull=="false")<font color="red">*</font>#end 

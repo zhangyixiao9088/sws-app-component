@@ -1,0 +1,44 @@
+/****精彩生活全局重置CSS*******/
+body,h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0;}
+ul,ol,li{padding-left:0;list-style-type:none;}
+img{border:0;display:block}/***消除img默认边框*****/
+a{text-decoration:none;}/* 链接无下划线 */
+a:hover{cursor:pointer;text-decoration:underline;} /*鼠标在链接上出下划线,为手势形态 */
+table {border-collapse:collapse;}/*细线表格*/
+em{font-style:normal;}
+html{overflow-y:scroll;}/***默认让所有浏览器出现右边滚动条****/
+.clear{font-size:0;line-height:0;height:0;clear:both;overflow:hidden;display:block;}/***默认清除浮动****/
+body {font-family:"Tahoma","sans-serif","Arial";font-size:12px;width:100%;height:100%;background:url("../../../../image/platform/system/login/chooseBg.jpg") repeat-x;}
+
+.content{float:none;margin:0 auto;width:980px;height:720px;background:url("../../../../image/platform/system/login/choose_cbg.jpg") no-repeat;}
+
+.photo_box { width: 805px; height: 371px; overflow: hidden; position: relative; margin: 0px auto;float:right;z-index:0; }
+.photo_box ol { position: absolute; left: 0px; bottom: 0px; z-index: 2;width:805px;height:30px;color:#fff;}
+.photo_box ol li { float: left; margin-right: 0px; display: inline; cursor: pointer;border-right:1px solid #fff;text-align:center; background:#adacab;height:30px;line-height:30px; font-size: 12px; opacity: 0.9;filter:alpha(opacity=90); }
+.photo_box .active {color:#666666;background:#fff;border-bottom:2px solid #ca0809;height:28px;  }
+.photo_box ul { position: absolute; top: 0; left: 0; z-index: 1; }
+.photo_box ul li { width: 805px; height: 369px; float: left; }
+.photo_box ul img { float: left; width: 805px; height: 369px; }
+
+.choose{float:left;width:750px;padding:185px 0 0 130px;}
+.b_content{float:left;width:750px;height:360px;}
+.b_content .prev,.b_content .next{width:28px;height:40px;overflow:hidden;position:absolute;z-index:99999;top:150px;font-size:0px;cursor:pointer;}
+.b_content .prev{background: url("../../../../image/platform/system/login/prev.jpg") no-repeat;left:0px;}
+.b_content .next{background: url("../../../../image/platform/system/login/next.jpg") no-repeat;right:0px;}
+
+.b_content ul li{float:left;width:710px;height:360px;padding:20px 0 0 40px;overflow:hidden;}
+.b_content ul p{float:left;width:132px;height:160px;padding:12px 18px 0;overflow:hidden;}
+.b_content ul span{float:left;width:122px;height:104px;padding:4px;border:1px solid #d2d2d2;overflow:hidden;}
+.b_content ul img{float:left;width:122px;height:104px;overflow:hidden;}
+.b_content ul a{float:left;}
+.b_content ul a em{height:40px;line-height:20px;width:132px;color:#000b9f;text-align:center;padding-top:3px;overflow:hidden;}
+
+
+
+
+
+
+
+
+
+

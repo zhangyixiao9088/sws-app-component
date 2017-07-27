@@ -1,0 +1,4 @@
+/************* SelectorView **************/
+.SelectorView .selector_table { width: 100%; }
+.SelectorView .selector_table .src, .SelectorView .selector_table .dst { width: 50%; }
+.TableView a, .TableView a:link, .TableView a:visited { color: #36f; }

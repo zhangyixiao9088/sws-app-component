@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sfs_FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+	<FeatureList fid="518" name="P_xiao755" rowcounts="176"
+		pagesize="10" pageindex="1">
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">73</SMID>
+				<SMX ALIAS="SMX">118.5502</SMX>
+				<SMY ALIAS="SMY">29.8926</SMY>
+				<NAME ALIAS="NAME">工业监测点1</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">15</SMID>
+				<SMX ALIAS="SMX">112.5828</SMX>
+				<SMY ALIAS="SMY">22.9276</SMY>
+				<NAME ALIAS="NAME">工业监测点2</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路燎原小学家属院</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">54</SMID>
+				<SMX ALIAS="SMX">118.7513</SMX>
+				<SMY ALIAS="SMY">21.8384</SMY>
+				<NAME ALIAS="NAME">工业监测点3</NAME>
+				<ADDRESS ALIAS="ADDRESS">围南三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">90</SMID>
+				<SMX ALIAS="SMX">115.5709</SMX>
+				<SMY ALIAS="SMY">24.388</SMY>
+				<NAME ALIAS="NAME">工业监测点4</NAME>
+				<ADDRESS ALIAS="ADDRESS">科创路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">51</SMID>
+				<SMX ALIAS="SMX">112.7904</SMX>
+				<SMY ALIAS="SMY">23.4291</SMY>
+				<NAME ALIAS="NAME">工业监测点5</NAME>
+				<ADDRESS ALIAS="ADDRESS">太白南路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">98</SMID>
+				<SMX ALIAS="SMX">114.6905</SMX>
+				<SMY ALIAS="SMY">22.9274</SMY>
+				<NAME ALIAS="NAME">工业监测点6</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路8号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">97</SMID>
+				<SMX ALIAS="SMX">118.1865</SMX>
+				<SMY ALIAS="SMY">28.1829</SMY>
+				<NAME ALIAS="NAME">工业监测点7</NAME>
+				<ADDRESS ALIAS="ADDRESS">融鑫路6号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">27</SMID>
+				<SMX ALIAS="SMX">114.3758</SMX>
+				<SMY ALIAS="SMY">21.2244</SMY>
+				<NAME ALIAS="NAME">工业监测点8</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路名园新居小区10号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">62</SMID>
+				<SMX ALIAS="SMX">116.8616</SMX>
+				<SMY ALIAS="SMY">29.9835</SMY>
+				<NAME ALIAS="NAME">工业监测点9</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">51</SMID>
+				<SMX ALIAS="SMX">111.7896</SMX>
+				<SMY ALIAS="SMY">28.703</SMY>
+				<NAME ALIAS="NAME">工业监测点10</NAME>
+				<ADDRESS ALIAS="ADDRESS">双杜路三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+	</FeatureList>
+</sfs_FeatureCollection>

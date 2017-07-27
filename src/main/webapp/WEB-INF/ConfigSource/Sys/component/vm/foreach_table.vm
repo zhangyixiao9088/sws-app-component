@@ -1,0 +1,26 @@
+<table id="${id}_table" class="tableStyle">
+	<tr>
+		<th>
+			<input type="button" value="ÐÂÔö" onclick="${id}.add()"/>
+			<input type="button" value="É¾³ý" onclick="${id}.del()"/>
+			<input type="button" value="¸´ÖÆ" onclick="${id}.copy()"/>
+		</th>
+	</tr>
+</table>
+<div id='${id}' style='display:none'>
+	${comView}
+</div>
+<SCRIPT type="text/javascript">
+	var ${id}Jq =  $;
+	var ${id} = new TableOptObject();
+	${id}Jq(document).ready(function() {
+ 	 	${id}.comNames="${nameStr}";
+		${id}.bundleComs="${bundleComs}";
+		${id}.id='${id}';
+		${id}.viewName='${viewName}';
+		${id}.initDataSet('${dataSet}');
+		#if($!{selectName}!="")
+		${id}.selectName='$!{selectName}';
+		#end
+	});
+</script>

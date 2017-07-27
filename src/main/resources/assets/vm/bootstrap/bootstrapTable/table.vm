@@ -1,0 +1,30 @@
+<table id="$id" data-toggle="table"
+       data-url="${dataUrl}"
+       data-content-type = "application/x-www-form-urlencoded"
+       #if($height!="")data-height="$height"#end
+       #if($cardView!="")data-card-view="$cardView"#end
+       #if($hasSelect!="")data-click-to-select="$hasSelect"#end
+       #if($singleSelect!="")data-single-select="$singleSelect"#end
+       #if($selectItemName!="")data-select-item-name="$selectItemName"#end
+       #if($hasSearch!="")data-search="$hasSearch"#end
+       #if($showRefresh!="")data-show-refresh="$showRefresh"#end
+       #if($showToggle!="")data-show-toggle="$showToggle"#end
+       #if($showColumns!="")data-show-columns="$showColumns"#end
+       #if($toolbar!="")data-toolbar="$toolbar"#end
+       #if($params!="")data-query-params="${id}_query" data-method="post" data-cache="false"#end
+       #if($hasPagination!="")data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50]" #end
+       >
+    <thead>
+    <tr>
+    	${headStr}
+    </tr>
+    </thead>
+</table>
+<script>
+ #if($params!="")
+function ${id}_query(p){
+	 $queryParams
+	 return p;
+}
+#end
+</script>

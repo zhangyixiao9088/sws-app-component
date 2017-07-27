@@ -1,0 +1,43 @@
+#*
+用途：单选下拉选择框
+       $id: 控件id
+     $name: 控件名
+ $cssClass: 控件样式 ，当为default时，有滚动条；当为rich时，为富文本框
+   $maxNum: 控件最大字数 
+$watermark: 控件水印文字
+   $resize: 为true时，文本域尺寸可变
+$autoHeight:为true时，文本域高度自适应内容
+      $Data：控件文本域
+      
+富文本框特有属性：   
+       $editorWidth: 表示富文本框宽度,为数值，eg:500   默认宽为500
+      $editorHeight: 表示富文本框高度,为数值，eg:300   默认高为300
+              $mode: 表示富文本框模式，值有full、normal、min，默认为normal
+              
+         引用文件： UIFrame/frame/js/form/validationEngine-cn.js
+             UIFrame/frame/js/form/validationEngine.js     引用以上两个js文件为文本框
+             UIFrame/frame/js/form/CLEditor/jquery.cleditor.css
+             UIFrame/frame/js/form/CLEditor/jquery.cleditor.js  
+             UIFrame/frame/js/form/CLEditor/jquery.cleditor.table.js
+             UIFrame/frame/js/form/CLEditor/jquery.cleditor.icon.js  引用以上四个文件为富文本框          
+验证属性：    
+required 必填项 
+length[0,20] 限制长度
+custom[onlyNumber] 只允许输入数字 
+custom[onlyLetter] 只允许输入英文 
+custom[noSpecialCaracters] 只允许输入英文或数字 
+funcCall[validName] 自定义验证规则，
+在jquery.validationEngine-cn.js文件中添加，validName为自定义的验证规则名字             
+*#
+
+<textarea id="$id" name="$name"
+	#if($cssClass!="") class="$cssClass"#end
+	#if($maxNum!="") maxNum="$maxNum"#end
+	#if($watermark!="") watermark="$watermark"#end
+	#if($resize=="true") resize="true"#end
+	#if($autoHeight=="true") autoHeight="true"#end
+	#if($editorWidth!="") editorWidth="$editorWidth"#end
+	#if($editorHeight!="") editorHeight="$editorHeight"#end
+	#if($mode!="") mode="$mode"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>$!{Data}</textarea>
+<span id="${id}_star" class="star"></span>

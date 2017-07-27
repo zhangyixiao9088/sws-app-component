@@ -1,0 +1,13 @@
+#*
+用途： 一级纵向导航
+               $id: 控件id
+         $cssClass：控件样式 eg:list_menu3、list_menu3_min等
+         $dataList: 控件数据源
+$dataList.titleVal: 菜单项
+*#
+<div id="$id" #if($cssClass!="") class="$cssClass"#end
+ #set($index=0)
+   #foreach($row in $dataList) #set($index=$index+1)
+   <div #if($index==1) class="current"#end><span>
+   <a href="javascript:;">$row.titleVal</a></span></div>#end
+</div>

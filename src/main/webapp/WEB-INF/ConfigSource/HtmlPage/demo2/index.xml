@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="GBK"?>
+<!--  xmlPaneAction.action?fileName=demo2/index&viewName=main-->
+<root>
+	<Views>
+		<View name="main" type="ComponentBuilder">
+			<param>
+			 	<param-name>title</param-name>
+			    <param-value><![CDATA[帮助文档]]></param-value>   
+			</param>
+			<param>
+			 	<param-name>component</param-name>
+			    <param-value><![CDATA[wizardDepartment]]></param-value>   
+			</param>
+		</View>
+	</Views>
+	
+	<DataSets>
+		<DataSet name="departMentSql" type="json">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    #if(${TYPE}=="primary" )
+			    	[ 
+			    		{ID:"1","FILENAME":"demo2/components/AutoCompleteDemo","VIEWNAME":"view1",TITLE:"AutoComplete";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/bMultiselectDemo","VIEWNAME":"view1",TITLE:"bMultiselect";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/bootstrap/TableDemo","VIEWNAME":"view1",TITLE:"bootstrapTable";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/CheckBoxDemo","VIEWNAME":"view1",TITLE:"CheckBox";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/CheckBoxListDemo","VIEWNAME":"view1",TITLE:"CheckBoxList";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/CKeditorDemo","VIEWNAME":"view1",TITLE:"CKeditor";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/CodeEditorDemo","VIEWNAME":"view1",TITLE:"*CodeEditor";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/D3Demo","VIEWNAME":"view1",TITLE:"*D3";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/DatePickerDemo","VIEWNAME":"view1",TITLE:"DatePicker";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/DepartmentTreeDemo","VIEWNAME":"view1",TITLE:"DepartmentTree";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/echartsDemo","VIEWNAME":"view1",TITLE:"echarts";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/FCKeditorDemo","VIEWNAME":"view1",TITLE:"FCKeditor";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/Fix2dTableDemo","VIEWNAME":"view1",TITLE:"Fix2dTable";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/FlashCharDemo","VIEWNAME":"view1",TITLE:"FlashChar";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/FlexGridDemo","VIEWNAME":"view1",TITLE:"FlexGrid";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/fusionChartsDemo","VIEWNAME":"view1",TITLE:"*fusionCharts";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/GroupDemo","VIEWNAME":"view1",TITLE:"Group";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/handsonTableDemo","VIEWNAME":"view1",TITLE:"handsonTable";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/HiddenDemo","VIEWNAME":"view1",TITLE:"Hidden";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/highChartsDemo","VIEWNAME":"view1",TITLE:"*highCharts";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/HtmlPartDemo","VIEWNAME":"view1",TITLE:"*HtmlPart";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/HtmlTableDemo","VIEWNAME":"view1",TITLE:"HtmlTable";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/IconButtonDemo","VIEWNAME":"view1",TITLE:"IconButton";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/IFrameDemo","VIEWNAME":"view1",TITLE:"IFrame";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/inlineDemo","VIEWNAME":"view1",TITLE:"inline";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/InputLabelDemo","VIEWNAME":"view1",TITLE:"InputLabel";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/JQTableDemo","VIEWNAME":"view1",TITLE:"JQTable";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/JsonEditorDemo","VIEWNAME":"view1",TITLE:"*JsonEditor";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/KeyObjectDemo","VIEWNAME":"view1",TITLE:"*KeyObject";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/MutiSelectDemo","VIEWNAME":"view1",TITLE:"*MutiSelect";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/OptMultiSelectorDemo","VIEWNAME":"view1",TITLE:"*OptMultiSelector";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/PassWordDemo","VIEWNAME":"view1",TITLE:"PassWord";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/popSelectDemo","VIEWNAME":"view1",TITLE:"popSelect()";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/ProjectPickDemo","VIEWNAME":"view1",TITLE:"*ProjectPick";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/RadioBoxListDemo","VIEWNAME":"view1",TITLE:"RadioBoxList";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/SelectDemo","VIEWNAME":"view1",TITLE:"Select";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/SignatureDemo","VIEWNAME":"view1",TITLE:"*Signature";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/starRatingDemo","VIEWNAME":"view1",TITLE:"*starRating";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/switchDemo","VIEWNAME":"view1",TITLE:"*switch";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/TableDemo","VIEWNAME":"view1",TITLE:"Table";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/tagsInputDemo","VIEWNAME":"view1",TITLE:"tagsInput";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/TextAreaDemo","VIEWNAME":"view1",TITLE:"TextArea";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/TextDemo","VIEWNAME":"view1",TITLE:"Text";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/TreeDemo","VIEWNAME":"view1",TITLE:"Tree";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/TwoWaySelectDemo","VIEWNAME":"view1",TITLE:"TwoWaySelect";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/uploadDemo","VIEWNAME":"view1",TITLE:"upload";CNT:0},
+						{ID:"1","FILENAME":"demo2/components/uploadImageDemo","VIEWNAME":"view1",TITLE:"uploadImage";CNT:0},
+			    	]
+			    #elseif(${TYPE}=="container")	
+			    	[
+			    		{ID:"1","FILENAME":"demo2/container/TableLayoutDemo","VIEWNAME":"view1",TITLE:"表格布局";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/container/AccordionLayoutDemo","VIEWNAME":"view1",TITLE:"手风琴布局";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/container/BorderLayoutDemo","VIEWNAME":"view1",TITLE:"Border布局";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/container/EBorderLayoutDemo","VIEWNAME":"view1",TITLE:"Eborder布局";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/container/TabbedLayoutDemo","VIEWNAME":"view1",TITLE:"标签布局";CNT:0} ,
+			    	]
+			    #elseif(${TYPE}=="dataSet")	
+			    	[
+			    		{ID:"1","FILENAME":"demo2/dataSet/JsonTableDemo","VIEWNAME":"view1",TITLE:"JsonTable";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/dataSet/JsonDemo","VIEWNAME":"view1",TITLE:"Json";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/dataSet/sqlDemo","VIEWNAME":"view1",TITLE:"sql";CNT:0} ,
+			    	]
+			    #elseif(${TYPE}=="table")	
+			    	[
+			    		{ID:"1","FILENAME":"demo2/dataSet/JsonTableDemo","VIEWNAME":"view1",TITLE:"JsonTable";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/dataSet/JsonDemo","VIEWNAME":"view1",TITLE:"Json";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/dataSet/sqlDemo","VIEWNAME":"view1",TITLE:"sql";CNT:0} ,
+			    	]
+			     #elseif(${TYPE}=="pane")	
+			    	[
+			    		{ID:"1","FILENAME":"demo2/dataSet/JsonTableDemo","VIEWNAME":"view1",TITLE:"JsonTable";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/dataSet/JsonDemo","VIEWNAME":"view1",TITLE:"Json";CNT:0} ,
+			    		{ID:"1","FILENAME":"demo2/dataSet/sqlDemo","VIEWNAME":"view1",TITLE:"sql";CNT:0} ,
+			    	]
+			     #elseif(${TYPE}=="component")	
+			    	[
+			    		{ID:"1",TYPE:"primary",TITLE:"元组件 ";CNT:1},
+			    		{ID:"1",TYPE:"container",TITLE:"容器组件";CNT:1},
+			    		{ID:"1",TYPE:"dataSet",TITLE:"数据源";CNT:1}
+			    	]
+			     #elseif(${TYPE}=="start")	
+			    	[
+			    		{ID:"1","FILENAME":"demo2/install/installDatabase","VIEWNAME":"view1",TYPE:"start",TITLE:"安装数据库";CNT:0},
+			    		{ID:"1","FILENAME":"demo2/install/devList","VIEWNAME":"main",TYPE:"start",TITLE:"数据列表开发";CNT:0},
+			    		{ID:"1","FILENAME":"demo2/install/devPane","VIEWNAME":"main",TYPE:"start",TITLE:"数据表单开发";CNT:0},
+			    	]
+			    #else
+			    	[
+			    		{ID:"1",TYPE:"start",TITLE:"入门教程";CNT:1},
+			    		{ID:"1",TYPE:"table",TITLE:"创建查询列表";CNT:1},
+			    		{ID:"1",TYPE:"pane",TITLE:"创建一个表单";CNT:1},
+			    		{ID:"1",TYPE:"component",TITLE:"组件参考";CNT:1}
+			    	]
+			    #end
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+	<Components>
+		<Component name="wizardDepartment" type="HtmlLayout">
+				<param>
+				    <param-name>JSLink</param-name>
+				    <param-value><![CDATA[
+				    ["UIFrame/frame/js/attention/zDialog/zDialog.js","UIFrame/frame/js/attention/zDialog/zDrag.js"]
+				    ]]></param-value>
+				</param>
+				<param>   
+				    <param-name>LayoutManager</param-name>   
+				 	<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.BorderLayout]]></param-value>   
+				</param>
+					<param>   
+				    <param-name>LayoutManager-Properties</param-name>   
+				    <param-value><![CDATA[ 
+				    	{
+				    		"center":"detail",
+				    		"west":"layout"
+				    	}
+				    ]]></param-value>   
+				</param>
+				<param>
+				    <param-name>components</param-name>
+				    <param-value><![CDATA[
+				    ["layout","detail"]
+				    ]]>
+				    </param-value>
+				</param>
+		</Component>
+		<Component name="HTSGTS1" type="tree"> 
+			<param>   
+			    <param-name>InitJS</param-name>   
+			    <param-value><![CDATA[
+					function testClick(id,par){
+					   var obj = parserParametes(par);
+					   if(obj.FILENAME){
+					   		document.getElementById("main_detail").src = "xmlPaneAction.action?fileName="+obj.FILENAME+"&viewName="+obj.VIEWNAME;
+					   	}
+					}
+				]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	"root":"帮助文档",
+			    	"data":"departMentSql",
+			    	"idKey":"ID",
+			    	"idValue":"0",
+			     	"children":"CNT",
+			     	"text":"TITLE",
+			     	"action":"testClick"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="detail" type="iframe">
+			<param>
+			    <param-name>View</param-name>
+			    <param-value><![CDATA[
+			    {"width":"100%","height":"100%","src":""}
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="layout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+				function openurl(url){
+					
+				}
+			    ]]></param-value>
+		  	</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div style="height:30px;background-color:#ccc;width:100%">
+				<img class="img_style1" src="UIFrame/frame/icons/open_win_arrow.gif"/>基本操作控件：
+				</div>
+				<div id="target">
+				${HTSGTS1}
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			     ["HTSGTS1"]
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+</root>

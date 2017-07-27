@@ -1,0 +1,35 @@
+<select id="$id" name="$name" #if($multiple!="false")multiple="multiple"#end>
+	#foreach($row in $dataList)<option value="$row.KEY">$row.VALUE</option>#end
+</select>
+<script type="text/javascript">
+    $('#$id').multiselect({
+    	#if($includeSelectAllOption!="") includeSelectAllOption:$includeSelectAllOption,#end 
+    	#if($enableFiltering!="") enableFiltering:$enableFiltering,#end 
+    	#if($maxHeight!="") maxHeight:$maxHeight,#end 
+    	#if($buttonClass!="") buttonClass:"$buttonClass",#end 
+    	#if($buttonWidth!="") buttonWidth:"$buttonWidth",#end 
+    	disableIfEmpty: true,
+    	nonSelectedText: '请选择 ...',
+    	selectAllText:"所有项目",
+    	buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return '请选择 ...';
+                #if($showItems!="") 
+                } else if (options.length > $showItems) {
+                    return '已选择'+options.length+"项！";
+                #end 
+                }else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label'));
+                         }
+                         else {
+                             labels.push($(this).html());
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+          }
+    });
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>time</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<script type="text/javascript" src="js/ccs/dataPicker/WdatePicker.js" ></script>
+<script type="text/javascript" src="js/secs/time/time.js" ></script>			
+<div id="date" style="float:right">
+ <select id="dateSel" onchange="setDate()">
+	<option value="D">按日分析</option>
+	<option value="M" selected>按月分析</option>
+	<option value="S">按季分析</option>
+	<option value="Y">按年分析</option>
+ </select>
+  <input id="dateIpt" type="text" name="dateIpt" readonly="true" size="10" onclick="onckDate()"/>
+   <select id="dateSeason" style="display:none;">
+	<option value="01">1季度</option>
+	<option value="02">2季度</option>
+	<option value="03">3季度</option>
+	<option value="04">4季度</option>
+   </select>
+   <input type="button" value="确定" onclick="query()"/>
+</div>
+<div style="clear:both"></div>
+<script type="text/javascript" >
+	function query(){
+		var queryStr = getDate();
+		alert(queryStr);
+	}
+	setDate();
+</script>
+
+</body></html>

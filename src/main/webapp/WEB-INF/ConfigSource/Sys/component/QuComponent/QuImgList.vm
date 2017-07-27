@@ -1,0 +1,18 @@
+#*
+用途： 图片列表
+              $id:  控件id
+         $tabList:  控件源
+  $tabList.imgUrl:  控件图片链接地址
+$tabList.titleVal:  控件标题
+$tabList.titleCon:  控件内容 
+*#
+
+#foreach($row in $tabList)
+<div id="$id" class="boxgrid captionfull">
+<img src="$row.imgUrl"/> 
+<div class="cover boxcaption">
+<div class="boxgrid_title">$row.titleVal</div>
+<div class="boxgrid_con">$row.titleCon</div>
+</div>
+</div>
+#end	

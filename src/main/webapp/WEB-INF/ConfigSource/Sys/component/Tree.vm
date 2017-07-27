@@ -1,0 +1,4 @@
+<script type="text/javascript">
+var T$name = new WebFXLoadTree('$root','XmlTreeDataAction.action?__fileName=${builder.getConfigName()}&__dataSet=$data&__text=$text&__action=$!{action}&__children=$children&__key=$!idKey&$idKey=$!idValue#foreach($comPro in $context.entrySet())&${comPro.key}=${comPro.value}#end');
+document.write(T$name);
+</script>

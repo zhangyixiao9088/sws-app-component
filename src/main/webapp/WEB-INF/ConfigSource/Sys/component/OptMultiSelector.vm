@@ -1,0 +1,35 @@
+<input id="$id" type="text" name="$name" value="$!{value}" readOnly
+	#if($cssClass!="") class="$cssClass"#end
+	#if($size!="") size="$size"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+<span id="${id}_star" class="star"></span>
+<div id="${id}_html" style="display:none;">
+<div style="width:100%;height:100%;overflow-x:hidden;overflow-y:auto;">
+	<table  id="${id}_table" class="tableStyle i_table_style" formMode="true">
+	<tr>
+		<th colspan="8">$title</th>
+	</tr>
+	#set($index=-1)
+	#foreach($row in $dataList)
+	#set($index=$index+1)
+	#if($index == 0 )
+	  <tr>
+	#end
+	   <td id="${id}_option_$row.KEY" width="20%">$row.VALUE</td><td width="5%"><input type="checkbox" value="$row.KEY"/></td>
+	#if($index == 3 )
+	   #set($index=-1)
+	  </tr>
+	#end
+	#end
+	<tr>
+	<td colspan="8">		
+	    </td>
+	</tr>
+	</table>
+</div>
+</div>
+<script LANGUAGE="JavaScript">
+	$(document).ready(function(){
+	      $("#${id}").ckMultiSelect({  #foreach($comPro in $context.entrySet()) ${comPro.key}:"${comPro.value}",#end #if($maxItem!="") maxItem:"${maxItem}" #else maxItem:undefined #end });
+	});
+</script>

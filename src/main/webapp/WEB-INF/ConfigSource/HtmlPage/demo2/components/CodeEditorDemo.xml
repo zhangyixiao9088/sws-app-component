@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[样例]]></param-value>
+			</param>
+			<param>
+				<param-name>JSLink</param-name>
+				<param-value><![CDATA[
+					["js/common/common.util.js"]
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[NAME]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		
+		<Component name="NAME" type="CodeEditor">
+			<param>
+			    <param-name>Label</param-name>
+			    <param-value><![CDATA[{"label":"SQL:"}]]></param-value>
+			</param>
+			<param>
+			    <param-name>View</param-name>
+			    <param-value><![CDATA[{"mode":"xml",style:"width:50%;height:50%"}]]></param-value>
+			</param>
+		</Component>
+		
+	</Components>
+	
+</root>

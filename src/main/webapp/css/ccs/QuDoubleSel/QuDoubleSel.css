@@ -1,0 +1,3 @@
+ul.lister { height:250px; }
+div.listerLinksLeft, div.listerLinksRight { text-align:left; width:240px; padding:5px; }
+.listBtn { padding:100px 0 0 0; float:left; }

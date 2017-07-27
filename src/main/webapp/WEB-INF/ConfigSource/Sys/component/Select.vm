@@ -1,0 +1,10 @@
+<select id="$id" name="$name"
+	#if($cssClass!="") class="$cssClass"#end 
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+<option value="">---«Î—°‘Ò---</option>
+#foreach($row in $dataList)<option value="$row.KEY">$row.VALUE</option>#end
+</select>
+<input id="hidVal_$id" type="hidden"/>
+<input id="hidData_$id" type="hidden" value="$!{data}"/>
+<input id="hid_$id" type="hidden" value="$!{from}"/>
+<span id="${id}_star" class="star"></span>

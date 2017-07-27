@@ -1,0 +1,26 @@
+/**
+ * suzy- golbal styles
+ */
+@charset "UTF-8";
+html {
+	min-height: 100%;
+	position: relative;
+}
+body {
+	background-color: #e4e6e9;
+	min-height: 100%;
+	padding-bottom: 0;
+	font-family: roboto,'Open Sans','Microsoft YaHei';
+	font-size: 13px;
+	color: #393939;
+	line-height: 1.5;
+}
+*,
+button,
+input,
+i,
+a {
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
+}

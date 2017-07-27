@@ -1,0 +1,26 @@
+#*
+用途：单选或多选下拉选择框
+       $id: 控件id
+     $name: 控件名
+ $multiple: 当为true时，表名控件为多选下拉列表，否则为单选下拉列表，默认空为false
+ $dataList：控件数据源
+ $cssClass: 控件样式，当为default时，为多选下拉框
+   $colNum：为数字域n，单选按钮应有的属性，表示其布局界面显示为n列
+                 文件： UIFrame/frame/js/form/validationEngine-cn.js
+            UIFrame/frame/js/form/validationEngine.js  (验证脚本)
+                 单选： UIFrame/frame/js/form/select_split.js
+                 多选： UIFrame/frame/js/form/multiselect.js
+             
+     
+ 验证属性：    
+required 必填项 
+*#
+<input id="${id}" type="hidden"/>
+<input id="${id}_show" type="text" name="$name" readonly="readonly" #if($size!="") size="$size"#end #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+<span id="${id}_star" class="star"></span>
+<script>
+var jq = $;
+jq("#${id}").ProjectSelector({
+	dataSet:"${data}"
+});
+</script>

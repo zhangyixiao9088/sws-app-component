@@ -1,0 +1,12 @@
+<div class="block width-table" style="width:95%">
+	<fieldset>
+		<legend>
+		  <span class="block-title headsize">
+			${title}
+		  </span>
+		</legend>
+		<div class="block-body">
+			${content}
+		</div>
+	</fieldset>
+</div>

@@ -1,0 +1,12 @@
+<table id="flex1" style="display:none"></table>
+
+<script LANGUAGE="JavaScript">
+$(document).ready(function(){ 
+	$("#flex1").flexigrid(
+	    
+	    
+	);
+	$("#flex1").flexAddData(x);
+});
+	
+</script>

@@ -1,0 +1,7 @@
+<div id="editor_${id}" #if($cssClass!="") class="$cssClass"#end#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+</div>
+<script>
+    var editor_${id} = ace.edit("editor_${id}");
+    editor_${id}.setTheme("ace/theme/${theme}");
+    editor_${id}.getSession().setMode("ace/mode/${mode}");
+</script>

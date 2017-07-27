@@ -1,0 +1,5 @@
+<div class="all_operation">
+    #foreach($btn in $st.getGlobalButtons())
+  		$btn.getComponent().print()
+  	#end
+</div>

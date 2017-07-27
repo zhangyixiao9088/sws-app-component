@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    ${FIELD1}
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["FIELD1"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="FIELD1" type="OptMultiSelector">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"单位工程"}</param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				    {
+				    	title:"请选择单位工程",
+				    	style:"width:300px",
+				    	maxItem:"1",
+				    	data:"db4",
+				    	cnNameCom:"proNames"
+				    }
+				    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="db4" type="sql">
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+			    	 #if($!{id})
+     					SELECT distinct Sp.Projectid KEY, Sp.Projectname VALUE  FROM JDR_T_SUPERVISE_PROJECT SP, JDR_T_SUPERVISE S
+                   		WHERE S.ID = SP.SUPERVISEID AND S.ID in (select s.superviseid from jdbd_t_210completion s where s.id=$!{id})
+               		 #else
+                   		SELECT distinct Sp.Projectid KEY, Sp.Projectname VALUE FROM JDR_T_SUPERVISE_PROJECT SP, JDR_T_SUPERVISE S
+                        WHERE S.ID = SP.SUPERVISEID AND S.ID = ${supId}
+               		 #end    
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>isSplitPage</param-name>
+				<param-value><![CDATA[false]]></param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

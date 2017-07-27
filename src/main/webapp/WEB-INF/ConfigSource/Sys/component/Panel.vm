@@ -1,0 +1,13 @@
+<div class="block width-table" style="width:90%">
+	<fieldset>
+		<legend>
+		  <img src="image/tab/new.gif" align="absmiddle" />
+		  <span class="block-title headsize">
+		   		${title}
+		  </span>
+		</legend>
+		<div class="block-body">
+			
+		</div>
+	</fieldset>
+</div>

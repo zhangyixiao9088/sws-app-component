@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			    ${UNITCHIEFZZNUM}
+			    
+			    ${UNITCHIEFZZNUM2}
+			    <br>
+			    type:hidden<br/>
+			    <b>属性：</b>
+			    	没有发现它的属性
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM","UNITCHIEFZZNUM2"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="include" >
+			<param>   
+			    <param-name>fileName</param-name>   
+			    <param-value><![CDATA[demo2/components/fusionChartsDemo]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>viewName</param-name>   
+			    <param-value><![CDATA[view1]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>comName</param-name>   
+			    <param-value><![CDATA[UNITCHIEFZZNUM]]></param-value>   
+			</param>
+		</Component>
+		
+		<Component name="UNITCHIEFZZNUM2" type="include" >
+			<param>   
+			    <param-name>fileName</param-name>   
+			    <param-value><![CDATA[demo2/components/fusionChartsDemo]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>viewName</param-name>   
+			    <param-value><![CDATA[view1]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>comName</param-name>   
+			    <param-value><![CDATA[UNITCHIEFZZNUM]]></param-value>   
+			</param>
+		</Component>
+	</Components>
+	
+</root>

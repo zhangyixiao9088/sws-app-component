@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>$!{titleText}</title>
+
+<link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="ext/docs/resources/welcome.css"/>
+<script language="javascript" type="text/javascript" src="js/ccs/dataPicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/ccs/jquery/jquery.js"></script>
+<script type="text/javascript" src="js/ccs/pagination.js"></script>
+<script type="text/javascript" src="js/ccs/TablePane.js"></script>
+
+$!{cssSrcText}
+$!{scriptSrcText}
+<script type="text/javascript">
+$!{st.script}
+</script>
+<style type="text/css">
+$!{st.css}
+</style>
+</head>
+<body>
+$!{infoText}
+<div align="center" style="margin-top: 5px">
+<form id="$viewName" name="$viewName" action="pageAction.action" method="post">
+<!--条件开始-->
+$!{conditionText}
+
+<!--列表开始-->
+<input type="hidden" name="parametes" value='$!{parametes}'/>
+<div class="block" align="center" style="width:$st.property.width; padding:10px; margin-top: 5px">
+<fieldset>
+<legend>
+<div id="thisIsTitle">
+  <span class="block-title"><img src="image/ccs/default/list.gif" width="17" height="17" align="absmiddle" />$!{captionText}</span>
+</div>
+</legend>
+
+<div class="block-body">
+  <!--按钮开始-->
+  $!{gButtonsText} 
+
+  <table id="list-table" class="list-table" width="98%">
+	$!{headText}
+   	$!{bodyText}
+	#if($st.dataSet.isSplitPage())
+	<tr>
+	  <td colspan="$st.head.cols.size()">
+        <script>PageList('$viewName',${st.dataSet.pageIndex}, ${st.dataSet.pageRowCount}, ${st.dataSet.rowCount})</script></td>
+    </tr>
+    #end
+  </table>
+</div>
+</fieldset>
+</div>
+<!--列表结束-->
+</form>
+</div>
+
+<SCRIPT language="javascript">
+function initValues() 
+{ 
+$_initdataScript
+if(document.getElementById("${viewName}_query")){
+	document.getElementById("${viewName}_query").onclick = function() {
+   		getForm('${viewName}').__page.value='1';
+   }
+}
+if(document.getElementById("${viewName}_queryAll")){
+	document.getElementById("${viewName}_queryAll").onclick = function() {
+		resetDefaultForm('${viewName}');
+		getForm('${viewName}').__page.value='1';
+   		getForm('${viewName}').submit();
+   }
+}
+if(document.getElementById("${viewName}_tv_checkbox_all")){
+	document.getElementById("${viewName}_tv_checkbox_all").onclick=function() {
+		__${viewName}_do_selectAll();
+	}
+}
+
+}
+function do_queryForSelect(srcObj,tarS,dName){
+	var tarId='${viewName}_'+tarS;
+	var sName=srcObj.name;
+	var par=srcObj.options[srcObj.selectedIndex].value;
+	var u="AdmdataQuery.action?fileName="+getFieldValue('${viewName}','fileName')+"&viewName=${viewName}&dName="+dName+"&"+sName+"="+par;
+	queryDataForSelect(u,tarId);
+}
+function __${viewName}_do_selectAll()
+{
+	var selectBtn=document.getElementById("${viewName}_tv_checkbox_all");
+	var checkBtn=getForm('${viewName}').tv_checkbox;
+	if(checkBtn){
+		if(checkBtn.length){
+			if (selectBtn.checked){
+				for (var i=0;i<checkBtn.length;i++)
+				{
+					if(checkBtn[i].checked){
+						checkBtn[i].checked = false;
+					}else{
+						checkBtn[i].checked=true;
+					}
+				}
+				checkBtn.checked=true;
+			}else{
+				for (var i=0;i<checkBtn.length;i++)
+				{
+					checkBtn[i].checked = false;
+				}
+				checkBtn.checked=false;
+			}
+		}else{
+			checkBtn.checked=selectBtn.checked
+		}
+	}
+}
+//得到选择值,用","分隔
+function getSelectValues(){
+	var checkBtn=getForm('${viewName}').tv_checkbox;
+	if(checkBtn){
+		var rs="";
+		if(checkBtn.length){
+			for (var i=0;i<checkBtn.length;i++){
+				if(checkBtn[i].checked){
+					var temp=checkBtn[i].value;
+					if(rs==""){
+						rs=temp;
+					}else{
+						rs=rs+","+temp;
+					}
+				}
+			}
+		}else{
+			if(checkBtn.checked){
+				rs=checkBtn.value;
+			}
+		}
+		return rs;
+	}
+	return "";
+}
+function onload_initdata(){
+	if (typeof(initValues_pre)!= 'undefined'){
+		initValues_pre();
+	}
+	initValues();
+	if (typeof(initValues_post)!= 'undefined'){
+		initValues_post();
+	}
+}
+window.onload = onload_initdata; 
+
+</SCRIPT>
+</body>
+</html>

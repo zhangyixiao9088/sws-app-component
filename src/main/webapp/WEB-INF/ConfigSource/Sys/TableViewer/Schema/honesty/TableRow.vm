@@ -1,0 +1,17 @@
+#if($row.rowType==0)
+	#if($row.isEven())
+		<tr class="custom" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#E8F2FE'">
+	#else
+		<tr class="white" onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#E8F2FE'">
+	#end
+	    	#foreach($col in $row.cols)
+			  $col.print()
+			 #end
+		</tr>
+	#elseif($row.rowType==1)
+		<tr class="group">
+			#foreach($col in $row.cols)
+		  		$col.print()
+		  	#end
+		</tr>
+	#end

@@ -1,0 +1,12 @@
+<tr onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='#d9e8f8'">
+    #if($row.rowType==0)
+		 #foreach($col in $row.cols)
+		 	$col.print()
+		 #end
+	#elseif($row.rowType==1)
+		#foreach($col in $row.cols)
+			#set($col.context.class="x-grid-header")
+			$col.print()
+		#end
+	#end
+</tr>

@@ -1,0 +1,11 @@
+<select id="$id" name="$name"#if($cssClass!="") class="$cssClass"#end #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+<option value="">---«Î—°‘Ò---</option>
+#foreach($row in $dataList)
+#if($context.value==$row.KEY)
+	<option value="$row.KEY" selected="selected">$row.VALUE</option>
+#else
+	<option value="$row.KEY">$row.VALUE</option>
+#end
+#end
+</select>
+#if($canNull=="false")<font color="red">*</font>#end

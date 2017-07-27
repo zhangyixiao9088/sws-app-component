@@ -1,0 +1,15 @@
+ webFXTreeConfig.rootIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.openRootIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.folderIcon= "js/ccs/tree/images/xp/ar1.png";
+webFXTreeConfig.openFolderIcon= "js/ccs/tree/images/xp/ar2.png";
+webFXTreeConfig.fileIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.lMinusIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.lPlusIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.tMinusIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.tPlusIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.iIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.lIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.tIcon= "js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.blankIcon ="js/ccs/tree/images/xp/blank.png";
+webFXTreeConfig.usePersistence=true;
+webFXTreeConfig.selectModel="hidden";

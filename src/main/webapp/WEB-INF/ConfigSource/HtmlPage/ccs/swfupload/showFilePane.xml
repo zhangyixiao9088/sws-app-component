@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[查看文件]]></param-value>
+			</param>
+			<param>
+				<param-name>pool</param-name>
+				<param-value><![CDATA[
+					fileListDb
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[wizard1]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<DataSets>
+		<DataSet name="fileListDb" type="shell">
+			<param>
+				<param-name>isSplitPage</param-name>
+				<param-value>false</param-value>
+			</param>
+			<param>
+				<param-name>value</param-name>
+				<param-value><![CDATA[
+			  		import com.ccs.common.StrUtils;
+			  		import com.ccs.struts.service.FileManageService;
+			  		import com.ccs.struts.common.vo.FileInfo;
+			  		
+					String busId = self.getParamete("busId");
+					String fileId = self.getParamete("fileId");
+					String fileType = self.getParamete("fileType");
+					String service = self.getParamete("service");
+					
+					FileManageService fileService = (FileManageService) Class.forName(
+						service).newInstance();
+					List fileList = fileService.queryFileLst(this.busId);
+					for (FileInfo fInfo : fileList) {
+						self.add(fInfo.toMap());
+					}
+				 ]]></param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+	<Components>
+		<Component name="wizard1" type="HtmlLayout">
+			<param>
+				<param-name>InitCSS</param-name>
+				<param-value><![CDATA[
+		    	body{
+		    		margin:0px
+		    	}
+				#view1_wizard1{
+					background:#999;
+					height:100%;
+					width:100%;
+				}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.BorderLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[ 
+		    	{
+		    		"center":"detailTop",
+		    		"west":"layout",
+		    	}
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["detailTop","layout"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="detailTop" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				${detail}
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["detail" ]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="detail" type="iframe">
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"工程列表"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+			    {"width":"100%","height":"620","src":"","onload":"dyniframesize(this)"}
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="layout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+				function openurl(fileName,fileId,service){
+					var fileType      =/\.[^\.]+$/.exec(fileName);
+					fileType=""+fileType;      
+				 	fileType = fileType.toLowerCase();
+
+					var url ="";
+					if(".pdf"==fileType){
+						url = "xmlPaneAction.action?fileName=ccs/swfupload/PdfFileViewer&viewName=view";
+					}if(".txt"==fileType){
+						url = "xmlPaneAction.action?fileName=ccs/swfupload/TxtFileViewer&viewName=view";
+					}else if(".doc"==fileType){
+						url = "xmlPaneAction.action?fileName=ccs/swfupload/DocFileViewer&viewName=view";
+					}else if(".docx"==fileType){
+						url = "xmlPaneAction.action?fileName=ccs/swfupload/DwnFileViewer&viewName=view";
+						//url = "xmlPaneAction.action?fileName=ccs/swfupload/DocXFileViewer&viewName=view";
+					}else if(".png"==fileType || ".jpg"==fileType || ".gif"==fileType ){
+						url = "xmlPaneAction.action?fileName=ccs/swfupload/ImgFileViewer&viewName=view";
+					}else{
+						url = "xmlPaneAction.action?fileName=ccs/swfupload/DwnFileViewer&viewName=view";
+					}
+					url = url+"&id="+fileId+"&service="+service;
+					var ifId = _getComId("detail");
+					document.getElementById(ifId).src =url;
+				}
+				
+				$(document).ready(function(){
+						var fId = $("#fileId").val();
+						var service = $("#service").val();
+						var fileType = $("#fileType").val();
+						
+						openurl(fileType,fId,service);
+				});
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<input id="fileId" type="hidden" value="${fileId}"/>
+				<input id="service" type="hidden" value="${service}"/>
+				<input id="fileType" type="hidden" value="${fileType}"/>
+				<p>附件查看</p>
+				<ul class="nav nav-pills nav-stacked">
+				#foreach($row in $!{pool.fileListDb.list()})
+					<li><a href="javascript:openurl('${row.fileName}','${row.fileId}','${service}')">${row.fileName}</a></li>
+				#end
+				</ul>
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+</root>

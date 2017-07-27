@@ -1,0 +1,13 @@
+#*
+用途：多选下拉选择框
+ $dataList：  控件数据源
+    js文件：   multiselect.js
+*#
+
+<select multiple id="$id" name="$name"
+	#if($cssClass!="") class="$cssClass"#end 
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+<option value="">---请选择---</option>
+#foreach($row in $dataList)<option value="$row.KEY">$row.VALUE</option>#end
+</select>
+<span id="${id}_star" class="star"></span>

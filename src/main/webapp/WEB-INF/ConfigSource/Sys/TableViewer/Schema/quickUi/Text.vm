@@ -1,0 +1,8 @@
+<input id="$id" type="text" name="$name" value="$!{value}"
+	#if($cssClass!="") class="$cssClass"#end
+	#if($canEdit=="false") readonly="readonly"#end 
+	#if($size!="") size="$size"#end
+	#if($format=="num") onkeyup="chkPrice(this);" onblur="chkLast(this)"#end
+	#if($maxlength!="") maxlength="$maxlength"#else maxlength="200" #end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+	<span id="${id}_star" class="star"></span>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+	default-lazy-init="true">
+
+	<description>Spring Configuration</description>
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties" />
+	<import resource="classpath:com/ccs/struts/config/SpringContext-struts.xml" />
+
+	<!--<import resource="classpath:com/ccs/config/SpringContext-ccs-core.xml" />-->
+
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+		<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		<property name="jdbcUrl" value="jdbc:sqlserver://121.40.38.194:1433;databaseName=sws-idsom-szghy"/>
+		<property name="username" value="sa"/>
+		<property name="password" value="kehao123!@#"/>
+		<property name="idleConnectionTestPeriodInMinutes" value="1"/>
+		<property name="idleMaxAgeInMinutes" value="1"/>
+		<property name="maxConnectionsPerPartition" value="5"/>
+		<property name="minConnectionsPerPartition" value="5"/>
+		<property name="partitionCount" value="1"/>
+		<property name="acquireIncrement" value="1"/>
+		<property name="statementsCacheSize" value="100"/>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="transactionInterceptor"
+		  class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="ccs.SqlServerDialetDao" class="com.ccs.core.datamodel.Dialect.SqlServerDialetDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

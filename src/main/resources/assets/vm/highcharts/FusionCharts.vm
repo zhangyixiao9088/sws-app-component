@@ -1,0 +1,47 @@
+<div id="chartdiv_${id}"></div>
+<textarea id="chartXml__${id}" style="display:none">
+#if(${dataLevel}=="ad")
+	$!{chartToken}
+#else
+	<chart palette='2' caption='${title}' baseFontSize='12' rotateNames='0' xAxisName='${xAxisName}' 
+	yAxisName='${yAxisName}' showValues='0' decimals='0' formatNumberScale='0' useRoundEdges='1' #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+	#if(${dataLevel}=="1")
+		#foreach($row in ${dataList})<set label='${row.VALUE}' value='${row.KEY}' />#end
+	#elseif(${dataLevel}=="2")
+	<categories>
+		#foreach($row in ${categories})<category label='${row.VALUE}'' />#end
+	</categories>
+		#foreach($row in ${dataList})
+			<dataset seriesName='${row.CHARSERIESNAME}' color='${row.CHARCOLOR}' showValues='0'>
+				#foreach($row in $categories)<category label='${row.KEY}'' />#end
+			</dataset>
+		#end
+	#elseif(${dataLevel}=="V1")
+		#foreach($row in ${dataList})<set label='${row.KEY}' value='${row.VALUE}' />#end
+	#elseif(${dataLevel}=="V2")
+		#foreach($row in ${dataList})<set label='${row.KEY}' value='${row.VALUE}' />#end
+	#end
+	</chart>
+#end
+</textarea>
+  <script type="text/javascript">
+   FusionCharts.ready(function(){
+   		var chart_${id} = new FusionCharts({
+   			id:"chartId_${id}",
+   			type:'${charType}',
+   			renderAt: 'chartdiv_${id}',
+   			width:"${width}",
+   			height:"${height}"
+   		 });
+		chart_${id}.setXMLData(document.getElementById('chartXml__${id}').value);
+	    // Render the chart.
+	    chart_${id}.render();
+	    
+	    $("#chartdiv_${id}").find("tspan").each(function(){
+	    	var txt = $(this).text();
+	    	if(txt=="FusionCharts XT Trial"){
+	    		$(this).hide();
+	    	}
+	    });
+   });
+  </script>

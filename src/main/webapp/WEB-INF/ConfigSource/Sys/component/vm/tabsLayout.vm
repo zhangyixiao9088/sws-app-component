@@ -1,0 +1,19 @@
+<div id="${id}" class="simpleTab" iframeMode="true">
+	<div>
+		<ul class="simpleTab_top">
+		#foreach(${component} in ${com.children})
+			#if(${velocityCount}==1)<li class="current">#else<li>#end<a onclick="tabsLayoutActive('${id}_tab', ${com.children.size()}, ${velocityCount}, '${component.id}')"><span>${component.printLabel()}</span></a></li>
+		#end
+		</ul>
+	</div>
+	<div id="scrollContent">
+		<div class="simpleTab_con">
+		#foreach(${component} in ${com.children})
+			<div id="${id}_tab${velocityCount}" style="display: none">
+				${component.printView()}
+			</div>
+		#end
+		</div>
+	</div>
+</div>
+<script type="text/javascript">tabsLayoutActive('${id}_tab', ${com.children.size()}, 1, '${com.children.get(0).id}')</script>

@@ -1,0 +1,12 @@
+#*
+用途：生成表格列  
+     $type: type为th时，表示表格头列; 为td时，表示表格列
+  $colSpan: 表格间距，为数值
+ $cssClass: 表格列样式
+     $view：表格列值         
+
+<$type 
+#if($colSpan!="") colspan="$colSpan"#end
+#if($cssClass!="") class="$cssClass"#end 
+#foreach($comPro in $context.entrySet()) 
+${comPro.key}="${comPro.value}"#end>$view</$type>

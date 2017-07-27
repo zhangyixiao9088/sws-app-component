@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="main" type="ComponentBuilder">
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+<pre>
+1、创建配置文件
+			路径：/WebRoot/WEB-INF/ConfigSource/TableViewer/demo2/install/Example.xml
+<textarea style="width:100%;height:100px" readOnly>			
+			<?xml version="1.0" encoding="GBK"?>
+			<root>
+				
+			</root>
+</textarea>
+2、编写数据源
+<textarea style="width:100%;height:200px" readOnly>			
+		<?xml version="1.0" encoding="GBK"?>
+		<root>
+			<DataSets>
+				<DataSet name="db1" type="sql">
+					<param>   
+					    <param-name>sql</param-name>   
+					    <param-value>select * from employees</param-value>   
+					</param>
+				</DataSet>
+			</DataSets>
+		</root>
+</textarea>
+3、编写视图
+3.1、编写视图结点
+<textarea style="width:100%;height:100px" readOnly><Views>
+	<View name="view1" type="SimpleTable" dataSource="db1">
+			
+	</View>
+</View></textarea>
+3.2、编写表头
+<textarea style="width:100%;height:230px" readOnly><Views>
+	<View name="view1" type="SimpleTable" dataSource="db1">
+			<param>   
+			    <param-name>head</param-name>
+			    <param-value>
+					    [{"type":"label","width":"7%","param":{"label":"编号"}},
+					    {"label":"名字","width":"20%"},
+					    {"label":"EMAIL","width":"20%"},
+					    {"label":"电话","width":"20%"},
+					    {"label":"工资","width":"20%"},
+					    {"label":"入职时间"}]
+	   			</param-value>   
+			</param>
+	</View>
+</Views></textarea>
+3.3、编写表体
+<textarea style="width:100%;height:430px" readOnly><Views>
+	<View name="view1" type="SimpleTable" dataSource="db1">
+			<param>   
+			    <param-name>head</param-name>
+			    <param-value>
+					    [{"type":"label","width":"7%","param":{"label":"编号"}},
+					    {"label":"名字","width":"20%"},
+					    {"label":"EMAIL","width":"20%"},
+					    {"label":"电话","width":"20%"},
+					    {"label":"工资","width":"20%"},
+					    {"label":"入职时间"}]
+	   			</param-value>   
+			</param>
+			<param>
+			    <param-name>body</param-name>
+			    <!-- LOCATIONROW 为默认行号 -->
+			    <param-value>
+			    [{"type":"label", "param":{"label":"${LOCATIONROW}"}},
+			     {"type":"label", "param":{"label":"${LAST_NAME}$!{FIRST_NAME}"}},
+			     {"type":"label", "param":{"label":"${EMAIL}"}},
+			     {"type":"label", "param":{"label":"${PHONE_NUMBER}"}},
+			     {"type":"label", "param":{"label":"${SALARY}"}},
+			     {"type":"label", "param":{"label":"${HIRE_DATE}"}}
+			     ]
+			   </param-value>
+			</param>
+	</View>
+</Views></textarea>
+4、运行
+4.1完整配置文件
+<textarea style="width:100%;height:430px" readOnly><?xml version="1.0" encoding="GBK"?>
+<root>
+	<DataSets>
+		<DataSet name="db1" type="sql">
+			<param>   
+			    <param-name>sql</param-name>   
+			    <param-value>select * from employees</param-value>   
+			</param>
+		</DataSet>
+	</DataSets>
+	<Views>
+		<View name="view1" type="SimpleTable" dataSource="db1">
+				<param>   
+				    <param-name>head</param-name>
+				    <param-value>
+						    [{"type":"label","width":"7%","param":{"label":"编号"}},
+						    {"label":"名字","width":"20%"},
+						    {"label":"EMAIL","width":"20%"},
+						    {"label":"电话","width":"20%"},
+						    {"label":"工资","width":"20%"},
+						    {"label":"入职时间"}]
+		   			</param-value>   
+				</param>
+				<param>
+				    <param-name>body</param-name>
+				    <!-- LOCATIONROW 为默认行号 -->
+				    <param-value>
+				    [{"type":"label", "param":{"label":"${LOCATIONROW}"}},
+					     {"type":"label", "param":{"label":"${LAST_NAME}$!{FIRST_NAME}"}},
+					     {"type":"label", "param":{"label":"${EMAIL}"}},
+					     {"type":"label", "param":{"label":"${PHONE_NUMBER}"}},
+					     {"type":"label", "param":{"label":"${SALARY}"}},
+					     {"type":"label", "param":{"label":"${HIRE_DATE}"}}
+					     ]
+				   </param-value>
+				</param>
+		</View>
+	</Views>
+</root></textarea>
+4.2 列表地址
+	pageAction.action?fileName=demo2/install/Example&viewName=view1
+
+</pre>	
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+	</DataSets>
+</root>

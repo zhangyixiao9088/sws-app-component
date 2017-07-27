@@ -1,0 +1,3 @@
+#foreach($script in $st.script_Srcs)
+<script type="text/javascript" src="$script"></script>
+#end

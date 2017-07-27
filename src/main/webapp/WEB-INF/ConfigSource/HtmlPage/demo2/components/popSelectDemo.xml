@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							<b>属性</b><br/>
+			  				<b>type:</b>popSelect<br>
+			  				<b>View属性</b><br/>
+			  				editPane:"selUNITNAMESLst",<br/>
+							data:"DsUNITNAMES"<br/>
+							label:"label"<br/>
+							style:"style"<br/>
+							width:"width"<br/>
+							canNull:"false"<br/>
+							canEdit:"true"<br/>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		 ${UNITNAMES}
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITNAMES"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITNAMES" type="popSelect">
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"负责人"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{
+					editPane:"selUNITNAMESLst",
+					data:"DsUNITNAMES"
+				}
+				]]></param-value>
+			</param>
+		</Component>
+		<Component name="selUNITNAMESLst" type="iframe">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{label:"选择数据"}</param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[{width:"100%",height:"500px",src:"pageAction.action?fileName=demo2/selector/selUNITNAMESLst&viewName=view"}]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="DsUNITNAMES" type="sql">
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[ 
+					#if($!{KEY} != "") 
+						select * from (select '1' KEY,'刘XX' VALUE from dual
+						union all select '2' KEY,'娄XX' VALUE from dual )
+						WHERE KEY='${KEY}'
+					#end
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>isSplitPage</param-name>
+				<param-value><![CDATA[false]]></param-value>
+			</param>
+		</DataSet>
+    </DataSets>
+</root>

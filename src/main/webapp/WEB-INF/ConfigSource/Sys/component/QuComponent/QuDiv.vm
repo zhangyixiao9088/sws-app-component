@@ -1,0 +1,15 @@
+#*
+用途： Div面板
+          $id:  控件id
+     $cssClass：控件样式 eg:box1、box2、box3、box4等
+   $panelWidth: 控件宽度
+  $panelHeight: 控件高度
+   $panelTitle: 控件头标
+*#
+<div id="$id" #if($cssClass!="") class="$cssClass"#end
+    #if($panelWidth!="") panelWidth="$panelWidth"#end
+    #if($panelHeight!="") panelHeight="$panelHeight"#end
+    #if($panelTitle!="") panelTitle="$panelTitle"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+	$label
+</div>

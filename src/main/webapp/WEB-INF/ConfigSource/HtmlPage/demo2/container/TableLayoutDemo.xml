@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+  <DataSets>
+    <DataSet name="mainTable" type="sql">
+      <param>
+        <param-name>DataBaseType</param-name>
+        <param-value><![CDATA[Oracle]]></param-value>
+      </param>
+      <param>
+        <param-name>sql</param-name>
+        <param-value><![CDATA[ 
+ 		]]></param-value>
+      </param>
+      <param>
+      		<param-name>convert</param-name>
+      		<param-value>
+      		[{field:"CORPSTARTTIME",type:"date",format:"yyyy-MM-dd"}
+			]
+      		</param-value>
+      </param>
+      <param>
+        <param-name>tableName</param-name>
+        <param-value><![CDATA[JDR_T_JUNIT]]></param-value>
+      </param>
+      <param>
+        <param-name>pkName</param-name>
+        <param-value><![CDATA[ID]]></param-value>
+      </param>
+      <param>
+        <param-name>isSplitPage</param-name>
+        <param-value><![CDATA[false]]></param-value>
+      </param>
+    </DataSet>
+     <DataSet name="zzdj" type="sql" static="true">
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+					#if($data.UNITTYPE==1)
+					select * from DIC_T_DETAIL t where t.type='sgQYZZ' order by orderby
+					#else
+					select * from DIC_T_DETAIL t where t.type='dwLevel' order by orderby
+					#end
+				 ]]></param-value>
+			</param>
+			<param>
+				<param-name>pageSize</param-name>
+				<param-value>40</param-value>
+			</param>
+		</DataSet>
+			<DataSet name="SHENInit" type="sql" static="true">
+			<param>
+				<param-name>DataBaseType</param-name>
+				<param-value>Oracle</param-value>
+			</param>
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+					select code key,name value from s_t_area ar where parentcode=1000000 order by toporder,code
+				 ]]></param-value>
+			</param>
+			<param>
+				<param-name>pageSize</param-name>
+				<param-value>40</param-value>
+			</param>
+		</DataSet>
+		<DataSet name="SHIInit" type="sql" static="true">
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+					select code key,name value from s_t_area a,
+					(select ar.parentcode from s_t_area ar where ar.code  ='$!{data.CITY}') ar
+					where ar.parentcode = a.parentcode
+				 ]]></param-value>
+			</param>
+			<param>
+				<param-name>pageSize</param-name>
+				<param-value>40</param-value>
+			</param>
+		</DataSet>
+		<DataSet name="XIANInit" type="sql" static="true">
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+					select code key,name value from s_t_area a,
+					(select ar.parentcode from s_t_area ar where ar.code  ='$!{data.AREA}') ar
+					where ar.parentcode = a.parentcode
+				 ]]></param-value>
+			</param>
+			<param>
+				<param-name>pageSize</param-name>
+				<param-value>40</param-value>
+			</param>
+		</DataSet>
+		<DataSet name="areaSql" type="sql" static="true">
+			<param>
+				<param-name>DataBaseType</param-name>
+				<param-value>Oracle</param-value>
+			</param>
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+				#if(${parentCode})
+					select code key,name value from s_t_area ar where parentcode=${parentCode} order by toporder,code
+				#end
+				 ]]></param-value>
+			</param>
+			<param>
+				<param-name>pageSize</param-name>
+				<param-value>40</param-value>
+			</param>
+		</DataSet>
+  </DataSets>
+  <Views>
+    <View name="view1" type="ComponentBuilder" dataSource="mainTable">
+      <param>
+        <param-name>title</param-name>
+        <param-value><![CDATA[单位信息]]></param-value>
+      </param>
+      <param>
+        <param-name>component</param-name>
+        <param-value><![CDATA[panel]]></param-value>
+      </param>
+      <param>
+        <param-name>dataBundle</param-name>
+        <param-value><![CDATA[
+        {"UNITNAME":{canEdit:false,"data":"","field":"UNITNAME","value":""},
+		"AREANAME":{"data":"","field":"AREANAME","value":"0"},
+		"UNITZZLEVEL":{"data":"","field":"UNITZZLEVEL","value":""},
+		"MODIFYTIME":{"data":"","field":"MODIFYTIME","value":""},
+		"CREATOR":{"data":"","field":"CREATOR","value":""},
+		"CREATETIME":{"data":"","field":"CREATETIME","value":""},
+		"QUHAO":{"data":"","field":"QUHAO","value":""},
+		"CORPREGPRIN":{"data":"","field":"CORPREGPRIN","value":""},
+		"CONTACTPERSONNAME":{"data":"","field":"CONTACTPERSONNAME","value":""},
+		"LINKTEL":{"data":"","field":"LINKTEL","value":""},
+		"LEADERDUTY":{"data":"","field":"LEADERDUTY","value":""},
+		"TEL":{"data":"","field":"TEL","value":""},
+		"AQ_INDEXURL":{"data":"","field":"AQ_INDEXURL","value":""},
+		"ID":{"data":"","field":"ID","value":""},
+		"LEADERIDCARD":{"data":"","field":"LEADERIDCARD","value":""},
+		"LEADERPRLTITLE":{"data":"","field":"LEADERPRLTITLE","value":""},
+		"EMAIL":{"data":"","field":"EMAIL","value":""},
+		"TSTEL":{"data":"","field":"TSTEL","value":""},
+		"RUNRANGE":{"data":"","field":"RUNRANGE","value":""},
+		"CITYNAME":{"data":"","field":"CITYNAME","value":""},
+		"HOMEPAGE":{"data":"","field":"HOMEPAGE","value":""},
+		"FAX":{"data":"","field":"FAX","value":""},
+		"LINKMOBILE":{"data":"","field":"LINKMOBILE","value":""},
+		"ORGANCODE":{canEdit:false;"data":"","field":"ORGANCODE","value":""},
+		"ZL_INDEXURL":{"data":"","field":"ZL_INDEXURL","value":""},
+		"CORPTYPE":{"data":"","field":"CORPTYPE","value":""},
+		"AREA":{"data":"","field":"AREA","value":""},
+		"ADDRESS":{"data":"","field":"ADDRESS","value":""},
+		"ZONEID":{"data":"","field":"ZONEID","value":""},
+		"AREANUM":{"field":"AREANUM","value":"0"},
+		"ZIPCODE":{"data":"","field":"ZIPCODE","value":""},
+		"CITYANOTHER":{"data":"","field":"CITYANOTHER","value":""},
+		"CORPSTARTTIME":{"data":"","field":"CORPSTARTTIME","value":""},
+		"UNITZZNUM":{"data":"","field":"UNITZZNUM","value":""},
+		"UNITTYPE":{"data":"","field":"UNITTYPE","value":""},
+		"GOVCODE":{"data":"","field":"GOVCODE","value":""},
+		"JDLEVEL":{"data":"","field":"JDLEVEL","value":""},
+		"CITY":{"data":"","field":"CITY","value":""},
+		"CORPLICENSE":{"data":"","field":"CORPLICENSE","value":""},
+		"PARENTUNITID":{"data":"","field":"PARENTUNITID","value":""},
+		"LEADER":{"data":"","field":"LEADER","value":""},
+		"CORPPRINTYPE":{"data":"","field":"CORPPRINTYPE","value":""},
+		PROVINCEID:"PROVINCEID"
+		}
+			]]></param-value>
+      </param>
+    </View>
+  </Views>
+  <Components>
+    <Component name="LEADER" type="text" cnName="法人代表/单位负责人">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"法人代表/单位负责人"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="TEL" type="text" cnName="单位联系电话">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"单位联系电话"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="ZIPCODE" type="text" cnName="邮政编码">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"邮政编码"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CORPPRINTYPE" type="hidden" cnName="注册币种">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"注册币种"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CORPREGPRIN" type="text" cnName="注册资本(万元)">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"注册资本(万元)"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","format":"num"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CORPSTARTTIME" type="datePicker" cnName="成立日期">
+      <property name='onclick'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"成立日期"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[]]></param-value>
+      </param>
+    </Component>
+    <Component name="ID" type="hidden" cnName="ID">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"ID"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CREATETIME" type="hidden" cnName="创建时间">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"创建时间"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CREATOR" type="hidden" cnName="创建人">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"创建人"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="MODIFYTIME" type="hidden" cnName="修改时间">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"修改时间"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="UNITNAME" type="text" cnName="单位名称">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"单位名称"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="ADDRESS" type="text" cnName="单位地址">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"单位地址"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="UNITTYPE" type="hidden" cnName="单位类型">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"单位类型"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="ZONEID" type="hidden" cnName="ZONEID">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"ZONEID"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CITYNAME" type="hidden" cnName="所属市名称">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"所属市名称"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="AREANAME" type="hidden" cnName="所属区名称">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"所属区名称"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CITYANOTHER" type="hidden" cnName="CITYANOTHER">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"CITYANOTHER"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="GOVCODE" type="hidden" cnName="监督站唯一编号">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"监督站唯一编号"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="ZL_INDEXURL" type="hidden" cnName="质量监督站网上登入地址">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"质量监督站网上登入地址"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="AQ_INDEXURL" type="hidden" cnName="安全监督站网上登入地址">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"安全监督站网上登入地址"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="ORGANCODE" type="text" cnName="组织机构代码证">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"组织机构代码证"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="TSTEL" type="hidden" cnName="TSTEL">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"TSTEL"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="LEADERDUTY" type="hidden" cnName="法人职务">
+      <property name='data'>mainTable</property>
+      <property name='onclick'></property>
+      <property name='onchange'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"法人职务"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"mainTable","onclick":"","onchange":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="LEADERPRLTITLE" type="hidden" cnName="法人职称">
+      <property name='data'>mainTable</property>
+      <property name='onclick'></property>
+      <property name='onchange'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"法人职称"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"mainTable","onclick":"","onchange":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="HOMEPAGE" type="text" cnName="企业网站">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"企业网站"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CORPTYPE" type="hidden" cnName="企业工商登录类型">
+      <property name='data'>mainTable</property>
+      <property name='onclick'></property>
+      <property name='onchange'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"企业工商登录类型"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"mainTable","onclick":"","onchange":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="UNITZZLEVEL" type="select" cnName="资质等级">
+      <property name='data'>mainTable</property>
+      <property name='onclick'></property>
+      <property name='onchange'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"资质等级"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"zzdj","onclick":"","onchange":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CONTACTPERSONNAME" type="text" cnName="联系人姓名">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"联系人姓名"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="LINKTEL" type="text" cnName="联系人办公电话">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"联系人办公电话"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="LINKMOBILE" type="text" cnName="联系人手机号码">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"联系人手机号码"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="QUHAO" type="text" cnName="公司区号">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"公司区号"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="EMAIL" type="text" cnName="公司EMAIL">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"公司EMAIL"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="FAX" type="text" cnName="传真号码">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"传真号码"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="JDLEVEL" type="hidden" cnName="监督站级别3省站2市站1县区站0受监单位4省厅">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"监督站级别3省站2市站1县区站0受监单位4省厅"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="PARENTUNITID" type="hidden" cnName="监督站上级单位ID">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"监督站上级单位ID"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CORPLICENSE" type="text" cnName="工商营业执照号">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"工商营业执照号"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="LEADERIDCARD" type="text" cnName="法人身份证">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"法人身份证"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="UNITZZNUM" type="text" cnName="资质证书号">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"资质证书号"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="PROVINCEID" type="select" cnName="省">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"省"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"SHENInit","onclick":"","onchange":"to_queryForSelect(this,'CITY','areaSql')","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="AREANUM" type="hidden" cnName="所属区">
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"所属区"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="CITY" type="select" cnName="所属市">
+      <property name='data'>mainTable</property>
+      <property name='onclick'></property>
+      <property name='onchange'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"所属市"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"SHIInit","onclick":"","onchange":"to_queryForSelect(this,'AREA','areaSql')","size":""}]]></param-value>
+      </param>
+    </Component>
+    <Component name="AREA" type="select" cnName="所属区">
+      <property name='data'>mainTable</property>
+      <property name='onclick'></property>
+      <property name='onchange'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"所属区"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"data":"XIANInit"}]]></param-value>
+      </param>
+    </Component>
+    <Component name="RUNRANGE" type="text" cnName="资质范围">
+      <property name='maxlength'></property>
+      <property name='onclick'></property>
+      <property name='size'></property>
+      <param>
+        <param-name>Label</param-name>
+        <param-value><![CDATA[{"label":"资质范围"}]]></param-value>
+      </param>
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+      </param>
+    </Component>
+	<Component name="BUTTON" type="group" cnName="资质范围">
+      <param>
+        <param-name>View</param-name>
+        <param-value><![CDATA[
+        	[{"type":"button","param":{"name":"query","label":"保存信息",style:"margin:30px 80px;width:100;height:26","onClick":"_savePanel('update','','target')"}}]
+        ]]></param-value>
+      </param>
+    </Component>
+    <Component name="panel" type="HtmlLayout">
+      <property name='colspans'></property>
+      <property name='tableHead'>table</property>
+      <property name='lableTdHead'>td</property>
+      <property name='defaultColspan'>1</property>
+      <property name='maxCols'>3</property>
+      <property name='viewTdHead'>td</property>
+      <param>
+        <param-name>LayoutManager</param-name>
+        <param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TableLayout]]></param-value>
+      </param>
+      <param>
+        <param-name>InitCSS</param-name>
+        <param-value><![CDATA[
+        	input{width:70%}
+        ]]></param-value>
+      </param>
+      <param>
+        <param-name>components</param-name>
+        <param-value><![CDATA[
+        	["ID","CREATETIME","CREATOR","MODIFYTIME","UNITNAME","ADDRESS","UNITTYPE",
+        	"AREANUM","LEADER","LEADERIDCARD","TEL","PROVINCEID","CITY","AREA","ZIPCODE","ZONEID","CITYNAME",
+        	"AREANAME","CITYANOTHER","ORGANCODE","GOVCODE","ZL_INDEXURL","AQ_INDEXURL",
+        	"TSTEL","CORPLICENSE","LEADERDUTY","LEADERPRLTITLE","CORPPRINTYPE",
+        	"UNITZZNUM","RUNRANGE","UNITZZLEVEL","CORPREGPRIN","CORPTYPE","CORPSTARTTIME",
+        	"CONTACTPERSONNAME","LINKTEL","LINKMOBILE","HOMEPAGE","QUHAO","EMAIL","FAX",
+        	"JDLEVEL","PARENTUNITID","BUTTON"]]]></param-value>
+      </param>
+      <param>
+        <param-name>LayoutManager-Properties</param-name>
+        <param-value><![CDATA[
+        	{
+			"descorate":{"model":"table","title":"单位信息"},
+        	"tableHead":"table width=95%",
+        	 "lableTdHead":"td height='40px' align='right'",
+        	 "viewTdHead":"td",
+        	 "maxCols":3,
+        	 "defaultColspan":1,
+        	 "colspans":{UNITNAME:3,ADDRESS:3,BUTTON:3}
+        	 }
+        ]]></param-value>
+      </param>
+    </Component>
+  </Components>
+  <Actions>
+    <Action name="_crud" type="tableChain">
+    </Action>
+  </Actions>
+</root>

@@ -1,0 +1,33 @@
+<div id="${st.id}"></div>
+<div id="_pager${st.id}"></div>
+<script type="text/javascript"> 
+var _v${st.id} = null;
+var _vpager${st.id} = null;
+$(function(){
+	_v${st.id} = new TableView('${st.id}');
+	_v${st.id}.header = {
+		#if($st.head.getCols().size()>0)
+		#set( $index = 1)
+		#foreach($head in $st.getHeadComponent())
+		#if($index>1),#end column$index:'$head.component.printOnLine()'
+		#set( $index = $index+1)
+		#end#end
+	};
+	_v${st.id}.dataKey = 'column1';
+	#foreach($row in $st.getColumnData())_v${st.id}.add({#set( $index = 1)#foreach($col in $row.cols)#if($index>1),#end column$index:'$col.view'#set( $index = $index+1)#end});
+	#end
+	
+	_v${st.id}.render();
+	
+	var _vpager${st.id} = new PagerView('_pager${st.id}');
+	_vpager${st.id}.index = 1; // 当前是第3页
+	_vpager${st.id}.size = 16; // 每页显示16条记录
+	_vpager${st.id}.itemCount = 100; // 一共有100条记录
+	
+	_vpager${st.id}.onclick = function(index){
+		alert('click on page: ' + index);
+		// display data...
+	};
+	_vpager${st.id}.render();
+});
+</script> 

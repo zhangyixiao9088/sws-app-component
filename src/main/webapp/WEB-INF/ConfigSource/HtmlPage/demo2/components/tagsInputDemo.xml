@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- xmlPaneAction.action?fileName=SJZEM/dbgl/DBSS_DBBG_Edit&viewName=edit -->
+<root>
+  <Views>
+    <View name="view1" type="ComponentBuilder">
+      <param>
+        <param-name>title</param-name>
+        <param-value><![CDATA[对标企业]]></param-value>
+      </param>
+      <param>
+        <param-name>component</param-name>
+        <param-value><![CDATA[tmplayout]]></param-value>
+      </param>
+    </View>
+  </Views>
+  <Components>
+	<Component name="QYBG" type="tagsInput"><param><param-name>Label</param-name><param-value>{label:"企业标杆"}</param-value></param><param><param-name>View</param-name><param-value><![CDATA[{width:"90%",editPane:"QYBGKDS",data:"qydetailDS"}]]></param-value></param></Component>
+	<Component name="QYBGKDS" type="iframe">
+		<param>
+			<param-name>Label</param-name>
+			<param-value>{label:"企业标杆库"}</param-value>
+		</param>
+		<param>
+			<param-name>View</param-name>
+			<param-value><![CDATA[{width:"100%",height:"400px",src:"pageAction.action?fileName=demo2/selector/BGGL_QYBG_SELECT_List&viewName=main&id=0"}]]></param-value>
+		</param>
+	</Component>
+	 <Component name="tmplayout" type="HtmlLayout">
+        <param>
+			<param-name>LayoutManager</param-name>
+			<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+		</param>
+		<param>
+			<param-name>LayoutManager-Properties</param-name>
+			<param-value><![CDATA[
+			<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+								<b>属性</b><br>
+								<b>type="tagsInput"</b><br>
+								<b>View属性</b><br>
+								"width":"90%",<br>
+								"editPane":"QYBGKDS",<br>
+								"data":"qydetailDS"<br>
+								"limit":"undefined"<br>
+								"editPaneCom":""<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		${QYBG}
+						</div>
+					</div>
+				</div>
+			 ]]></param-value>
+		</param>
+		<param>
+			<param-name>components</param-name>
+			<param-value><![CDATA[
+		    ["QYBG"]
+		    ]]></param-value>
+		</param>
+    </Component>
+  </Components>
+  <DataSets>
+  </DataSets>
+</root>

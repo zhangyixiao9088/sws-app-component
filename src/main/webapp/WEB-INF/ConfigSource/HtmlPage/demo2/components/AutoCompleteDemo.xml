@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>   
+			    <param-name>title</param-name>   
+			    <param-value><![CDATA[]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>InitCSS</param-name>   
+			    <param-value><![CDATA[
+			    	body {text-align:left;}
+			    	table {border:1px;}
+					.view span{width:100%;text-align:left;}
+				]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>LayoutManager</param-name>   
+			    <param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>LayoutManager-Properties</param-name>   
+			    <param-value><![CDATA[
+			    $HTSGTS
+			    
+			    <br>
+			    <b>属性：</b><br>
+			    	<b>type:</b>AutoComplete<br>
+			    <b>view属性：</b><br>
+		    		"data":"db1",<br>
+			    	"query":"title",<br>
+			    	"showItem":"NODE",<br>
+					"delay":"10",<br>
+			    	"minChars":"3",<br>
+			    	"matchSubset":"1",<br>
+					"matchContains":"1",<br>
+					"cacheLength":"10",<br>
+					"onItemSelect":"selectItem",<br>
+					"onFindValue":"findValue",<br>
+					"formatItem":"formatItem",<br>
+					"autoFill":"true",<br>
+			    	"size":"100",<br>
+			    	"format":"",<br>
+			    	"canNull":"true",<br>
+			    	"canEdit":"true",<br>
+			    	"maxlength":"10",<br>
+			    	
+			    	<input type="button" onclick="alert(HandleConfig.getValue(_getViewName(),'HTSGTS','AutoComplete'))" value="取值"/>
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>components</param-name>   
+			    <param-value><![CDATA[
+			    ["HTSGTS"]
+			    ]]></param-value>   
+			</param>
+		</Component>
+		<Component name="HTSGTS" type="AutoComplete">
+			<param>   
+			    <param-name>InitJS</param-name>   
+			    <param-value><![CDATA[
+					function selectKeyword(object){
+						alert(object.data);
+					}
+				]]></param-value>   
+			</param>
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"单位(输入\"江西省\")"}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	"data":"db1",
+			    	"query":"title",
+			    	"showItem":"NAME",
+			    	"minChars":"1",
+			    	"size":"80",
+			    	"onItemSelect":"selectKeyword"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>
+	</Components>
+	
+	<DataSets>
+			<DataSet name="db1" type="plat">
+				<param>
+				    <param-name>fileName</param-name>
+				    <param-value>demo2/testDataSet</param-value>
+				</param>
+				<param>
+				    <param-name>dataName</param-name>
+				    <param-value>degree</param-value>
+				</param>
+				<param>
+				    <param-name>dataType</param-name>
+				    <param-value>panel</param-value>
+				</param>
+			</DataSet>
+	</DataSets>
+</root>

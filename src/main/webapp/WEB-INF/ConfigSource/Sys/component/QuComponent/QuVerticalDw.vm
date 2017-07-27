@@ -1,0 +1,15 @@
+#*
+用途： 横向抽屉容器
+               $id: 控件id
+         $cssClass：控件样式 eg:list_menu3、list_menu3_min等
+         $dataList: 控件数据源
+$dataList.titleVal: 菜单项
+   $dataList.Label: 自定义区域
+                                       文件：UIFrame/frame/js/nav/accordion.js
+*#
+<div id="$id" #if($cssClass!="") class="$cssClass"#end>
+#foreach($row in $dataList)
+<a>$row.titleVal</a>
+<div>$row.Label</div>
+#end
+</div>

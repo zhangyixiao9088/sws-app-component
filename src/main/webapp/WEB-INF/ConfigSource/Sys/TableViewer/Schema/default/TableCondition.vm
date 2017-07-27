@@ -1,0 +1,23 @@
+#if(!($st.condition))
+<div class="block" style="width:$st.property.width;padding:10px" align="center">
+<fieldset>
+<legend>
+<img src="image/ccs/default/ass.gif" width="16" height="16" align="absmiddle"/>
+  <span class="block-title">¿ìËÙ²éÑ¯</span>
+</legend>
+<div class="block-body">
+<table class="table" width="100%">
+#foreach($com in $st.getConditionComponent())
+  #if($com.location==0 || $com.location==3)
+  <tr>
+  #end
+  <td #if($com.cssClass!="") class="$com.cssClass"#end #foreach($comPro in $com.properties.entrySet()) ${comPro.key}="${comPro.value}" #end>$com.component.print()</td>    
+  #if($com.location==2 || $com.location==3)
+  </tr>
+  #end
+#end
+</table>
+</div>
+</fieldset>
+</div>
+#end

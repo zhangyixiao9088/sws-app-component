@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<br>
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							 <b>属性说明：</b><br>
+						     "width":"100%",<br>
+					         "height":"540px",<br>
+					         "toolbar":"Basic",<br>
+					         "canNull":"false",<br>
+					         "isShow":"false"<br>
+						    <b>Label属性</b><br>
+						    "label":"消息内容：。。"
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		${UNITCHIEFZZNUM}
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="Inline" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"消息内容：。。"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{
+			    	"width":"100%",
+            		"height":"200px",
+            		"toolbar":"Basic",
+           			"canNull":"false",
+            		"isShow":"false"
+			    }
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		
+	</DataSets>
+</root>

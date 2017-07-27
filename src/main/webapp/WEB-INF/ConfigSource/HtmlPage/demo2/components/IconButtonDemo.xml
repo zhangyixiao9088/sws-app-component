@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							 <b>属性说明：</b><br>
+						     type:"IconButton"<br>
+							    <b>View属性：</b><br>
+							    	{"label":"本站：报监中工程",<br>
+							    	"icon":"image/ccs/success.gif",<br>
+							    	"link":"pageAction.action?fileName=tellhow/jdp/jdpTongji/projectSuperviseThing&viewName=checkQuery&jianduType=1&projectstatus=0",<br>
+							    	"target":"_blank"}<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+							${testIconButton}
+						</div>
+					</div>
+				</div>
+			    	
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["testIconButton"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="testIconButton" type="IconButton" desc="报监中工程">
+			<param>
+			    <param-name>View</param-name>
+			    <param-value><![CDATA[
+			    {
+			    "label":"本站：报监中工程",
+			    "icon":"image/ccs/success.gif",
+			    "link":"pageAction.action?fileName=tellhow/jdp/jdpTongji/projectSuperviseThing&viewName=checkQuery&jianduType=1&projectstatus=0",
+			    "target":"_blank"}]]>
+			    </param-value>
+			</param>
+		</Component>
+	</Components>
+</root>

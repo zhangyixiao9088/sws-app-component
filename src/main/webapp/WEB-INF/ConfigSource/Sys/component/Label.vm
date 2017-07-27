@@ -1,0 +1,1 @@
+$!{label}#if($canNull=="false")<font color="red">*</font>#end

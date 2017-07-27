@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+			  	${PROJECTID}<br>
+			  	<b>属性</b><br>
+			  		<b>type:</b>popSelect<br>
+			  	<b>View属性</b><br>
+			  		"editable":"false","canEdit":"false","value":"1",<br>
+			  		"label":"选择","rows":"2","cols":"60","btnOnclick":"selectUnit('$!{superviseJDId}')"<br>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["PROJECTID"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="PROJECTID" type="ProjectPick">
+			<param>
+				<param-name>Label</param-name>
+				<param-value>{"label":"工程名称："}</param-value>
+			</param>
+			<param>   
+			    <param-name>View</param-name>   
+			    <param-value><![CDATA[
+			    {
+			    	data:"wmgc",
+			    	multiple:"true",
+			    	proOrBd:"pro",
+			    	style:"width:100px;"
+			    }
+			    ]]></param-value>   
+			</param>
+		</Component>		
+	</Components>
+ <DataSets>
+		
+	<DataSet name="wmgc" type="sql">
+			<param>   
+			    <param-name>DataBaseType</param-name>   
+			    <param-value>Oracle</param-value>   
+			</param>
+			<param>   
+			    <param-name>sql</param-name>   
+			    <param-value><![CDATA[
+					select s.biaoduanname name from jdr_t_supervise s where s.id in (${ids})
+			    ]]></param-value>   
+			</param>
+	</DataSet>
+</DataSets>
+</root>

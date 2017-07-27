@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view" type="ComponentBuilder">
+			<param>
+			 	<param-name>title</param-name>
+			    <param-value><![CDATA[查看文件]]></param-value>
+			</param>
+			<param>
+			 	<param-name>component</param-name>
+			    <param-value><![CDATA[layout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="layout" type="HtmlLayout">
+		<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+				function onViewerOpen(){
+					return "XmlFileAction_viewFile.action?fileId=${id}&service=${service}";
+				}
+			    ]]></param-value>
+		  	</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<a href="XmlFileAction_viewFile.action?fileId=${id}&service=${service}"><img src="image/common/download.gif"></img>原文下载</a>
+				<a href="http://get.adobe.com/cn/reader/" target="_blank"><img src="image/common/download.gif"></img>阅读器下载</a>
+				<embed id="pdfPlugin" width="100%" height="100%" name="plugin" 
+				src="XmlFileAction_viewFile.action?fileId=${id}&service=${service}" 
+				type="application/pdf">
+			    ]]></param-value>
+			</param>
+		</Component>
+	</Components>
+</root>

@@ -1,0 +1,13 @@
+#if(!($st.info))
+<table class="tableStyle">
+#foreach($com in $st.getInfoComponent())
+  #if($com.location==0 || $com.location==3)
+  <tr>
+  #end
+  <td #if($com.cssClass!="") class="$com.cssClass"#end #foreach($comPro in $com.properties.entrySet()) ${comPro.key}="${comPro.value}" #end>$com.component.print()</td>    
+  #if($com.location==2 || $com.location==3)
+  </tr>
+  #end
+#end
+</table>
+#end

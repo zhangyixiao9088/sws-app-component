@@ -1,0 +1,3 @@
+<button type="button" class="btn btn-default btn-xs" style="border:none"
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+	<i class="glyphicon glyphicon-list-alt"></i>²é¿´</button>

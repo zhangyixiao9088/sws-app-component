@@ -1,0 +1,28 @@
+{
+        chart: {
+            type: 'area'
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            labels: {
+                format: '{value}'
+            }
+        },
+        tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f} )<br/>',
+            shared: true
+        },
+        plotOptions: {
+            area: {
+                stacking: 'percent',
+                lineColor: '#ffffff',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#ffffff'
+                }
+            }
+        }
+    }

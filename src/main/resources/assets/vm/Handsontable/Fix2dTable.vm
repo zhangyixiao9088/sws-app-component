@@ -1,0 +1,128 @@
+<div id="$id"></div>
+<script>
+var hsData_$id    = $dataLst;
+var pkIdArr_$id   = ${pkIdLst};
+var linkIdArr_$id = ${linkIdLst};
+var fieldArr_$id  = ${fieldNameLst};
+
+var hsTable_$id = new Handsontable(document.getElementById("$id"), {
+    data: hsData_$id,
+    rowHeaders: false,
+    colHeaders: false,
+    contextMenu: false,
+ 	mergeCells:$mergeCellsLst,
+    columns: $columnsLst,
+  #if($!{columnHead.colWidths} != "")
+    colWidths: $!{columnHead.colWidths},
+  #end
+    cells: function (row, col, prop) {
+      var cellProperties = {};
+	  if(col < ${rowHeadBlock.maxLevel}){
+	  	cellProperties.className= " fix2dTableBg htLeft htMiddle";
+	  }
+      if (row < ${columnHeadBlock.maxLevel}) {
+        cellProperties.readOnly = true;
+        cellProperties.className= " fix2dTableBg htCenter htMiddle";
+      }
+
+
+	  var dataStartY=${dataStartY};
+  	  var dataStartX=${dataStartX};
+  	  var dataEndY=${dataEndY};
+  	  var dataEndX=${dataEndX};
+  	  if(col>=dataStartX && row>=dataStartY){
+	  	  var cellCfg = $!{body.cells};
+	  	  var newCol = col-dataStartX;
+	  	  var fieldName = fieldArr_$id[newCol];
+	      if(cellCfg[fieldName]){
+	      	var cfg = cellCfg[fieldName];
+	      	cellProperties = cfg;
+	      	if(cfg["type"]){
+	      		var editor = cfg["type"];
+	      		if(editor == "label"){
+	      			cellProperties.type = "text";
+	      			cellProperties.className= "fix2dTableBg";
+	      			cellProperties.readOnly = true;
+	      		}
+	      	}
+	      }else{
+	  	 	cellProperties.type="numeric";
+	  	  }
+      }
+      return cellProperties;
+    }
+});
+
+$(function(){ 
+	var datamodel_${body.data}= new DataSet();
+	datamodel_${body.data}.tableName = "$!{body.tableName}";
+	datamodel_${body.data}.pkName="$!{body.pkId}";
+	datamodel_${body.data}.name = "${body.data}";
+	dataPool.addData("${body.data}",datamodel_${body.data});
+	dataPool.addLink("${body.data}","$!{body.pkId}","$!{body.fkId}","","","");
+	datamodel_${body.data}.flush = function(){
+		datamodel_${body.data}.data =new Array();
+		var d = hsGetData_$id().data;
+		for(var i=0;i<d.length;i++){
+			d[i].setValue("$!{body.fkId}","$!{body.fkIdValue}");
+			datamodel_${body.data}.addData(i,d[i]);
+		}
+	}
+});
+  
+function hsGetData_$id(){
+  	var pkIdArr = pkIdArr_$id;
+	var linkIdArr = linkIdArr_$id;
+  	var fieldArr = fieldArr_$id;
+  
+  	var dataStartY=${dataStartY};
+  	var dataStartX=${dataStartX};
+  	var dataEndY=${dataEndY};
+  	var dataEndX=${dataEndX};
+  	if(dataStartY==-1) {
+  		return new DataSet();
+  	}
+	var data = hsTable_${id}.getData(dataStartY,dataStartX,dataEndY,dataEndX);
+	
+	var tableData=new DataSet();
+	for(var i=0;i<data.length;i++){
+		var rowData=new Data();
+		var pkId = pkIdArr[i];
+		var linkId = linkIdArr[i];
+		rowData.setValue("${body.pkId}",(pkId)?pkId:"");
+		rowData.setValue("${body.linkId}",linkId);
+		var d = data[i];
+		for(var j=0;j<d.length;j++){
+			var fieldName = fieldArr[j];
+			var val = d[j];
+			if(!val){
+				val = "";
+			}
+			rowData.setValue(fieldName,val);
+		}
+		tableData.addData(i,rowData);
+	}
+	return tableData;
+}
+
+function saveTable_$id(){
+	var formMap = dwr.util.getValues("pageform");
+	formMap.tableName = "$!{body.tableName}";
+	formMap.pkId = "$!{body.pkId}";
+	formMap.fkId = "$!{body.fkId}";
+	formMap.fkIdValue = "$!{body.fkIdValue}";
+	formMap.linkId = "$!{body.linkId}";
+	formMap.data = hsGetData_$id().toXml();
+	formMap.__action = "fix2dTableActivity";
+						
+	ccs.save(formMap,{},function(data){
+	 	if(data){
+	 		if(data.result=='pass'){
+ 				alert("保存成功");
+	 		}else{
+ 				alert("保存失败");
+	 		}
+	 	}
+	});
+}
+</script>

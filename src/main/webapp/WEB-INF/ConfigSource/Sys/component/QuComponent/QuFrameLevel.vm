@@ -1,0 +1,33 @@
+#*
+用途： Tab水平选项卡
+          $id:  控件id
+     $cssClass：控件样式 eg:box2
+   $panelWidth: 控件宽度
+  $panelHeight: 控件高度
+   $panelTitle: 控件头标
+$tabList.titleVal: tab控件标题
+  $tabList.url: 框架自定义页面url
+      $conList: 自定义面板控件
+      $frameId: frame控件Id
+         $name：frame控件名
+*#
+<div id="$id" #if($cssClass!="") class="$cssClass"#end 
+#if($panelWidth!="") panelWidth="$panelWidth"#end
+#if($panelHeight!="") panelHeight="$panelHeight"#end
+#if($panelTitle!="") panelTitle="$panelTitle"#end>
+<div class="simpleTab" iframeMode="true">
+<ul class="simpleTab_top">
+#set($index=0)
+#set($firstUrl="")
+#foreach($row1 in $tabList)
+#set($index=$index+1)
+#if($index=="1") #set($firstUrl="$row1.url") #end
+<li #if($index=="1")class="current"#end><a href="$row1.url" target="$frameId">
+<span>$row1.titleVal</span></a></li>#end
+</ul>
+<div class="simpleTab_con">
+<IFRAME scrolling="no" width="100%" frameBorder="0" id="$frameId" 
+#if($name!="") name="$name" #end
+onload="iframeHeight('$frameId')" 
+src="$firstUrl" allowTransparency="true"></IFRAME>
+</div>

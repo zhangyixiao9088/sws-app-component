@@ -1,0 +1,6 @@
+<DIV id="jsoneditor_$id" #if($cssClass!="") class="$cssClass"#end #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end></DIV>
+<SCRIPT type="text/javascript">
+var jsoneditor_$id = document.getElementById("jsoneditor_$id");
+var editor_$id = new JSONEditor(jsoneditor_$id);
+PageContext["editor_$id"]=editor_$id;
+</SCRIPT>

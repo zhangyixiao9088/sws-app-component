@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sfs_FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+	<FeatureList fid="939" name="P_xiao279" rowcounts="100"
+		pagesize="10" pageindex="1">
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">3</SMID>
+				<SMX ALIAS="SMX">114.3842</SMX>
+				<SMY ALIAS="SMY">29.6635</SMY>
+				<NAME ALIAS="NAME">地表水监测点1</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">82</SMID>
+				<SMX ALIAS="SMX">113.8919</SMX>
+				<SMY ALIAS="SMY">22.874</SMY>
+				<NAME ALIAS="NAME">地表水监测点2</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路燎原小学家属院</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">24</SMID>
+				<SMX ALIAS="SMX">111.4956</SMX>
+				<SMY ALIAS="SMY">28.4561</SMY>
+				<NAME ALIAS="NAME">地表水监测点3</NAME>
+				<ADDRESS ALIAS="ADDRESS">围南三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">49</SMID>
+				<SMX ALIAS="SMX">115.1451</SMX>
+				<SMY ALIAS="SMY">24.4572</SMY>
+				<NAME ALIAS="NAME">地表水监测点4</NAME>
+				<ADDRESS ALIAS="ADDRESS">科创路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">58</SMID>
+				<SMX ALIAS="SMX">118.3498</SMX>
+				<SMY ALIAS="SMY">26.6589</SMY>
+				<NAME ALIAS="NAME">地表水监测点5</NAME>
+				<ADDRESS ALIAS="ADDRESS">太白南路</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">76</SMID>
+				<SMX ALIAS="SMX">118.3386</SMX>
+				<SMY ALIAS="SMY">23.8568</SMY>
+				<NAME ALIAS="NAME">地表水监测点6</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路8号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">61</SMID>
+				<SMX ALIAS="SMX">116.4775</SMX>
+				<SMY ALIAS="SMY">25.6720</SMY>
+				<NAME ALIAS="NAME">地表水监测点7</NAME>
+				<ADDRESS ALIAS="ADDRESS">融鑫路6号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">17</SMID>
+				<SMX ALIAS="SMX">114.1176</SMX>
+				<SMY ALIAS="SMY">23.279</SMY>
+				<NAME ALIAS="NAME">地表水监测点8</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路名园新居小区10号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">45</SMID>
+				<SMX ALIAS="SMX">119.5209</SMX>
+				<SMY ALIAS="SMY">24.5067</SMY>
+				<NAME ALIAS="NAME">地表水监测点9</NAME>
+				<ADDRESS ALIAS="ADDRESS">科技路1号</ADDRESS>
+			</Fields>
+		</FeatureMember>
+		<FeatureMember>
+			<Fields>
+				<SMID ALIAS="SMID">24</SMID>
+				<SMX ALIAS="SMX">111.3990</SMX>
+				<SMY ALIAS="SMY">21.2145</SMY>
+				<NAME ALIAS="NAME">地表水监测点10</NAME>
+				<ADDRESS ALIAS="ADDRESS">双杜路三巷</ADDRESS>
+			</Fields>
+		</FeatureMember>
+	</FeatureList>
+</sfs_FeatureCollection>

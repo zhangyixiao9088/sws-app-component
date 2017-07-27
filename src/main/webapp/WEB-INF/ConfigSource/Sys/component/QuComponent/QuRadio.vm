@@ -1,0 +1,17 @@
+#*
+用途：单选Radio
+ $dataList：控件数据源
+    js文件： UIFrame/frame/js/form/validationEngine-cn.js
+            UIFrame/frame/js/form/validationEngine.js
+            
+验证属性：    
+required 必填项 
+funcCall[validName] 自定义验证规则，在jquery.validationEngine-cn.js文件中添加，validName为自定义的验证规则名字             
+*#
+*#
+
+<div class="render">  
+    #foreach($row in $dataList) 
+	$row.VALUE<input type="radio" value="$row.KEY" name="ra2"/> #end
+</div>
+<span id="${id}_star" class="star"></span>

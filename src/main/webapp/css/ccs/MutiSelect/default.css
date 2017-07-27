@@ -1,0 +1,4 @@
+.com-MutiSelect { border:1px solid #6593cf; height:40px; width:95%; }
+.com-MutiSelect li { white-space: nowrap; vertical-align:middle; font-size:13; float:left; height:20px; padding:2px; margin:2px; background:#ECE9D8; }
+.com-MutiSelect li span { background-image:url(tab-close.gif); background-repeat:no-repeat; width:11px; height:11px; margin:2px 0px; cursor:pointer; }
+.MutiSelect_btns { float:right; width:100px; }

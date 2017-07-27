@@ -1,0 +1,29 @@
+{
+        chart: {
+        	type:"pie",
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        legend:{
+        	maxHeight:50
+        },
+        plotOptions: {
+            pie: {
+            	size:"70%",
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.1f}%'
+                },
+                showInLegend: true,
+	            events:{
+	            	
+	            }
+            }
+        }
+    }

@@ -1,0 +1,9 @@
+#if($!{format}!="" && ${format}!="num")<script>jQuery(function($){ $("#"+'$id').mask("$!{format}");});</script>#end
+<input id="$id" type="text" name="$name" value="$!{value}"
+	#if($cssClass!="") class="$cssClass" #else class="ccs_$type" #end
+	#if($canEdit=="false") readonly="readonly"#end 
+	#if($size!="") size="$size"#end
+	#if($format=="num") onkeyup="chkPrice(this);" onblur="chkLast(this)"#else#end
+	#if($maxlength!="") maxlength="$maxlength"#else maxlength="200" #end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+	<span id="${id}_star" class="star"></span>

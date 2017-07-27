@@ -1,0 +1,5 @@
+<textarea id="$id" name="$name"
+	#if($cssClass!="") class="$cssClass"#end
+	#if($canEdit=="false") readonly="readonly"#end 
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>$!{value}</textarea>
+<span id="${id}_star" class="star"></span>

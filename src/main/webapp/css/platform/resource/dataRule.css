@@ -1,0 +1,4 @@
+#contentDiv {height: 100px;}
+#contentDiv div {float: left; border: 1px solid #BAD9EE; margin: 1px; padding: 1px; background-color: #C9E4F2;}
+#contentViewDiv {font-size: 14px;}
+#contentViewDiv div {float: left; margin-right: 1px;}

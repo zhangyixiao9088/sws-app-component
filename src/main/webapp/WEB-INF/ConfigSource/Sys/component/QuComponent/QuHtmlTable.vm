@@ -1,0 +1,21 @@
+#*
+用途：展示数据式表格
+*#
+  
+  <table id="${id}" #if($cssClass!="")class="$cssClass"#end
+    #foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end>
+		<tr>#foreach($head in $heads)
+		  <th #if($head.width!="")width="$head.width"#end
+		   	  #if($head.align!="")align="$head.align"#end
+		  >$head.label</th>
+		#end</tr>
+    #foreach($row in $dataList)
+     	<tr>
+     		#foreach($body in $bodys)
+				  <td #if($body.align!="")align="$body.align"#end>
+				    $row.get($body.label)
+				</td>
+			#end
+		</tr>
+	#end
+</table>

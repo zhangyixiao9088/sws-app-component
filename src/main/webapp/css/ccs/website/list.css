@@ -1,0 +1,14 @@
+body { background: white; color: #000000; margin: 0px; }
+body, div, span, img, p, b, textarea, input, select, radio, form, a, table, tr, td, th { font-size: 12px; color: #7F7F7F; }
+fieldset { border: 1px solid #CCCCCC; padding-bottom: 10px }
+tr { line-height: 30px; }
+a:hover { background-attachment:fixed; text-decoration: none; }
+a:link, a:visited, a:active { color:#7F7F7F; text-decoration: none; }
+a:hover { color:#F45C00; text-decoration:underline; }
+.block { font-size: 12px; }
+.borderNone { border: none !important; }
+.theadbg { background-image:url(../../../image/ccs/website/2bg.jpg); background-repeat:repeat-x; }
+.tab_title { text-align: left; background:url(../../../image/ccs/website/head_i4.jpg) no-repeat left top; line-height:35px; color:#D42E03; font-size:15px; font-weight:bold; border-top:1px dotted #ccc; border-bottom:1px solid #ccc; padding-top:10px; padding-left:55px; }
+.list-title { width:100%; border:none; }
+.list-table { width: 100%; line-height: 20px; border: 1px solid #CCCCCC; border-collapse: collapse; }
+.list-table td { border-top: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; }

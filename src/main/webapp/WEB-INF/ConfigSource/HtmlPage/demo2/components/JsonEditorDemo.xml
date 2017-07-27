@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<br>
+			    ${UNITCHIEFZZNUM}
+			    <br>
+			    <b>属性：</b><br>
+			   		type="IFrame"<br>
+			    <b>Label属性：</b><br>
+			    	"label":"google首页"<br>
+			    <b>View属性：</b><br>
+			    	"width":"100%"<br>
+			   		"height":"800"<br>
+			    	"src":"http://www.google.com"<br>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		
+	</Components>
+	<DataSets>
+		<DataSet name="db4" type="sql">
+			<param>
+				<param-name>DataBaseType</param-name>
+				<param-value>Oracle</param-value>
+			</param>
+			<param>
+				<param-name>sql</param-name>
+				<param-value><![CDATA[
+				
+				 ]]></param-value>
+			</param>
+		</DataSet>
+	</DataSets>
+</root>

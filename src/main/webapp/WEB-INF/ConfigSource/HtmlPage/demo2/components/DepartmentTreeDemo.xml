@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							 <b>属性说明：</b><br>
+						     <b>View属性</b><br>
+						    	"root":"部门",<br>
+						    	"data":"departMentSql",<br>
+						    	"idKey":"ID",<br>
+						    	"idValue":"${unitId}",<br>
+						     	"children":"CNT",<br>
+						     	"text":"TITLE",<br>
+						     	"action":"testClick"<br>
+						     <b>Label属性</b><br>
+						     "label":"部门Tree"<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		<b>没有连接数据库获取不到数据</b><br>
+						    ${UNITCHIEFZZNUM}
+						    <br>
+						</div>
+					</div>
+				</div>
+				
+			    
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="tree" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"部门Tree"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				 {
+			    	"root":"部门",
+			    	"data":"departMentSql",
+			    	"idKey":"ID",
+			    	"idValue":"${unitId}",
+			     	"children":"CNT",
+			     	"text":"TITLE",
+			     	"action":"testClick"
+			    }
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="departMentSql" type="sql">
+				<param>   
+				    <param-name>DataBaseType</param-name>   
+				    <param-value>Oracle</param-value>   
+				</param>
+				<param>
+			    <param-name>isSplitPage</param-name>
+			   		<param-value>false</param-value>
+				</param>
+				<param>   
+				    <param-name>sql</param-name>   
+				    <param-value><![CDATA[
+			    	#if(${LEV}=='top')
+			    		select id,name title,'top' lev,(select count(*) from jdr_t_department b where b.parentdepartmentid=a.id) cnt from jdr_t_department a where unitid = ${ID} and parentdepartmentid = ${ID} order by a.orderby
+			    	#else
+			    		select id,name title,'top' lev,(select count(*) from jdr_t_department b where b.parentdepartmentid=a.id) cnt from jdr_t_department a where unitid = ${ID} and parentdepartmentid is null order by a.orderby
+				    #end
+				    ]]></param-value>   
+				</param>
+		</DataSet>
+	</DataSets>
+</root>

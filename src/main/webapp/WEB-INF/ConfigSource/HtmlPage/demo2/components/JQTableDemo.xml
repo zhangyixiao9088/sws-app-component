@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>InitJS</param-name>
+				<param-value><![CDATA[
+					function clickMe(){
+						var com = document.getElementById("view1_wmgc");
+						com.src="XmlDataAction.action?__fileName=demo2/components/JQTableDemo&__dataSet=dbCache2";
+					}
+				]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+							 <b>属性说明：</b><br>
+						     <b>属性：</b><br>
+						    	type="JQTable"<br>
+						     <b>View属性：</b><br>
+						    	"data":"wmgc",<br>
+						    	"head": [{"label":"ID"},<br>
+									     {"label":"名称"}],<br>
+								"body": [{"type":"label","param":{"label":"$KEY"}},<br>
+										 {"type":"label","param":{"label":"$VALUE"}}]<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+							${UNITCHIEFZZNUM}
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["UNITCHIEFZZNUM","UNITCHIEFZZNUM5"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM" type="JQTable" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"序号","编码","简称"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{
+			    	"data":"wmgc",
+			    	"head": [{"label":"ID"},
+						     {"label":"名称"}],
+					"body": [{"type":"label","param":{"label":"$KEY"}},
+						     {"type":"label","param":{"label":"$!VALUE"}}
+						    ]
+			    }
+				]]></param-value>
+			</param>
+		</Component>
+		<Component name="UNITCHIEFZZNUM5" type="IFrame" >
+			<param>
+				<param-name>Label</param-name>
+				<param-value><![CDATA[{"label":"google首页"}]]></param-value>
+			</param>
+			<param>
+				<param-name>View</param-name>
+				<param-value><![CDATA[
+				{"width":"100%","height":"300","src":""}				
+				]]></param-value>
+			</param>
+		</Component>
+	</Components>
+	<DataSets>
+		<DataSet name="dbCache2" type="json" static="true">
+			<param>   
+			    <param-name>value</param-name>   
+			    <param-value><![CDATA[
+			    	[
+			    	{"LOCATIONROW":"1","AREACODE":"不合格","TITLE":"23","LETTERCODE":"111111"},
+					{"LOCATIONROW":"2","AREACODE":"不合格","TITLE":"ssd","LETTERCODE":"22222222222"},
+			    	{"LOCATIONROW":"3","AREACODE":"不合格","TITLE":"asd","LETTERCODE":"333333333"},
+			    	{"LOCATIONROW":"4","AREACODE":"不合格","TITLE":"asd","LETTERCODE":"44444444444"},
+			    	{"LOCATIONROW":"5","AREACODE":"不合格","TITLE":"dfas","LETTERCODE":"55555555555"},
+			    	{"LOCATIONROW":"6","AREACODE":"不合格","TITLE":"adf","LETTERCODE":"666666666666"},
+			    	{"LOCATIONROW":"7","AREACODE":"不合格","TITLE":"asdf","LETTERCODE":"777777777777"}	  
+			    	]
+			    ]]></param-value>   
+			</param>
+			<param>   
+			    <param-name>dataType</param-name>   
+			    <param-value>table</param-value>   
+			</param>
+		</DataSet>
+		<DataSet name="wmgc" type="plat">
+				<param>
+				    <param-name>fileName</param-name>
+				    <param-value>demo2/testDataSet</param-value>
+				</param>
+				<param>
+				    <param-name>dataName</param-name>
+				    <param-value>table</param-value>
+				</param>
+				<param>
+				    <param-name>type</param-name>
+				    <param-value>panel</param-value>
+				</param>
+		</DataSet>
+	</DataSets>
+</root>

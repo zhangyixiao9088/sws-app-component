@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<htmlComponent>
+	<param>   
+	    <param-name>JSLink</param-name>   
+	    <param-value><![CDATA[["js/ccs/component/checkboxlist.js"]]]></param-value>   
+	</param>
+	<param>   
+	    <param-name>CssLink</param-name>   
+	    <param-value><![CDATA[]]></param-value>   
+	</param>
+	<param>   
+	    <param-name>GlobalJS</param-name>   
+	    <param-value><![CDATA[]]></param-value>   
+	</param>
+	<param>   
+	    <param-name>InitJS</param-name>   
+	    <param-value><![CDATA[]]></param-value>   
+	</param>
+	<param>   
+	    <param-name>LabelType</param-name>   
+	    <param-value>file</param-value>
+	</param>
+	<param>
+	    <param-name>ViewType</param-name>   
+	    <param-value>file</param-value>
+	</param>
+ 	<param>
+		<param-name>Label</param-name>
+		<param-value><![CDATA[label]]></param-value>   
+	</param>
+	<param>   
+	    <param-name>View</param-name>   
+	    <param-value><![CDATA[CheckBoxList]]></param-value>   
+	</param>
+</htmlComponent>

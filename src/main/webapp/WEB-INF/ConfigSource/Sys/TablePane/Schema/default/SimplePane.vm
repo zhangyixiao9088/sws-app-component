@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>$!{titleText}</title>
+<style type="text/css">
+$!{sp.css}
+</style>
+#foreach($css in $sp.css_Srcs)
+<link rel="stylesheet" type="text/css" href="$css" />
+#end
+<link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="ext/docs/resources/welcome.css"/>
+<link rel="stylesheet" type="text/css" href="css/ccs/validation.css"/>
+<script type="text/javascript" src="js/ccs/dataPicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/ccs/jquery/jquery.js"></script>
+<script type="text/javascript" src="js/ccs/TablePane.js"></script>
+<script type="text/javascript" src="js/ccs/validation.js"></script>
+#foreach($script in $sp.script_Srcs)
+<script type="text/javascript" src="$script"></script>
+#end
+<script language="javascript">
+$!{sp.script}
+</script>
+</head>
+<body>
+<p>&nbsp;</p>
+<div align="center">
+<div class="block" style="width:$sp.property.width; padding:10px; margin-top: 5px">
+<fieldset>
+<legend>
+  <img src="image/tab/new.gif" align="absmiddle" />
+  <span class="block-title headsize">$!{titleText}</span>
+</legend>
+<div class="block-body">
+<form id="$sp.name" name="$sp.name"  method="post">
+<table class="table">
+#foreach($com in $sp.getFieldComponent())
+  #if($com.location==0 || $com.location==3)
+  <tr align="center" valign="top" height="25">
+  #end
+  <td #foreach($comPro in $com.properties.entrySet()) ${comPro.key}="${comPro.value}" #end>$com.component.print()</td>    
+  #if($com.location==2 || $com.location==3)
+  </tr>
+  #end
+#end
+</table>
+<div align="center">
+<!--按钮开始-->
+#foreach($btn in $sp.getGlobalButtons())
+	$btn.getComponent().print()
+#end
+</div>
+</form>
+</div>
+</fieldset>
+</div></div>
+<SCRIPT language="javascript">
+function simpleSubmit(viewName,actionType){
+	var fileName=getFieldValue(viewName,"fileName");
+	var viewName=getFieldValue(viewName,"viewName");
+	var forward=getFieldValue(viewName,"forward");
+	var actionName="handle.action?__fileName="+fileName+"&__viewName="+viewName+"&__action="+actionType;
+	if(forward){
+		forward=encodeURI(forward);
+		actionName=actionName+"&__forward="+forward;
+	}
+	formSubmit(viewName,actionName);
+}
+function initValues() 
+{
+$_initdataScript
+#foreach($va in $sp.validates)
+$va
+#end
+}
+function onload_initdata(){
+	if (typeof(initValues_pre)!= 'undefined'){
+		initValues_pre();
+	}
+	initValues();
+	if (typeof(initValues_post)!= 'undefined'){
+		initValues_post();
+	}
+}
+window.onload = onload_initdata; 
+</SCRIPT>
+</body>
+</html>

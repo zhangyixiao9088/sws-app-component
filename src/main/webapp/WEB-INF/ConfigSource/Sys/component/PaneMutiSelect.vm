@@ -1,0 +1,25 @@
+ <script language="javascript">
+ $(document).ready(function(){
+ 	
+ 	//XmlTreeDataAction.action?__fileName=${extern.fileName}&__dataSet=$data
+	$("#${id}").PaneMultiSelect({
+		data:
+
+	});
+});
+</script>
+ <table id="${id}" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+    	<tr>
+        	<td width="50%">
+            	<div id="musLeft${id}" class="musLeft"></div>
+            </td>
+            <td id="musCenter${id}" class="musCenter" width="50px">
+            	<p><input type="button" name="button" id="addBtn${id}" value="Ìí¼Ó >"/></p>
+    			<p><input type="button" name="button" id="delBtn${id}" value="< É¾³ý"/></p>
+				<p><input type="button" name="button" id="delAllBtn${id}" value="<<È«É¾"/></p>
+            </td>
+            <td  width="50%">
+				<div id="musRight${id}" class="musRight"></div>
+			</td>
+        </tr>
+    </table>

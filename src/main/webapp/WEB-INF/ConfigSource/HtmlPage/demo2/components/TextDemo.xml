@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="GBK"?>
+<root>
+	<Views>
+		<View name="view1" type="ComponentBuilder">
+			<param>
+				<param-name>title</param-name>
+				<param-value><![CDATA[测试输入框控件]]></param-value>
+			</param>
+			<param>
+				<param-name>component</param-name>
+				<param-value><![CDATA[tmplayout]]></param-value>
+			</param>
+		</View>
+	</Views>
+	<Components>
+		<Component name="tmplayout" type="HtmlLayout">
+			<param>
+				<param-name>LayoutManager</param-name>
+				<param-value><![CDATA[com.ccs.core.views.htmlView.component.layout.TempletLayout]]></param-value>
+			</param>
+			<param>
+				<param-name>LayoutManager-Properties</param-name>
+				<param-value><![CDATA[
+				<div class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-4">
+								<b>属性</b><br>
+								用户名:<b>type:</b>text<br>
+								<b>View属性</b><br>
+								"maxlength":"",<br>
+								"onclick":"",<br>
+								"size":""<br>
+						</div>
+						<div class="col-xs-8">
+							<b>控件预览：</b><br>
+				    		用户名:${REALNAME}<br>
+						</div>
+					</div>
+				</div>
+			    ]]></param-value>
+			</param>
+			<param>
+				<param-name>components</param-name>
+				<param-value><![CDATA[
+			    ["REALNAME","REALNAME1","REALNAME2","REALNAME3","REALNAME4","REALNAME1"]
+			    ]]></param-value>
+			</param>
+		</Component>
+		<Component name="REALNAME" type="text" cnName="用户名">
+        <param>
+          <param-name>Label</param-name>
+          <param-value><![CDATA[{"label":"用户名"}]]></param-value>
+        </param>
+        <param>
+          <param-name>View</param-name>
+          <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+        </param>
+      </Component>
+      <Component name="REALNAME1" type="text" cnName="用户名">
+        <param>
+          <param-name>Label</param-name>
+          <param-value><![CDATA[{"label":"用户名"}]]></param-value>
+        </param>
+        <param>
+          <param-name>View</param-name>
+          <param-value><![CDATA[{"maxlength":"",format:"9999~aaaa"}]]></param-value>
+        </param>
+      </Component>
+      <Component name="REALNAME2" type="text" cnName="用户名">
+        <param>
+          <param-name>Label</param-name>
+          <param-value><![CDATA[{"label":"用户名"}]]></param-value>
+        </param>
+        <param>
+          <param-name>View</param-name>
+          <param-value><![CDATA[{"maxlength":"","onclick":"","size":"",format:"9999.99"}]]></param-value>
+        </param>
+      </Component>
+      <Component name="REALNAME3" type="text" cnName="用户名">
+        <param>
+          <param-name>Label</param-name>
+          <param-value><![CDATA[{"label":"用户名"}]]></param-value>
+        </param>
+        <param>
+          <param-name>View</param-name>
+          <param-value><![CDATA[{"maxlength":"","onclick":"","size":"",format:"(aa)aaaaaa"}]]></param-value>
+        </param>
+      </Component>
+      <Component name="REALNAME4" type="text" cnName="用户名">
+        <param>
+          <param-name>Label</param-name>
+          <param-value><![CDATA[{"label":"用户名"}]]></param-value>
+        </param>
+        <param>
+          <param-name>View</param-name>
+          <param-value><![CDATA[{"maxlength":"","onclick":"","size":"",format:"999-999-999-999"}]]></param-value>
+        </param>
+      </Component>
+      <Component name="REALNAME1" type="password" cnName="密码">
+        <param>
+          <param-name>Label</param-name>
+          <param-value><![CDATA[{"label":"密码"}]]></param-value>
+        </param>
+        <param>
+          <param-name>View</param-name>
+          <param-value><![CDATA[{"maxlength":"","onclick":"","size":""}]]></param-value>
+        </param>
+      </Component>
+	</Components>
+
+</root>

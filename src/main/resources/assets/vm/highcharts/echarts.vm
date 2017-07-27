@@ -1,0 +1,9 @@
+<div id="$id" style="width:${width};height:${height}"/>
+<script type="text/javascript">
+        var chart_${id} = echarts.init(document.getElementById('${id}'));
+        function getChartsOption_${id}(){
+	        
+	        return option;
+        }
+  		chart_${id}.setOption(getChartsOption_${id}());
+</script>

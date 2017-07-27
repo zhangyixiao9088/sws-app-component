@@ -1,0 +1,65 @@
+#*
+用途：输入文本框
+         $value: 文本值
+            $id: 控件id
+          $name: 控件名
+         $title: 控件title名
+          $type: 当为text时，表示文本框，为password时，表示密码框；为button时，表示按钮；
+                                            为radio时，表示radio类型；为reset时，表示reset类型；为submit时，表示submit类型；
+                                            为checkbox时，表示复选框；为file时，表示上传控件；为hidden时，表示隐藏文本框，默认为文本框
+     $watermark: 实现文本框水印文字，如： 输入查询条件
+     $clearable: 为true时，在输入时出现一个小叉子，用于清空
+ $checkStrength: 为true时，对密码框设置会检查密码强度，
+      $cssClass: 控件样式  当为spinbox时，表示步进器
+       $dateFmt: 当为时间控件时，表示自定义日期的显示格式,eg:dateFmt="yyyy-MM-dd HH:mm:ss",dateFmt="HH:mm:ss"
+                                             此时class="date", 默认不赋值为日期格式 dateFmt="yyyy-MM-dd"
+       $canEdit: 控件只读属性        
+              
+                步进器属性：(type="text")
+                  $cssClass:设置成spinbox
+		  		  $min: 设置其最大值
+       		      $max: 设置其最小值
+         		  $step: 设置其步长
+        
+
+         cssClass属性设置成keypad为数字键盘
+         属性设置成keypad和mode属性设置成full为软键盘
+ 
+                    引用文件：UIFrame/frame/js/form/datePicker/WdatePicker.js   时间选择框
+                 UIFrame/frame/js/form/spinbox.js                 步进器脚本
+                 UIFrame/frame/js/form/validationEngine-cn.js               
+                 UIFrame/frame/js/form/validationEngine.js        验证脚本
+ 
+   
+ 验证属性：    
+required 必填项 
+length[0,20] 限制长度
+minCheckbox[1] 允许最少选中的checkbox的数量，括号中代表的是数量 
+maxCheckbox[3] 允许最多选中的checkbox的数量，括号中代表的是数量  
+confirm[pwd] 需要与某个元素的值保持一致，例如用于确认密码。括号中代表那个元素的id 
+custom[chinese] 只允许中文 
+custom[telephone] 只允许按固定电话号码格式填写，如010-51613333 
+custom[mobilephone] 只允许按手机号码格式填写 
+custom[email] 只允许按电子邮件格式填写 
+custom[date] 只允许按日期格式填写，如2010-8-14 
+custom[ip] 只允许按IP地址格式填写 
+custom[onlyNumber] 只允许输入数字 
+custom[onlyLetter] 只允许输入英文 
+custom[noSpecialCaracters] 只允许输入英文或数字 
+funcCall[validName] 自定义验证规则，在jquery.validationEngine-cn.js文件中添加，validName为自定义的验证规则名字
+*#
+
+<input value="$!{value}" id="$id" name="$name"
+    #if($type!="") type="$type"#end
+    #if($watermark!="") watermark="$watermark"#end
+    #if($clearable=="true") clearable="true"#end 
+    #if($checkStrength=="true") checkStrength="true"#end 
+	#if($cssClass!="") class="$cssClass"#end
+	#if($canEdit=="false") readonly="readonly"#end 
+	#if($min!="") min="$min"#end
+	#if($max!="") max="$max"#end
+	#if($step!="") step="$step"#end
+	#if($mode!="") mode="$mode"#end
+	#if($dateFmt!="") dateFmt="$dateFmt"#end
+	#foreach($comPro in $context.entrySet()) ${comPro.key}="${comPro.value}"#end/>
+    <span id="${id}_star" class="star"></span>
